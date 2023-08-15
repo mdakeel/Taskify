@@ -19,7 +19,7 @@ const userSchema = mongoose.Schema({
 userSchema.methods = {
     jwtToken() {
         return JWT.sign({ id: this._id, email: this.email }, process.env.SECRET, {
-            expiresIN: '24h'
+            expiresIn: '24h'
         })
     }
 }
@@ -34,4 +34,4 @@ userSchema.pre("save", async function (next) {
 
 const UserModel = mongoose.model("user", userSchema) // USER MODEL
 
-module.exports = UserModel
+module.exports = {UserModel }
