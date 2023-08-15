@@ -1,0 +1,79 @@
+
+.gray-bg {
+  
+    background-color: #eee;
+  }
+ 
+  .head-title li a{
+    color: #444242;
+  }
+  
+  /* About Me 
+  ---------------------*/
+  #about{
+    margin: 70px;
+    margin-top: 20px;
+  }
+
+  .about-list {
+  padding-top: 10px;
+  }
+  .about-list .media {
+    
+  margin-left: 0;
+
+  }
+  .about-list label {
+  color: #0072ff;
+  font-weight: 600;
+  width: 150px !important;
+  margin: 0;
+
+  }
+ .about-text{
+  margin-left: 40px !important;
+ }
+
+ .discription{
+    padding-left: 65px;
+ }
+  
+  .about-list p{
+  padding-left: 30px;
+  font-size: 15px;
+  }
+
+  .dark-color {
+    color: #000;
+  }
+
+  /* submite */
+  h1 {
+    font-size: 25px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+
+  .form-main{
+    margin-top: 30px;
+  }
+
+  .btn{
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: 700;
+  }
+  .form-group2{
+    width: 200px;
+  }
+
+  .form_file{
+    width: auto;
+    display: flex;
+    
+    justify-content: space-between;
+  }
+  .form-group3{
+    width: 400px;
+    color: #000;
+  }
