@@ -19,37 +19,37 @@ export const AdminDashboard = () => {
           </div>
 
           <li>
-            <NavLink to={"/astudent"}>
+            <NavLink to={"/adminstudent"}>
               <i class="bx bxs-shopping-bag-alt"></i>
               <span class="text">Students</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/ateacher"}>
+            <NavLink to={"/adminteacher"}>
               <i class="bx bxs-shopping-bag-alt"></i>
               <span class="text">Teachers</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/atask"}>
+            <NavLink to={"/admintask"}>
               <i class="bx bxs-doughnut-chart"></i>
               <span class="text">Task</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/amessage"}>
+            <NavLink to={"/adminmessage"}>
               <i class="bx bxs-message-dots"></i>
               <span class="text">Messages</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/ateam"}>
+            <NavLink to={"/adminteam"}>
               <i class="bx bxs-group"></i>
               <span class="text">Team</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/agroup"}>
+            <NavLink to={"/admingroup"}>
               <i class="bx bxs-group"></i>
               <span class="text">Groups</span>
             </NavLink>
@@ -57,13 +57,13 @@ export const AdminDashboard = () => {
         </ul>
         <ul class="side-menu">
           <li>
-            <NavLink to={"/asetting"}>
+            <NavLink to={"/adminsetting"}>
               <i class="bx bxs-cog"></i>
               <span class="text">Settings</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/alogout"}>
+            <NavLink to={"/adminlogout"}>
               <i class="bx bxs-log-out-circle"></i>
               <span class="text">Logout</span>
             </NavLink>

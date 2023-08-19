@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import "../Style/TeacherCss/TTask.css";
+import "../Style/TeacherCss/TeacherTask.css";
 
-export const TTask = () => {
+export const TeacherTask = () => {
   return (
     <>
       {/* content */}

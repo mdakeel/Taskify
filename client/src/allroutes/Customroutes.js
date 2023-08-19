@@ -1,30 +1,29 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { HomePage } from "../pages/HomePage";
+import { HomePage } from "../../../../../taskify/client/src/pages/HomePage";
 import { Register } from "../components/Register";
 import { AdminDashboard } from "../components/Dashboard/AdminDashboard";
-import { Students, StudentsDashboard } from "../components/Dashboard/StudentDashboard";
-import { Teachers, TeachersDashboard } from "../components/Dashboard/TeacherDashboard";
-import { Navbar } from "../components/Navbar";
-import { STeacher } from "../components/StudentsCom/S.Teacher";
-import { SDashboard } from "../components/StudentsCom/S.Dashboard";
-import { STask } from "../components/StudentsCom/S.Task";
-import { SMessage } from "../components/StudentsCom/S.Message";
-import { SGroup } from "../components/StudentsCom/S.Group";
-import { STKnowmore } from "../components/StudentsCom/S.T.Knowmore";
-import { STaskView } from "../components/StudentsCom/S.T.View";
-import { TStudent } from "../components/TeachersCom/T.Student";
-import { TSKnowmore } from "../components/TeachersCom/T.S.Knowmore";
-import { TTask } from "../components/TeachersCom/T.Task";
-import { TDashboard } from "../components/TeachersCom/T.Dashboard";
+import { StudentDashboard } from "../components/Dashboard/StudentDashboard";
+import { TeacherDashboard } from "../components/Dashboard/TeacherDashboard";
+import { StudentGroup } from "../components/StudentsCom/StudentGroup";
+import { TeacherStudent } from "../components/TeachersCom/TeacherStudent";
+import { TeacherStudentKnowmore } from "../components/TeachersCom/TeacherStudentKnowmore";
+import { TeacherTask } from "../components/TeachersCom/TeacherTask";
+import { TeacherDashboardContent } from "../components/TeachersCom/TeacherDashboardContent";
 
-import { CTaskView } from "../components/TeachersCom/T.C.T.View";
-import { PTaskView } from "../components/TeachersCom/T.P.T.View";
-import { ADashboard } from "../components/AdminCom/A.Dashboard";
-import { AStudent } from "../components/AdminCom/A.Student";
-import { ATeacher } from "../components/AdminCom/A.Teacher";
-import { ASKnowmore } from "../components/AdminCom/A.S.Knowmore";
-import { ATKnowmore } from "../components/AdminCom/A.T.Knowmore";
+import { TeacherCompleteTaskView } from "../components/TeachersCom/TeacherCompleteTaskView";
+import { TeacherPendingTaskView } from "../components/TeachersCom/TeacherPendingTaskView";
+import { AdminStudent } from "../components/AdminCom/AdminStudent";
+import { AdminTeacher } from "../components/AdminCom/AdminTeacher";
+import { AdminStudentKnowmore } from "../components/AdminCom/AdminStudentKnowmore";
+import { AdminTeacherKnowmore } from "../components/AdminCom/AdminTeacherKnowmore";
+import { StudentChat } from "../components/StudentsCom/StudentChat";
+import { StudentTaskView } from "../components/StudentsCom/StudentTaskView";
+import { StudentTask } from "../components/StudentsCom/StudentTask";
+import { StudentTeacher } from "../components/StudentsCom/StudentTeacher";
+import { StudentDashboardContent } from "../components/StudentsCom/StudentDashboardContent";
+import { StudentTeacherKnowmore } from "../components/StudentsCom/StudentTeacherKnowmore";
+import { AdminDashboardContent } from "../components/AdminCom/AdminDashboardContent";
 
 
 export const Customroutes = () => {
@@ -39,63 +38,63 @@ export const Customroutes = () => {
             } />
 
             {/* Admin Dashboard and Componets */}
-            <Route path="/admindashboard" element={<><AdminDashboard /><ADashboard /></>} />
-            <Route path="/astudent" element={<><AdminDashboard /><AStudent /></>} />
-            <Route path="/ateacher" element={<><AdminDashboard /><ATeacher /></>} />
-            <Route path="/asknowmore" element={<><AdminDashboard /><ASKnowmore /></>} />
-            <Route path="/atknowmore" element={<><AdminDashboard /><ATKnowmore /></>} />
+            <Route path="/admindashboard" element={<><AdminDashboard /><AdminDashboardContent /></>} />
+            <Route path="/adminstudent" element={<><AdminDashboard /><AdminStudent /></>} />
+            <Route path="/adminteacher" element={<><AdminDashboard /><AdminTeacher /></>} />
+            <Route path="/adminstudentknowmore" element={<><AdminDashboard /><AdminStudentKnowmore /></>} />
+            <Route path="/adminteacherknowmore" element={<><AdminDashboard /><AdminTeacherKnowmore /></>} />
 
             {/* User/Students Dashboard and Components */}
             <Route path="/studentdashboard" element={
                 <>
-                    <StudentsDashboard />
-                    <SDashboard />
+                    <StudentDashboard />
+                    <StudentDashboardContent />
                 </>
             } />
-            <Route path="/steacher" element={
+            <Route path="/studentteacher" element={
                 <>
-                    <StudentsDashboard />
-                    <STeacher />
+                    <StudentDashboard />
+                    <StudentTeacher />
                 </>
             } />
-            <Route path="/stknowmore" element={
+            <Route path="/studentteacherknowmore" element={
                 <>
-                    <StudentsDashboard />
-                    <STKnowmore />
+                    <StudentDashboard />
+                    <StudentTeacherKnowmore />
                 </>
             } />
-            <Route path="/stask" element={
+            <Route path="/studenttask" element={
                 <>
-                    <StudentsDashboard />
-                    <STask />
+                    <StudentDashboard />
+                    <StudentTask />
                 </>
             } />
-            <Route path="/staskview" element={
+            <Route path="/studenttaskview" element={
                 <>
-                    <StudentsDashboard />
-                    <STaskView />
+                    <StudentDashboard />
+                    <StudentTaskView />
                 </>
             } />
-            <Route path="/smessage" element={
+            <Route path="/studentchat" element={
                 <>
-                    <StudentsDashboard />
-                    <SMessage />
+                    <StudentDashboard />
+                    <StudentChat />
                 </>
             } />
-            <Route path="/sgroup" element={
+            <Route path="/studentgroup" element={
                 <>
-                    <StudentsDashboard />
-                    <SGroup />
+                    <StudentDashboard />
+                    <StudentGroup />
                 </>
             } />
 
             {/* Teachers Dashboard and Components */}
-            <Route path="/teacherdashboard" element={<><TeachersDashboard /><TDashboard /></>} />
-            <Route path="/tstudent" element={<><TeachersDashboard /><TStudent /></>} />
-            <Route path="/tsknowmore" element={<><TeachersDashboard /><TSKnowmore /></>} />
-            <Route path="/ttask" element={<><TeachersDashboard /><TTask /></>} />
-            <Route path="/ctaskview" element={<><TeachersDashboard /><CTaskView /></>} />
-            <Route path="/ptaskview" element={<><TeachersDashboard /><PTaskView /></>} />
+            <Route path="/teacherdashboard" element={<><TeacherDashboard /><TeacherDashboardContent /></>} />
+            <Route path="/teacherstudent" element={<><TeacherDashboard /><TeacherStudent /></>} />
+            <Route path="/teacherstudentknowmore" element={<><TeacherDashboard /><TeacherStudentKnowmore /></>} />
+            <Route path="/teachertask" element={<><TeacherDashboard /><TeacherTask /></>} />
+            <Route path="/teachercompletetaskview" element={<><TeacherDashboard /><TeacherCompleteTaskView /></>} />
+            <Route path="/teacherpendingtaskview" element={<><TeacherDashboard /><TeacherPendingTaskView /></>} />
 
 
         </Routes>

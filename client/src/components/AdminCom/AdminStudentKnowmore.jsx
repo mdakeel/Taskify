@@ -1,7 +1,7 @@
-import "../Style/StudentCss/STKnowmore.css";
+import "../Style/StudentCss/StudentTeacherKnowmore.css";
 import { NavLink } from "react-router-dom";
 
-export const ATKnowmore = () => {
+export const AdminStudentKnowmore = () => {
   return (
     <>
       {/* content */}
@@ -33,7 +33,7 @@ export const ATKnowmore = () => {
               </li>
               <li>
                 <a className="active" href="#">
-                  Teacher
+                  Student
                 </a>
               </li>
               <li>

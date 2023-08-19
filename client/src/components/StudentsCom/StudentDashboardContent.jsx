@@ -1,4 +1,5 @@
-export const SGroup = () => {
+import { NavLink } from "react-router-dom";
+export const StudentDashboardContent = () => {
   return (
     <>
       {/* content */}
@@ -33,7 +34,7 @@ export const SGroup = () => {
                 </li>
                 <li>
                   <a className="active" href="#">
-                    Groups
+                    Student
                   </a>
                 </li>
               </ul>
@@ -68,54 +69,90 @@ export const SGroup = () => {
             <div className="order">
               <div className="head">
                 <h3>Recent Task</h3>
-                <a href="#">view</a>
+                <a href="#">Score : 40</a>
               </div>
               <table>
                 <thead>
                   <tr>
                     <th>Task</th>
-                    <th>Time</th>
+                    <th>Createdby</th>
+                    <th>DeadLine</th>
                     <th>Pints</th>
+                    <th>View</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td>
-                      <h5>01</h5>
+                      <h6>01</h6>
                       <p>Make Calculator</p>
                     </td>
-                    <td>1PM - 5AM</td>
+                    <td>Professor Farman</td>
+                    <td>5AM</td>
                     <td>
                       <span className="status completed"> 10 </span>
                     </td>
+                    <td>
+                      <NavLink to={"/studenttaskview"}>
+                        <span className="status completed"> View </span>
+                      </NavLink>
+                    </td>
                   </tr>
                 </tbody>
-              </table>
-            </div>
-            {/* previous task */}
 
-            <div className="order">
-              <div className="head">
-                <h3>Previous Task</h3>
-                <a href="#">view</a>
-              </div>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Task</th>
-                    <th>Time</th>
-                    <th>Pints</th>
-                  </tr>
-                </thead>
                 <tbody>
                   <tr>
                     <td>
-                      <h5>01</h5>
-                      <p>E-Commerce website</p>
+                      <h6>02</h6>
+                      <p>Make Calculator</p>
                     </td>
-                    <td>9AM - 3PM</td>
+                    <td>Farman Tasleem</td>
+                    <td>5AM</td>
                     <td>
-                      <span className="status completed"> 7 / 10 </span>
+                      <span className="status completed"> 10 </span>
+                    </td>
+                    <td>
+                      <NavLink to={"/studenttaskview"}>
+                        <span className="status completed"> View </span>
+                      </NavLink>
+                    </td>
+                  </tr>
+                </tbody>
+
+                <tbody>
+                  <tr>
+                    <td>
+                      <h6>03</h6>
+                      <p>Make Calculator</p>
+                    </td>
+                    <td>Farman Sir</td>
+                    <td>8AM</td>
+                    <td>
+                      <span className="status completed"> 10 </span>
+                    </td>
+                    <td>
+                      <NavLink to={"/studenttaskview"}>
+                        <span className="status completed"> View </span>
+                      </NavLink>
+                    </td>
+                  </tr>
+                </tbody>
+
+                <tbody>
+                  <tr>
+                    <td>
+                      <h6>04</h6>
+                      <p>Make Calculator</p>
+                    </td>
+                    <td>Aakil Tayyab</td>
+                    <td>11PM</td>
+                    <td>
+                      <span className="status completed"> 10 </span>
+                    </td>
+                    <td>
+                      <NavLink to={"/studenttaskview"}>
+                        <span className="status completed"> View </span>
+                      </NavLink>
                     </td>
                   </tr>
                 </tbody>

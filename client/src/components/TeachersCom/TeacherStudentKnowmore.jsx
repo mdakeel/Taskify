@@ -1,7 +1,7 @@
-import "../Style/StudentCss/STKnowmore.css";
+import "../Style/TeacherCss/TeacherStudentKnowmore.css";
 import { NavLink } from "react-router-dom";
 
-export const ASKnowmore = () => {
+export const TeacherStudentKnowmore = () => {
   return (
     <>
       {/* content */}
@@ -48,7 +48,7 @@ export const ASKnowmore = () => {
           </div>
         </div>
         <section class="section about-section gray-bg" id="about">
-          <div class="row  row-main">
+          <div class="row row-main">
             <div class="about-avatar">
               <img
                 src="https://bootdey.com/img/Content/avatar/avatar7.png"
@@ -58,17 +58,17 @@ export const ASKnowmore = () => {
             </div>
 
             <div class="about-text ">
-              <dev class="about">
-                <h3 class="about1">About Me</h3>
-                <h4 class="about2">
-                  A Lead UX &amp; UI designer based in Canada
-                </h4>
-                <p>
-                  I design and develop services for customers of all sizes,
-                  specializing in creating stylish, modern websites, web
-                  services and online stores.
-                </p>
-              </dev>
+              <h3 class="dark-color">About Me</h3>
+              <h6 class="theme-color lead">
+                A Lead UX &amp; UI designer based in Canada
+              </h6>
+              <p>
+                I design and develop services for customers of all sizes,
+                specializing in creating stylish, modern websites, web services
+                and online stores. My passion is to design digital user
+                experiences through the bold interface and meaningful
+                interactions.
+              </p>
               <div class="row about-list">
                 <div class="col-md-6">
                   <div class="media">
