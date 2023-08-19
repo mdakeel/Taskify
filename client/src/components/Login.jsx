@@ -10,20 +10,10 @@ export const Login = () => {
     password:""
   })
 
-  const handleLogin=async()=>{
-    const resp=await fetch("http://localhost:8081/user/login",{
-      method:"POST",
-      headers:{
-        "content-type":"application/json"
-      },
-      body:JSON.stringify(userLogin)
-    })
-    if(resp.status==200){
-      console.log("Login Success")
-    }else{
-      console.log("Error while login")
+    const handleLogin=()=> {
+      console.log(userLogin)
     }
-  }
+  
   return (
     <div className="login_body">
       <img src="../../../assets/bgimg.png" alt="" />

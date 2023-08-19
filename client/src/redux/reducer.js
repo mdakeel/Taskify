@@ -1,19 +1,13 @@
-import { getStory,commondata,bookdata, loginsuccess, logout } from "./actionType";
 
 
-const intialState={story:[],auth:true,books:[],userdata:{}}
+const intialState={auth:false}
 
 const storeReducer=(state=intialState,action)=>{
         switch (action.type) {
-            case bookdata:
-                return{...state,books:[...action.payload]}
+            case "bookdata":
+                return {}
                 break;
-            case loginsuccess:{
-                return {...state,auth:true}
-            }
-            case logout:{
-                return {...state,auth:false}
-            }
+           
             default:
                 return state
                 
