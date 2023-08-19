@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
-export const SDashboard = () => {
+
+export const TeacherStudent = () => {
   return (
     <>
       {/* content */}
@@ -41,43 +42,18 @@ export const SDashboard = () => {
             </div>
           </div>
 
-          <ul className="box-info">
-            <li>
-              <i class="bx bxs-calendar-check"></i>
-              <span class="text">
-                <h3>Today Task</h3>
-                <p>Level - 2</p>
-              </span>
-            </li>
-            <li>
-              <i class="bx bxs-group"></i>
-              <span className="text">
-                <h3>Progress</h3>
-                <p>Good ✔</p>
-              </span>
-            </li>
-            <li>
-              <i class="bx bxs-notification"></i>
-              <span className="text">
-                <h3>Completed</h3>
-                <p>23 / 30</p>
-              </span>
-            </li>
-          </ul>
-
           <div className="table-data">
             <div className="order">
               <div className="head">
-                <h3>Recent Task</h3>
-                <a href="#">Score : 40</a>
+                <h3>Students List</h3>
+                <a href="#">All Students : 04</a>
               </div>
               <table>
                 <thead>
                   <tr>
-                    <th>Task</th>
-                    <th>Createdby</th>
-                    <th>DeadLine</th>
-                    <th>Pints</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Education</th>
                     <th>View</th>
                   </tr>
                 </thead>
@@ -85,15 +61,12 @@ export const SDashboard = () => {
                   <tr>
                     <td>
                       <h6>01</h6>
-                      <p>Make Calculator</p>
+                      <p>Aakil Tayyab</p>
                     </td>
-                    <td>Professor Farman</td>
-                    <td>5AM</td>
+                    <td>aakiltayyab@gmail.com</td>
+                    <td> Diploma</td>
                     <td>
-                      <span className="status completed"> 10 </span>
-                    </td>
-                    <td>
-                      <NavLink to={"/staskview"}>
+                      <NavLink to={"/teacherstudentknowmore"}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>
@@ -104,15 +77,12 @@ export const SDashboard = () => {
                   <tr>
                     <td>
                       <h6>02</h6>
-                      <p>Make Calculator</p>
+                      <p>Aadil Rehman</p>
                     </td>
-                    <td>Farman Tasleem</td>
-                    <td>5AM</td>
+                    <td>aadilrehman@gmail.com</td>
+                    <td> B.Tec</td>
                     <td>
-                      <span className="status completed"> 10 </span>
-                    </td>
-                    <td>
-                      <NavLink to={"/staskview"}>
+                      <NavLink to={"/teacherstudentknowmore"}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>
@@ -123,15 +93,12 @@ export const SDashboard = () => {
                   <tr>
                     <td>
                       <h6>03</h6>
-                      <p>Make Calculator</p>
+                      <p>Farman Tasleem</p>
                     </td>
-                    <td>Farman Sir</td>
-                    <td>8AM</td>
+                    <td>farmantasleem@gmail.com</td>
+                    <td>M.Tech</td>
                     <td>
-                      <span className="status completed"> 10 </span>
-                    </td>
-                    <td>
-                      <NavLink to={"/staskview"}>
+                      <NavLink to={"/teacherstudentknowmore"}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>
@@ -142,15 +109,12 @@ export const SDashboard = () => {
                   <tr>
                     <td>
                       <h6>04</h6>
-                      <p>Make Calculator</p>
+                      <p>Chacha</p>
                     </td>
-                    <td>Aakil Tayyab</td>
-                    <td>11PM</td>
+                    <td>chacha@gmail.com</td>
+                    <td>12th</td>
                     <td>
-                      <span className="status completed"> 10 </span>
-                    </td>
-                    <td>
-                      <NavLink to={"/staskview"}>
+                      <NavLink to={"/teacherstudentknowmore"}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>

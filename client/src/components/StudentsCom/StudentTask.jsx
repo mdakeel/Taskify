@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-export const STask = () => {
+export const StudentTask = () => {
   return (
     <>
       {/* content */}
@@ -70,7 +70,7 @@ export const STask = () => {
                       <span className="status completed"> 10 </span>
                     </td>
                     <td>
-                      <NavLink to={"/staskview"}>
+                      <NavLink to={"/studenttaskview"}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>
@@ -89,7 +89,7 @@ export const STask = () => {
                       <span className="status completed"> 10 </span>
                     </td>
                     <td>
-                      <NavLink to={"/staskview"}>
+                      <NavLink to={"/studenttaskview"}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>
@@ -108,7 +108,7 @@ export const STask = () => {
                       <span className="status completed"> 10 </span>
                     </td>
                     <td>
-                      <NavLink to={"/staskview"}>
+                      <NavLink to={"/studenttaskview"}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>
@@ -127,7 +127,7 @@ export const STask = () => {
                       <span className="status completed"> 10 </span>
                     </td>
                     <td>
-                      <NavLink to={"/staskview"}>
+                      <NavLink to={"/studenttaskview"}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>

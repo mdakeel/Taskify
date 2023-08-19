@@ -1,10 +1,10 @@
+import "../js/Dashboard";
+import "../Style/StudentCss/StudentTeacher.css";
 import { NavLink } from "react-router-dom";
 
-export const TStudent = () => {
+export const AdminTeacher = () => {
   return (
     <>
-      {/* content */}
-
       <section id="content">
         <nav>
           <div className="left-nav">
@@ -35,7 +35,7 @@ export const TStudent = () => {
                 </li>
                 <li>
                   <a className="active" href="#">
-                    Student
+                    Teacher
                   </a>
                 </li>
               </ul>
@@ -45,7 +45,7 @@ export const TStudent = () => {
           <div className="table-data">
             <div className="order">
               <div className="head">
-                <h3>Students List</h3>
+                <h3>Teachers List</h3>
                 <a href="#">All Students : 04</a>
               </div>
               <table>
@@ -66,7 +66,7 @@ export const TStudent = () => {
                     <td>aakiltayyab@gmail.com</td>
                     <td> Diploma</td>
                     <td>
-                      <NavLink to={"/tsknowmore"}>
+                      <NavLink to={"/adminteacherknowmore"}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>
@@ -82,7 +82,7 @@ export const TStudent = () => {
                     <td>aadilrehman@gmail.com</td>
                     <td> B.Tec</td>
                     <td>
-                      <NavLink to={"/tsknowmore"}>
+                      <NavLink to={"/adminteacherknowmore"}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>
@@ -98,7 +98,7 @@ export const TStudent = () => {
                     <td>farmantasleem@gmail.com</td>
                     <td>M.Tech</td>
                     <td>
-                      <NavLink to={"/tsknowmore"}>
+                      <NavLink to={"/adminteacherknowmore"}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>
@@ -114,7 +114,7 @@ export const TStudent = () => {
                     <td>chacha@gmail.com</td>
                     <td>12th</td>
                     <td>
-                      <NavLink to={"/tsknowmore"}>
+                      <NavLink to={"/adminteacherknowmore"}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>

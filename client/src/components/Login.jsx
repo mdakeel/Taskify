@@ -1,9 +1,15 @@
 import { NavLink } from "react-router-dom";
 import "./Style/StudentCss/Login.css";
 import "../App";
+
 import { Navbar } from "./Navbar";
+import { useState } from "react";
 
 export const Login = () => {
+  const [userLogin, setUserLogin] = useState({
+    email: "",
+    password: "",
+  });
   return (
     <div className="login_body">
       <img src="../../../assets/bgimg.png" alt="" />
@@ -12,9 +18,31 @@ export const Login = () => {
         <div className="login_form">
           <form action="/" method="post" id="form_login">
             <div className="col">
-              <input type="email" name="email" placeholder="email" required />
-              <input type="password" name="password" placeholder="Password" />
-              <input type="submit" name="button" value="Login" />
+              <input
+                type="email"
+                value={userLogin.email}
+                onChange={(e) => {
+                  setUserLogin({ ...userLogin, email: e.target.value });
+                }}
+                name="email"
+                placeholder="email"
+                required
+              />
+              <input
+                type="password"
+                value={userLogin.email}
+                onChange={(e) => {
+                  setUserLogin({ ...userLogin, email: e.target.value });
+                }}
+                name="password"
+                placeholder="Password"
+              />
+              <input
+                type="submit"
+                name="button"
+                // onClick={handleLogin}
+                value="Login"
+              />
             </div>
           </form>
         </div>

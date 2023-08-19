@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-export const TDashboard = () => {
+export const TeacherDashboardContent = () => {
   return (
     <>
       {/* content */}
@@ -94,7 +94,7 @@ export const TDashboard = () => {
                         <span className="status completed"> 10 </span>
                       </td>
                       <td>
-                        <NavLink to={"/ctaskview"}>
+                        <NavLink to={"/teacherCompletetaskview"}>
                           <span className="status completed"> View </span>
                         </NavLink>
                       </td>
@@ -114,7 +114,7 @@ export const TDashboard = () => {
                         <span className="status completed"> 10 </span>
                       </td>
                       <td>
-                        <NavLink to={"/ctaskview"}>
+                        <NavLink to={"/teacherCompletetaskview"}>
                           <span className="status completed"> View </span>
                         </NavLink>
                       </td>
@@ -134,7 +134,7 @@ export const TDashboard = () => {
                         <span className="status completed"> 10 </span>
                       </td>
                       <td>
-                        <NavLink to={"/ctaskview"}>
+                        <NavLink to={"/teacherCompletetaskview"}>
                           <span className="status completed"> View </span>
                         </NavLink>
                       </td>
@@ -154,7 +154,7 @@ export const TDashboard = () => {
                         <span className="status completed"> 10 </span>
                       </td>
                       <td>
-                        <NavLink to={"/ctaskview"}>
+                        <NavLink to={"/teacherCompletetaskview"}>
                           <span className="status completed"> View </span>
                         </NavLink>
                       </td>
@@ -190,7 +190,7 @@ export const TDashboard = () => {
                         <span className="status completed"> 10 </span>
                       </td>
                       <td>
-                        <NavLink to={"/ptaskview"}>
+                        <NavLink to={"/teacherpendingtaskview"}>
                           <span className="status completed"> View </span>
                         </NavLink>
                       </td>
@@ -209,7 +209,7 @@ export const TDashboard = () => {
                         <span className="status completed"> 10 </span>
                       </td>
                       <td>
-                        <NavLink to={"/ptaskview"}>
+                        <NavLink to={"/teacherpendingtaskview"}>
                           <span className="status completed"> View </span>
                         </NavLink>
                       </td>
@@ -228,7 +228,7 @@ export const TDashboard = () => {
                         <span className="status completed"> 10 </span>
                       </td>
                       <td>
-                        <NavLink to={"/ptaskview"}>
+                        <NavLink to={"/teacherpendingtaskview"}>
                           <span className="status completed"> View </span>
                         </NavLink>
                       </td>
@@ -247,7 +247,7 @@ export const TDashboard = () => {
                         <span className="status completed"> 10 </span>
                       </td>
                       <td>
-                        <NavLink to={"/ptaskview"}>
+                        <NavLink to={"/teacherpendingtaskview"}>
                           <span className="status completed"> View </span>
                         </NavLink>
                       </td>

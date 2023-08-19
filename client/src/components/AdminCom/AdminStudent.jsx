@@ -1,7 +1,7 @@
 import "../js/Dashboard";
 import { NavLink } from "react-router-dom";
 
-export const AStudent = () => {
+export const AdminStudent = () => {
   return (
     <>
       <section id="content">
@@ -65,7 +65,7 @@ export const AStudent = () => {
                     <td>aakiltayyab@gmail.com</td>
                     <td> Diploma</td>
                     <td>
-                      <NavLink to={"/asknowmore"}>
+                      <NavLink to={"/adminstudentknowmore"}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>
@@ -81,7 +81,7 @@ export const AStudent = () => {
                     <td>aadilrehman@gmail.com</td>
                     <td> B.Tec</td>
                     <td>
-                      <NavLink to={"/asknowmore"}>
+                      <NavLink to={"/adminstudentknowmore"}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>
@@ -97,7 +97,7 @@ export const AStudent = () => {
                     <td>farmantasleem@gmail.com</td>
                     <td>M.Tech</td>
                     <td>
-                      <NavLink to={"/asknowmore"}>
+                      <NavLink to={"/adminstudentknowmore"}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>
@@ -113,7 +113,7 @@ export const AStudent = () => {
                     <td>chacha@gmail.com</td>
                     <td>12th</td>
                     <td>
-                      <NavLink to={"/asknowmore"}>
+                      <NavLink to={"/adminstudentknowmore"}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>

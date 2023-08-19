@@ -1,7 +1,7 @@
-import "../Style/StudentCss/STView.css";
+import "../Style/StudentCss/StudentTaskView.css";
 import { NavLink } from "react-router-dom";
 
-export const STaskView = () => {
+export const StudentTaskView = () => {
   return (
     <>
       {/* content */}
@@ -39,7 +39,7 @@ export const STaskView = () => {
             </ul>
           </div>
         </div>
-        <section class="section about-section gray-bg" id="about">
+        <section class="section2 about-section gray-bg" id="about">
           <div class="row row-main">
             <div class="about-text">
               <h3 class="dark-color">Task Info</h3>

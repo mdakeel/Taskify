@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "../js/Dashboard";
 
-export const StudentsDashboard = () => {
+export const StudentDashboard = () => {
   return (
     <>
       <section id="sidebar">
@@ -19,25 +19,25 @@ export const StudentsDashboard = () => {
           </div>
 
           <li>
-            <NavLink to={"/steacher"}>
+            <NavLink to={"/studentteacher"}>
               <i class="bx bxs-shopping-bag-alt"></i>
               <span class="text">Teachers</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/stask"}>
+            <NavLink to={"/studenttask"}>
               <i class="bx bxs-doughnut-chart"></i>
               <span class="text">Task</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/smessage"}>
+            <NavLink to={"/studentchat"}>
               <i class="bx bxs-message-dots"></i>
-              <span class="text">Message</span>
+              <span class="text">Chat</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/sgroup"}>
+            <NavLink to={"/studentgroup"}>
               <i class="bx bxs-group"></i>
               <span class="text">Join Group</span>
             </NavLink>
@@ -45,7 +45,7 @@ export const StudentsDashboard = () => {
         </ul>
         <ul class="side-menu">
           <li>
-            <NavLink to={"/ssetting"}>
+            <NavLink to={"/studentsetting"}>
               <i class="bx bxs-cog"></i>
               <span class="text">Settings</span>
             </NavLink>

@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
-import { TDashboard } from "../TeachersCom/T.Dashboard";
+import { TDashboard } from "../TeachersCom/TeacherDashboardContent";
 // import "../js/Dashboard";
 
-export const TeachersDashboard = () => {
+export const TeacherDashboard = () => {
   return (
     <>
       <section id="sidebar">
@@ -20,25 +20,25 @@ export const TeachersDashboard = () => {
           </div>
 
           <li>
-            <NavLink to={"/tstudent"}>
+            <NavLink to={"/teacherstudent"}>
               <i class="bx bxs-shopping-bag-alt"></i>
               <span class="text">Students</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/ttask"}>
+            <NavLink to={"/teachertask"}>
               <i class="bx bxs-doughnut-chart"></i>
               <span class="text">Assign Task</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/tmessage"}>
+            <NavLink to={"/teachermessage"}>
               <i class="bx bxs-message-dots"></i>
               <span class="text">Message</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/tgroup"}>
+            <NavLink to={"/teachergroup"}>
               <i class="bx bxs-group"></i>
               <span class="text">Join Group</span>
             </NavLink>
@@ -46,13 +46,13 @@ export const TeachersDashboard = () => {
         </ul>
         <ul class="side-menu">
           <li>
-            <NavLink to={"/rsetting"}>
+            <NavLink to={"/teachersetting"}>
               <i class="bx bxs-cog"></i>
               <span class="text">Settings</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/tlogout"}>
+            <NavLink to={"/teacherlogout"}>
               <i class="bx bxs-log-out-circle"></i>
               <span class="text">Logout</span>
             </NavLink>

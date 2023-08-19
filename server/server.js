@@ -9,7 +9,7 @@ const app=express();
 app.use(cors());
 app.use(express.json()) //middleware to work with json data
 
-app.use("/",userRoute)  // user route
+app.use("/user",userRoute)  // user route
 
 connectDatabase() // connecting to database
 

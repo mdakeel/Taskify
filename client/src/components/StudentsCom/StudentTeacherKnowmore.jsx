@@ -1,7 +1,7 @@
-import "../Style/StudentCss/STKnowmore.css";
+import "../Style/StudentCss/StudentTeacherKnowmore.css";
 import { NavLink } from "react-router-dom";
 
-export const STKnowmore = () => {
+export const StudentTeacherKnowmore = () => {
   return (
     <>
       {/* content */}

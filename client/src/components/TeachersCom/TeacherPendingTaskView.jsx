@@ -1,7 +1,7 @@
-import "../Style/TeacherCss/TTView.css";
+import "../Style/TeacherCss/TeacherTaskView.css";
 import { NavLink } from "react-router-dom";
 
-export const CTaskView = () => {
+export const TeacherPendingTaskView = () => {
   return (
     <>
       {/* content */}
@@ -33,7 +33,7 @@ export const CTaskView = () => {
               </li>
               <li>
                 <a className="active" href="#">
-                  Complete Task
+                  Pending Task
                 </a>
               </li>
             </ul>
@@ -52,7 +52,7 @@ export const CTaskView = () => {
                         <p>Build Mern E-Commerce Website</p>
                       </h6>
                     </div>
-                    <div class="media ">
+                    <div class="media">
                       <label>Discription </label>
                       <div class="media discription">
                         <p>
@@ -66,83 +66,26 @@ export const CTaskView = () => {
                 <div class="row about-list">
                   <div class="col-md-6">
                     <div class="media">
-                      <label>Submitedby</label>
-                      <p>Zunaid Khan</p>
+                      <label>Createdby</label>
+                      <p>Farman tasleem</p>
                     </div>
                     <div class="media">
                       <label>Date </label>
                       <p>12 / 08 / 2023</p>
                     </div>
-                    <div class="media">
-                      <label>Submited time </label>
-                      <p>6:30PM</p>
-                    </div>
                   </div>
                   <div class="col-md-6">
                     <div class="media">
-                      <label>Poin </label>
+                      <label>Point </label>
                       <p>10</p>
                     </div>
                     <div class="media">
                       <label> Deadline </label>
                       <p> Befor 5PM</p>
                     </div>
-                    <div class="media">
-                      <label> Time Cross </label>
-                      <p> 1:30 hr</p>
-                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="col-md-8">
-            <div className="form-main">
-              <hr />
-              <form>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    name="fullname"
-                    class="form-control"
-                    id="exampleInputName"
-                    value="Task Link : https://github.com/mdakeel"
-                    required="required"
-                    disabled
-                  />
-                </div>
-                <hr />
-                <div className="form_file">
-                  <div class="form-group2">
-                    <input
-                      type="text"
-                      name="file"
-                      class="form-control"
-                      placeholder="Task File"
-                      value="Task File "
-                      disabled
-                    />
-                  </div>
-                  <div class="form-group3">
-                    <input
-                      type="text"
-                      name="file"
-                      placeholder="Task File"
-                      value="Assignment-2.pdf"
-                      disabled
-                    />
-                  </div>
-                  <input
-                    type="text"
-                    name="point"
-                    class="form-control"
-                    placeholder="Assign Point"
-                  />
-                </div>
-                <button type="submit" class="btn btn-primary">
-                  Assign Point
-                </button>
-              </form>
             </div>
           </div>
         </section>

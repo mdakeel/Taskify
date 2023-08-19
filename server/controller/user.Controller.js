@@ -5,7 +5,8 @@ const mongoose = require("mongoose")
 // to register user
 exports.userSignUp = async(req,res) => {
     try {
-        const newUser=await UserModel.create(req.body);
+        const newUser=await UserModel(req.body);
+        await newUser.save()
         res.status(200).send({
             msg:"SignUp Success"
         })
@@ -21,7 +22,12 @@ exports.userLogin = async(req,res) => {
         const getuserData=await UserModel.findOne({email}).select("+password");
         if(getuserData && getuserData.email ){
             const result= await bcrypt.compare(password,getuserData.password)
-            res.status(200).send({msg:"Great"})
+            const geneRatedToken=await getuserData.jwtToken()
+           if(result){
+            res.status(200).send({msg:"User login Successfully",token:geneRatedToken})
+           }else{
+            res.status(404).send({msg:"Wrong Password,Please try again!"})
+           }
         }else{  
             res.status(404).send({msg:"No Account Found Associated with this email"})
         }
