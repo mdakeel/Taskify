@@ -1,3 +1,4 @@
+import TeacherModel from "../model/Teacher.model";
 import { UserModel } from "../model/User.model"
 
 
@@ -11,4 +12,14 @@ export const getAllUser=async(req,res)=>{
         }
 }
 
-//get all data
+//get all teacher data
+
+export const getAllTeacher=async(req,res)=>{
+    try {
+        const allUser= await TeacherModel.find();
+        res.status(200).send({msg:"All Teacher Data Fetched Successfully",data:allUser})
+    } catch (error) {
+        res.status(501).send({msg:error.message})
+    }
+}
+
