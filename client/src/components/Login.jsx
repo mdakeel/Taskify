@@ -1,15 +1,25 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Style/StudentCss/Login.css";
 import "../App";
 
 import { Navbar } from "./Navbar";
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { userLogin as userLoginAction } from "../redux/userSlice";
 export const Login = () => {
   const [userLogin, setUserLogin] = useState({
     email: "",
     password: "",
   });
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const state = useSelector((state)=>state)
+  const handleLogin = () =>  {
+    dispatch(userLoginAction(userLogin,navigate))
+  }
+  useEffect(()=>{
+    console.log(state)
+  },[state])
   return (
     <div className="login_body">
       <img src="../../../assets/bgimg.png" alt="" />
@@ -29,9 +39,9 @@ export const Login = () => {
               />
               <input
                 type="password"
-                value={userLogin.email}
+                value={userLogin.password}
                 onChange={(e) => {
-                  setUserLogin({ ...userLogin, email: e.target.value });
+                  setUserLogin({ ...userLogin, password: e.target.value });
                 }}
                 name="password"
                 placeholder="Password"
@@ -39,7 +49,7 @@ export const Login = () => {
               <input
                 type="submit"
                 name="button"
-                // onClick={handleLogin}
+                onClick={handleLogin}
                 value="Login"
               />
             </div>

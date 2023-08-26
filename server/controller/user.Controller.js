@@ -24,7 +24,7 @@ exports.userLogin = async(req,res) => {
             const result= await bcrypt.compare(password,getuserData.password)
             const geneRatedToken=await getuserData.jwtToken()
            if(result){
-            res.status(200).send({msg:"User login Successfully",token:geneRatedToken})
+            res.status(200).send({msg:"User login Successfully",token:geneRatedToken,role:getuserData.role})
            }else{
             res.status(404).send({msg:"Wrong Password,Please try again!"})
            }

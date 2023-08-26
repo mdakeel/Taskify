@@ -2,7 +2,7 @@
 
 const intialState={auth:false}
 
-const storeReducer=(state=intialState,action)=>{
+const Reducer=(state=intialState,action)=>{
         switch (action.type) {
             case "bookdata":
                 return {}
@@ -14,4 +14,4 @@ const storeReducer=(state=intialState,action)=>{
         }
 }
 
-export default storeReducer
+export default Reducer

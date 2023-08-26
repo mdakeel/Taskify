@@ -2,16 +2,19 @@ import { NavLink } from "react-router-dom";
 import "../App";
 import "./Style/StudentCss/Login.css";
 import { Navbar } from "./Navbar";
-import { useState } from "react"; 
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { userRegister } from "../redux/userSlice";
 export const Register = () => {
-  const[userLogin,setUserLogin]=useState({
-    user:"",
-    email:"",
-    password:""
+  const dispatch = useDispatch()
+  const [userLogin, setUserLogin] = useState({
+    username: "",
+    email: "",
+    password: ""
   })
 
-  const handleRegister=()=>{
-    console.log(userLogin)
+  const handleRegister = () => {
+    dispatch(userRegister(userLogin))
   }
   return (
     <>
@@ -26,14 +29,14 @@ export const Register = () => {
                 name="username"
                 placeholder="Username"
                 required
-                value={userLogin.user}
-                onChange={(e)=>{setUserLogin({...userLogin,user:e.target.value})}}
+                value={userLogin.username}
+                onChange={(e) => { setUserLogin({ ...userLogin, username: e.target.value }) }}
               />
-              <input type="email" name="email" placeholder="Email" required  value={userLogin.email}
-                onChange={(e)=>{setUserLogin({...userLogin,email:e.target.value})}}/>
-              <input   value={userLogin.password}
-                onChange={(e)=>{setUserLogin({...userLogin,password:e.target.value})}} type="password" name="password" placeholder="Password" />
-<button onClick={handleRegister}>Register</button>
+              <input type="email" name="email" placeholder="Email" required value={userLogin.email}
+                onChange={(e) => { setUserLogin({ ...userLogin, email: e.target.value }) }} />
+              <input value={userLogin.password}
+                onChange={(e) => { setUserLogin({ ...userLogin, password: e.target.value }) }} type="password" name="password" placeholder="Password" />
+              <input type="submit" onClick={handleRegister} value={"Register"} />
             </div>
           </div>
           <div className="form_register_bottom_links">

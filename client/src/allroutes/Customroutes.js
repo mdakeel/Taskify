@@ -1,6 +1,6 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import { HomePage } from "../../../../../taskify/client/src/pages/HomePage";
+import React, { useEffect } from "react";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import { HomePage } from "../pages/HomePage";
 import { Register } from "../components/Register";
 import { AdminDashboard } from "../components/Dashboard/AdminDashboard";
 import { StudentDashboard } from "../components/Dashboard/StudentDashboard";
@@ -24,9 +24,18 @@ import { StudentTeacher } from "../components/StudentsCom/StudentTeacher";
 import { StudentDashboardContent } from "../components/StudentsCom/StudentDashboardContent";
 import { StudentTeacherKnowmore } from "../components/StudentsCom/StudentTeacherKnowmore";
 import { AdminDashboardContent } from "../components/AdminCom/AdminDashboardContent";
+import { useSelector } from "react-redux";
+import { useRedirectUser } from "../customhooks/useRedirectUser";
 
 
 export const Customroutes = () => {
+    const state = useSelector(state => state.user);
+    const navigate = useNavigate()
+    const redirectUser =useRedirectUser()
+
+    useEffect(()=>{
+        redirectUser()
+    },[state])
     return (
         <Routes>
             {/* Login AND Register */}
