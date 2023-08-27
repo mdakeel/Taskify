@@ -1,14 +1,13 @@
 const mongoose = require("mongoose");
 
 const MyTaskSchema = mongoose.Schema({
-
     task: {
         type: mongoose.Types.ObjectId,
         ref: "task"
     },
     submitDate: {
         type: Date,
-        required: true
+        default:Date.now()
     },
 
     points: {
@@ -29,8 +28,8 @@ const MyTaskSchema = mongoose.Schema({
         ref: "user"
     }
 
-})
+},{timestamps: true})
 
-const MyTaskModel = mongoose.model("mytask", MyTaskSchema) // USER MODEL
+const SubmittedTaskModel = mongoose.model("mytask", MyTaskSchema) // USER MODEL
 
-module.exports = MyTaskModel;
+module.exports = SubmittedTaskModel;
