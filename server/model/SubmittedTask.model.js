@@ -26,6 +26,10 @@ const MyTaskSchema = mongoose.Schema({
     assignedTo: {
         type: mongoose.Types.ObjectId,
         ref: "user"
+    },
+    attachedLink : {
+        type:String,
+        default:""
     }
 
 },{timestamps: true})

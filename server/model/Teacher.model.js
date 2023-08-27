@@ -5,6 +5,7 @@ const bcrypt = require("bcryptjs")
 const teacherSchema = mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
+    avatar : {type: String, required: true},
     password: { type: String, required: true },
     roletitle : {type:String,required:true},
     role: { type: String, default: "teacher" },
