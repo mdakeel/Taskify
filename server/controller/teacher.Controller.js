@@ -1,3 +1,4 @@
+const { TaskModel } = require("../model/Task.model");
 const TeacherModel = require("../model/Teacher.model");
 
 // to register teacher
@@ -34,4 +35,18 @@ exports.TeacherLogin = async(req,res) => {
     } catch (error) {
         res.status(501).send({msg:error.message})
     }
+}
+
+
+// create a task 
+
+exports.createTask = async(req,res)=>{
+    const userid= req.body.userid || ""
+        try {
+            const newTask = await TaskModel({...req.body,createdBy:userid});
+            await newTask.save();
+            res.status(200).send({msg:"Task Create Successfully"})
+         } catch (error) {
+            res.status(501).send({msg:error.message})
+        }
 }
