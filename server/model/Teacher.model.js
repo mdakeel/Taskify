@@ -6,12 +6,18 @@ const teacherSchema = mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
+    roletitle : {type:String,required:true},
     role: { type: String, default: "teacher" },
     qualification: {
         type: String,
         default: "other"
     },
-    bio: { type: String, default: "" }
+    age:{type:Number,required:true},
+    bio: { type: String, default: "" },
+    contact:{
+        type:String,
+        required:true
+    }
 })
 // method to generate token 
 teacherSchema.methods = {

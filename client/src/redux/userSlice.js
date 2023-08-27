@@ -8,7 +8,7 @@ const userSlice=createSlice({
     initialState:initialState,
     reducers:{
         loginSuccess(state,action){
-            return {...state,auth:true,role:action.payload}
+            return {...state,auth:true,role:"admin"}
         }
         
     },
