@@ -77,7 +77,7 @@ export const AdminTeacher = () => {
                       <td>{e.email}</td>
                       <td>{e.qualification}</td>
                       <td>
-                        <NavLink to={"/adminteacherknowmore"}>
+                        <NavLink to={`/adminteacherknowmore/${e._id}`}>
                           <span className="status completed"> View </span>
                         </NavLink>
                       </td>
@@ -86,54 +86,7 @@ export const AdminTeacher = () => {
                   )
                 })
                }
-
-                <tbody>
-                  <tr>
-                    <td>
-                      <h6>02</h6>
-                      <p>Aadil Rehman</p>
-                    </td>
-                    <td>aadilrehman@gmail.com</td>
-                    <td> B.Tec</td>
-                    <td>
-                      <NavLink to={"/adminteacherknowmore"}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
-                </tbody>
-
-                <tbody>
-                  <tr>
-                    <td>
-                      <h6>03</h6>
-                      <p>Farman Tasleem</p>
-                    </td>
-                    <td>farmantasleem@gmail.com</td>
-                    <td>M.Tech</td>
-                    <td>
-                      <NavLink to={"/adminteacherknowmore"}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
-                </tbody>
-
-                <tbody>
-                  <tr>
-                    <td>
-                      <h6>04</h6>
-                      <p>Chacha</p>
-                    </td>
-                    <td>chacha@gmail.com</td>
-                    <td>12th</td>
-                    <td>
-                      <NavLink to={"/adminteacherknowmore"}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
-                </tbody>
+             
               </table>
             </div>
           </div>

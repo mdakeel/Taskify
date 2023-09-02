@@ -51,7 +51,7 @@ export const Customroutes = () => {
             <Route path="/adminstudent" element={<><AdminDashboard /><AdminStudent /></>} />
             <Route path="/adminteacher" element={<><AdminDashboard /><AdminTeacher /></>} />
             <Route path="/adminstudentknowmore" element={<><AdminDashboard /><AdminStudentKnowmore /></>} />
-            <Route path="/adminteacherknowmore" element={<><AdminDashboard /><AdminTeacherKnowmore /></>} />
+            <Route path="/adminteacherknowmore/:id" element={<><AdminDashboard /><AdminTeacherKnowmore /></>} />
 
             {/* User/Students Dashboard and Components */}
             <Route path="/studentdashboard" element={

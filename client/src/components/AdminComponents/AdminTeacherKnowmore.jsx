@@ -1,7 +1,15 @@
 import "../Style/StudentCss/StudentTeacherKnowmore.css";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useParams } from "react-router-dom";
+import { useDispatch, useSelector} from "react-redux";
+import { useEffect } from "react";
+import { getSingleTeacherData } from "../../redux/adminSlice";
 export const AdminTeacherKnowmore = () => {
+  const dispatch = useDispatch();
+  const state = useSelector((state)=>state.admin);
+  const {id} = useParams()
+  useEffect(()=>{
+    dispatch(getSingleTeacherData(id))
+  },[])
   return (
     <>
       {/* content */}
@@ -51,7 +59,7 @@ export const AdminTeacherKnowmore = () => {
           <div class="row  row-main">
             <div class="about-avatar">
               <img
-                src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                src={state?.viewTeacherData?.avatar}
                 title=""
                 alt=""
               />
@@ -61,23 +69,21 @@ export const AdminTeacherKnowmore = () => {
               <dev class="about">
                 <h3 class="about1">About Me</h3>
                 <h4 class="about2">
-                  A Lead UX &amp; UI designer based in Canada
+                {state?.viewTeacherData?.roletitle}
                 </h4>
                 <p>
-                  I design and develop services for customers of all sizes,
-                  specializing in creating stylish, modern websites, web
-                  services and online stores.
+                 {state?.viewTeacherData?.bio}
                 </p>
               </dev>
               <div class="row about-list">
                 <div class="col-md-6">
                   <div class="media">
                     <label>Name</label>
-                    <p>Farman</p>
+                    <p>{state?.viewTeacherData?.name}</p>
                   </div>
                   <div class="media">
                     <label>Age</label>
-                    <p>17 Yr</p>
+                    <p>{state?.viewTeacherData?.age} Years Old</p>
                   </div>
                   <div class="media">
                     <label>Address</label>
@@ -87,15 +93,15 @@ export const AdminTeacherKnowmore = () => {
                 <div class="col-md-6">
                   <div class="media">
                     <label>E-mail</label>
-                    <p>info@domain.com</p>
+                    <p>{state?.viewTeacherData?.email}</p>
                   </div>
                   <div class="media">
                     <label>Phone</label>
-                    <p>820-885-3321</p>
+                    <p>{state?.viewTeacherData?.contact}</p>
                   </div>
                   <div class="media">
                     <label>Education</label>
-                    <p>M.Tech from JMI</p>
+                    <p>{state?.viewTeacherData?.qualification}</p>
                   </div>
                 </div>
               </div>
