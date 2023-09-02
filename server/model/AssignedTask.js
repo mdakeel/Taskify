@@ -30,10 +30,14 @@ const MyTaskSchema = mongoose.Schema({
     attachedLink : {
         type:String,
         default:""
+    },
+    submitStatus : {
+        type:Boolean,
+        default:false
     }
 
 },{timestamps: true})
 
-const SubmittedTaskModel = mongoose.model("mytask", MyTaskSchema) // USER MODEL
+const AssignedTask = mongoose.model("mytask", MyTaskSchema) // USER MODEL
 
-module.exports = SubmittedTaskModel;
+module.exports = AssignedTask;

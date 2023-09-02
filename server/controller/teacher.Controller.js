@@ -1,3 +1,4 @@
+const AssignedTask = require("../model/AssignedTask");
 const { TaskModel } = require("../model/Task.model");
 const TeacherModel = require("../model/Teacher.model");
 
@@ -49,4 +50,22 @@ exports.createTask = async(req,res)=>{
          } catch (error) {
             res.status(501).send({msg:error.message})
         }
+}
+
+
+// assignTask 
+
+exports.assignTask =async(req,res)=> { 
+    const {taskId,userid,studentid} = req.body || {}
+    if(!taskId || !userid || !studentid){
+         return res.status(404).send({msg:"All Input fields are required"});
+    }
+
+    try {
+        const assignedTask = await AssignedTask({task:taskId,assignedBy:userid,assignedTo:studentid})
+        await assignedTask.save();
+        res.status(200).send({msg:"Task Assigned Successfully",createdTask:assignedTask})
+    } catch (error) {
+     res.status(500).send({msg:error.message})   
+    }
 }

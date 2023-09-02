@@ -1,8 +1,16 @@
 import "../js/Dashboard";
 import "../Style/StudentCss/StudentTeacher.css";
 import { NavLink } from "react-router-dom";
-
+import { useDispatch,useSelector} from "react-redux"
+import { useEffect } from "react";
+import { getTeacherData } from "../../redux/adminSlice";
 export const AdminTeacher = () => {
+  const dispatch = useDispatch();
+  const state = useSelector((state)=>state.admin);
+  useEffect(()=>{
+    dispatch(getTeacherData())
+    console.log(state)
+  },[])
   return (
     <>
       <section id="content">
@@ -46,7 +54,7 @@ export const AdminTeacher = () => {
             <div className="order">
               <div className="head">
                 <h3>Teachers List</h3>
-                <a href="#">All Students : 04</a>
+                <a href="#">All Teachers : 04</a>
               </div>
               <table>
                 <thead>
@@ -57,21 +65,27 @@ export const AdminTeacher = () => {
                     <th>View</th>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      <h6>01</h6>
-                      <p>Aakil Tayyab</p>
-                    </td>
-                    <td>aakiltayyab@gmail.com</td>
-                    <td> Diploma</td>
-                    <td>
-                      <NavLink to={"/adminteacherknowmore"}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
-                </tbody>
+               {
+                state?.teachersData?.map((e,i)=>{
+                  return (
+                    <tbody>
+                    <tr>
+                      <td>
+                        <h6>{i+1}</h6>
+                        <p>{e?.name}</p>
+                      </td>
+                      <td>{e.email}</td>
+                      <td>{e.qualification}</td>
+                      <td>
+                        <NavLink to={"/adminteacherknowmore"}>
+                          <span className="status completed"> View </span>
+                        </NavLink>
+                      </td>
+                    </tr>
+                  </tbody>
+                  )
+                })
+               }
 
                 <tbody>
                   <tr>

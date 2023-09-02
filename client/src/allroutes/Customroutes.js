@@ -13,17 +13,17 @@ import { TeacherDashboardContent } from "../components/TeachersCom/TeacherDashbo
 
 import { TeacherCompleteTaskView } from "../components/TeachersCom/TeacherCompleteTaskView";
 import { TeacherPendingTaskView } from "../components/TeachersCom/TeacherPendingTaskView";
-import { AdminStudent } from "../components/AdminCom/AdminStudent";
-import { AdminTeacher } from "../components/AdminCom/AdminTeacher";
-import { AdminStudentKnowmore } from "../components/AdminCom/AdminStudentKnowmore";
-import { AdminTeacherKnowmore } from "../components/AdminCom/AdminTeacherKnowmore";
+import { AdminStudent } from "../components/AdminComponents/AdminStudent";
+import { AdminTeacher } from "../components/AdminComponents/AdminTeacher";
+import { AdminStudentKnowmore } from "../components/AdminComponents/AdminStudentKnowmore";
+import { AdminTeacherKnowmore } from "../components/AdminComponents/AdminTeacherKnowmore";
 import { StudentChat } from "../components/StudentsCom/StudentChat";
 import { StudentTaskView } from "../components/StudentsCom/StudentTaskView";
 import { StudentTask } from "../components/StudentsCom/StudentTask";
 import { StudentTeacher } from "../components/StudentsCom/StudentTeacher";
 import { StudentDashboardContent } from "../components/StudentsCom/StudentDashboardContent";
 import { StudentTeacherKnowmore } from "../components/StudentsCom/StudentTeacherKnowmore";
-import { AdminDashboardContent } from "../components/AdminCom/AdminDashboardContent";
+import { AdminDashboardContent } from "../components/AdminComponents/AdminDashboardContent";
 import { useSelector } from "react-redux";
 import { useRedirectUser } from "../customhooks/useRedirectUser";
 
