@@ -6,8 +6,8 @@ const  { UserModel } = require("../model/User.model")
 // get all user data
 exports.getAllUser=async(req,res)=>{
         try {
-            const allUser= await UserModel.find().select("-password");
-            res.status(200).send({msg:"All User Data Fetched Successfully",data:allUser})
+            const allUser= await UserModel.find({role:"student"}).select("-password");
+            res.status(200).send({msg:"All Students Data Fetched Successfully",data:allUser})
         } catch (error) {
             res.status(501).send({msg:error.message})
         }
