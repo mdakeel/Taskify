@@ -1,7 +1,16 @@
 import { NavLink } from "react-router-dom";
 import "../Style/TeacherCss/TeacherTask.css";
+import { AssignCard } from "./AssignCard";
+import { useRef } from "react";
+import { useAssignedStudent } from "../../helpers/AssignedStudents";
 
 export const TeacherTask = () => {
+  const AssignedStudent =useAssignedStudent()
+
+  const submitTask =()=>{
+    const arrayofAssigned = AssignedStudent()
+    console.log(arrayofAssigned)
+  }
   return (
     <>
       {/* content */}
@@ -46,7 +55,6 @@ export const TeacherTask = () => {
           <div class="col-md-10">
             <div className="form-main">
               <hr />
-              <form>
                 <div class="row">
                   <div class="col-md-8">
                     <div class="form-group">
@@ -58,15 +66,12 @@ export const TeacherTask = () => {
                         value=""
                       />
                     </div>
-                    <div class="form-group">
-                      <input
-                        type="text"
-                        name="assign"
-                        class="form-control"
-                        id="exampleInputName"
-                        placeholder="Assign To*"
-                        value=""
-                      />
+                    <div id="assign" >
+                      <AssignCard id={1}/>
+                      <AssignCard id={2}/>
+                      <AssignCard id={3}/>
+                      <AssignCard id={4}/>
+
                     </div>
                   </div>
                   <div class="col-md-4">
@@ -86,9 +91,8 @@ export const TeacherTask = () => {
                         name="point"
                         class="form-control"
                         id="exampleInputName"
-                        placeholder="Enter Pints* "
+                        placeholder="Enter Points* "
                         required="required"
-                        value=""
                       />
                     </div>
                   </div>
@@ -104,10 +108,9 @@ export const TeacherTask = () => {
                   </div>
                 </div>
                 <hr />
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" onClick={submitTask} class="btn btn-primary">
                   Assign Task
                 </button>
-              </form>
             </div>
           </div>
         </main>

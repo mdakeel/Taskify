@@ -6,13 +6,13 @@ import { AdminDashboard } from "../components/Dashboard/AdminDashboard";
 import { StudentDashboard } from "../components/Dashboard/StudentDashboard";
 import { TeacherDashboard } from "../components/Dashboard/TeacherDashboard";
 import { StudentGroup } from "../components/StudentsComponents/StudentGroup";
-import { TeacherStudent } from "../components/TeachersCom/TeacherStudent";
-import { TeacherStudentKnowmore } from "../components/TeachersCom/TeacherStudentKnowmore";
-import { TeacherTask } from "../components/TeachersCom/TeacherTask";
-import { TeacherDashboardContent } from "../components/TeachersCom/TeacherDashboardContent";
+import { TeacherStudent } from "../components/TeacherComponents/TeacherStudent";
+import { TeacherStudentKnowmore } from "../components/TeacherComponents/TeacherStudentKnowmore";
+import { TeacherTask } from "../components/TeacherComponents/TeacherTask";
+import { TeacherDashboardContent } from "../components/TeacherComponents/TeacherDashboardContent";
 
-import { TeacherCompleteTaskView } from "../components/TeachersCom/TeacherCompleteTaskView";
-import { TeacherPendingTaskView } from "../components/TeachersCom/TeacherPendingTaskView";
+import { TeacherCompleteTaskView } from "../components/TeacherComponents/TeacherCompleteTaskView";
+import { TeacherPendingTaskView } from "../components/TeacherComponents/TeacherPendingTaskView";
 import { AdminStudent } from "../components/AdminComponents/AdminStudent";
 import { AdminTeacher } from "../components/AdminComponents/AdminTeacher";
 import { AdminStudentKnowmore } from "../components/AdminComponents/AdminStudentKnowmore";
@@ -50,7 +50,7 @@ export const Customroutes = () => {
             <Route path="/admindashboard" element={<><AdminDashboard /><AdminDashboardContent /></>} />
             <Route path="/adminstudent" element={<><AdminDashboard /><AdminStudent /></>} />
             <Route path="/adminteacher" element={<><AdminDashboard /><AdminTeacher /></>} />
-            <Route path="/adminstudentknowmore" element={<><AdminDashboard /><AdminStudentKnowmore /></>} />
+            <Route path="/adminstudentknowmore/:id" element={<><AdminDashboard /><AdminStudentKnowmore /></>} />
             <Route path="/adminteacherknowmore/:id" element={<><AdminDashboard /><AdminTeacherKnowmore /></>} />
 
             {/* User/Students Dashboard and Components */}

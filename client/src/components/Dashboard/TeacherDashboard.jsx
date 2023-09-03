@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { TDashboard } from "../TeachersCom/TeacherDashboardContent";
+import { TDashboard } from "../TeacherComponents/TeacherDashboardContent";
 // import "../js/Dashboard";
 
 export const TeacherDashboard = () => {

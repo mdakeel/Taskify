@@ -16,7 +16,7 @@ const adminSlice=createSlice({
             return {...state,studentsData:action.payload}
         },
         setViewStudentData(state,action){
-            return {...state,viewTeacherData:action.payload}
+            return {...state,viewStudentData:action.payload}
         },
         
     },

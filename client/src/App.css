@@ -799,3 +799,29 @@ h1 {
 	text-align: center;
 	padding-top: 100px;
 }
+
+
+#assign { 
+	display: flex;
+	flex-direction: column;
+	height: 100px;
+	width: 400px;
+	overflow-y: scroll;
+	overflow-x:hidden ;
+	padding: 5px;
+	margin-bottom: 20px;
+}
+
+#assign div {
+	display: flex;
+	justify-content: space-between;
+	padding: 5px;
+}
+
+#assign div button { 
+	width: 100px;
+}
+button[assignedStatus="assigned"]{
+	color: white;
+	background-color: rgb(117,46,207);
+}

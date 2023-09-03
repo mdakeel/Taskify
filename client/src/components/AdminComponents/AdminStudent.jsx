@@ -74,7 +74,7 @@ export const AdminStudent = () => {
                     <td>{el.email}</td>
                     <td> Diploma</td>
                     <td>
-                      <NavLink to={"/adminstudentknowmore"}>
+                      <NavLink to={`/adminstudentknowmore/${el._id}`}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>

@@ -1,7 +1,16 @@
+import { useDispatch, useSelector } from "react-redux";
 import "../Style/StudentCss/StudentTeacherKnowmore.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { getSingleStudentData } from "../../redux/adminSlice";
 
 export const AdminStudentKnowmore = () => {
+  const dispatch = useDispatch();
+  const state = useSelector((state)=>state.admin);
+  const {id} = useParams()
+  useEffect(()=>{
+    dispatch(getSingleStudentData(id))
+  },[])
   return (
     <>
       {/* content */}
@@ -51,7 +60,7 @@ export const AdminStudentKnowmore = () => {
           <div class="row  row-main">
             <div class="about-avatar">
               <img
-                src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                src={state?.viewStudentData?.avatar}
                 title=""
                 alt=""
               />
@@ -73,7 +82,7 @@ export const AdminStudentKnowmore = () => {
                 <div class="col-md-6">
                   <div class="media">
                     <label>Name</label>
-                    <p>Farman</p>
+                    <p>{state?.viewStudentData?.name}</p>
                   </div>
                   <div class="media">
                     <label>Age</label>
@@ -87,7 +96,7 @@ export const AdminStudentKnowmore = () => {
                 <div class="col-md-6">
                   <div class="media">
                     <label>E-mail</label>
-                    <p>info@domain.com</p>
+                    <p>{state?.viewStudentData?.email}</p>
                   </div>
                   <div class="media">
                     <label>Phone</label>
@@ -95,7 +104,7 @@ export const AdminStudentKnowmore = () => {
                   </div>
                   <div class="media">
                     <label>Education</label>
-                    <p>M.Tech from JMI</p>
+                    <p>{state?.viewStudentData?.course}</p>
                   </div>
                 </div>
               </div>
