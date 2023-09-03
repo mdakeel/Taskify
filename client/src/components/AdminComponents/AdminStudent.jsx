@@ -1,7 +1,16 @@
+import { useDispatch, useSelector } from "react-redux";
 import "../js/Dashboard";
 import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
+import { getStudentsData } from "../../redux/adminSlice";
 
 export const AdminStudent = () => {
+  const dispatch = useDispatch();
+  const state = useSelector((state)=>state.admin);
+  useEffect(()=>{
+    dispatch(getStudentsData())
+    console.log(state)
+  },[])
   return (
     <>
       <section id="content">
@@ -56,13 +65,13 @@ export const AdminStudent = () => {
                     <th>View</th>
                   </tr>
                 </thead>
-                <tbody>
+              {state?.studentsData?.map((el)=>{return(  <tbody>
                   <tr>
                     <td>
                       <h6>01</h6>
-                      <p>Aakil Tayyab</p>
+                      <p>{el.name}</p>
                     </td>
-                    <td>aakiltayyab@gmail.com</td>
+                    <td>{el.email}</td>
                     <td> Diploma</td>
                     <td>
                       <NavLink to={"/adminstudentknowmore"}>
@@ -70,55 +79,9 @@ export const AdminStudent = () => {
                       </NavLink>
                     </td>
                   </tr>
-                </tbody>
+                </tbody>)})}
 
-                <tbody>
-                  <tr>
-                    <td>
-                      <h6>02</h6>
-                      <p>Aadil Rehman</p>
-                    </td>
-                    <td>aadilrehman@gmail.com</td>
-                    <td> B.Tec</td>
-                    <td>
-                      <NavLink to={"/adminstudentknowmore"}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
-                </tbody>
-
-                <tbody>
-                  <tr>
-                    <td>
-                      <h6>03</h6>
-                      <p>Farman Tasleem</p>
-                    </td>
-                    <td>farmantasleem@gmail.com</td>
-                    <td>M.Tech</td>
-                    <td>
-                      <NavLink to={"/adminstudentknowmore"}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
-                </tbody>
-
-                <tbody>
-                  <tr>
-                    <td>
-                      <h6>04</h6>
-                      <p>Chacha</p>
-                    </td>
-                    <td>chacha@gmail.com</td>
-                    <td>12th</td>
-                    <td>
-                      <NavLink to={"/adminstudentknowmore"}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
-                </tbody>
+               
               </table>
             </div>
           </div>

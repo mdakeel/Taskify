@@ -84,3 +84,15 @@ exports.teacherData=async(req,res)=>{
         res.status(501).send({msg:error.message})
     }
 }
+
+// get single Student Data
+
+exports.studentData=async(req,res)=>{
+    const _id = req.params._id
+    try {
+        const singleStudentData= await UserModel.findOne({_id,role:"student"}).select("-password");
+        res.status(200).send({msg:"Data Fetched Successfully",data:singleStudentData})
+    } catch (error) {
+        res.status(501).send({msg:error.message})
+    }
+}
