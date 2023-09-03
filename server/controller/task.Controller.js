@@ -24,3 +24,13 @@ exports.createTask =async(req,res)=> {
 
 // get task of specific user
 
+exports.getTaskofStudent = async(req,res) => {
+    const {userid} = req.body
+    try {
+            const taskofStudent = await AssignedTask.find({assignedTo:userid});
+            res.status(200).send({msg:"Student Task Fetched Successfully",data:taskofStudent})
+    } catch (error) {
+            res.status(500).send({msg:error.message})
+
+    }
+}
