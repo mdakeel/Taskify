@@ -24,7 +24,7 @@ const teacherSchema = mongoose.Schema({
 teacherSchema.methods = {
     jwtToken() {
         return JWT.sign({ id: this._id, email: this.email }, process.env.SECRET, {
-            expiresIN: '24h'
+            expiresIn: '24h'
         })
     }
 }

@@ -10,7 +10,7 @@ exports.createTask =async(req,res)=> {
         await createdTask.save();
         if(assigned?.length >= 1) {
             for(let studentID of assigned){
-                const assignTask = await AssignedTask({task:createdTask._id,assignedTo:studentID,assinedBy:userid})
+                const assignTask = await AssignedTask({task:createdTask._id,assignedTo:studentID,assignedBy:userid})
                 await assignTask.save()
             }
         }
@@ -27,7 +27,7 @@ exports.createTask =async(req,res)=> {
 exports.getTaskofStudent = async(req,res) => {
     const {userid} = req.body
     try {
-            const taskofStudent = await AssignedTask.find({assignedTo:userid});
+            const taskofStudent = await AssignedTask.find({assignedTo:userid}).populate("task").populate("assignedBy");
             res.status(200).send({msg:"Student Task Fetched Successfully",data:taskofStudent})
     } catch (error) {
             res.status(500).send({msg:error.message})

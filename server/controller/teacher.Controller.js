@@ -1,6 +1,7 @@
 const AssignedTask = require("../model/AssignedTask");
 const { TaskModel } = require("../model/Task.model");
 const TeacherModel = require("../model/Teacher.model");
+const bcrypt = require("bcryptjs");
 
 // to register teacher
 exports.teacherSignup = async(req,res) => {

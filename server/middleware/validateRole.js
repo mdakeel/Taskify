@@ -1,7 +1,8 @@
-import TeacherModel from "../model/Teacher.model";
-import { UserModel } from "../model/User.model";
+const TeacherModel = require("../model/Teacher.model");
+const { UserModel } = require("../model/User.model");
 
-export const validateRole = async(req,res,next,role) => {
+const validateRole = (role)=> async(req,res,next) => {
+    console.log(role)
     const {userid} = req.body;
     try {
         let USERDATA;
@@ -21,3 +22,5 @@ export const validateRole = async(req,res,next,role) => {
         res.status(500).send({msg:error.messgae})
     }
 }
+
+module.exports = {validateRole}

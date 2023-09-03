@@ -6,7 +6,7 @@ import { useAssignedStudent } from "../../helpers/AssignedStudents";
 
 export const TeacherTask = () => {
   const AssignedStudent =useAssignedStudent()
-
+  
   const submitTask =()=>{
     const arrayofAssigned = AssignedStudent()
     console.log(arrayofAssigned)
