@@ -1,6 +1,17 @@
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 
 export const TeacherNewStudent = () => {
+  const[newStudent,setNewStudent] = useState([])
+  const getData=async()=>{
+    const resp =  await fetch("http://localhost:8081/student/unverified");
+    const {data} = await resp.json()
+    console.log(data)
+    setNewStudent(data)
+  }
+  useEffect(()=>{
+    getData()
+  },[])
   return (
     <>
       {/* content */}
@@ -58,68 +69,28 @@ export const TeacherNewStudent = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  {
+                    newStudent?.map((e)=>{ 
+                      return (
+                        <tr>
                     <td>
                       <h6>01</h6>
-                      <p>Aakil Tayyab</p>
+                      <p>{e.name}</p>
                     </td>
-                    <td>aakiltayyab@gmail.com</td>
-                    <td> Diploma</td>
+                    <td>{e.email}</td>
+                    <td>{e.course}</td>
                     <td>
                       <NavLink to={"/teacherstudentknowmore"}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>
                   </tr>
+                      )
+                    })
+                  }
                 </tbody>
 
-                <tbody>
-                  <tr>
-                    <td>
-                      <h6>02</h6>
-                      <p>Aadil Rehman</p>
-                    </td>
-                    <td>aadilrehman@gmail.com</td>
-                    <td> B.Tec</td>
-                    <td>
-                      <NavLink to={"/teacherstudentknowmore"}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
-                </tbody>
-
-                <tbody>
-                  <tr>
-                    <td>
-                      <h6>03</h6>
-                      <p>Farman Tasleem</p>
-                    </td>
-                    <td>farmantasleem@gmail.com</td>
-                    <td>M.Tech</td>
-                    <td>
-                      <NavLink to={"/teacherstudentknowmore"}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
-                </tbody>
-
-                <tbody>
-                  <tr>
-                    <td>
-                      <h6>04</h6>
-                      <p>Chacha</p>
-                    </td>
-                    <td>chacha@gmail.com</td>
-                    <td>12th</td>
-                    <td>
-                      <NavLink to={"/teacherstudentknowmore"}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
-                </tbody>
+                
               </table>
             </div>
           </div>
