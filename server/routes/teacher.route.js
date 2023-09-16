@@ -9,6 +9,7 @@ const teacherRoute  = express.Router();
 teacherRoute.post("/login",TeacherLogin) 
 
 
+
 module.exports = {
     teacherRoute
 }
