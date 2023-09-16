@@ -26,6 +26,7 @@ import { StudentTeacherKnowmore } from "../components/StudentsComponents/Student
 import { AdminDashboardContent } from "../components/AdminComponents/AdminDashboardContent";
 import { useSelector } from "react-redux";
 import { useRedirectUser } from "../customhooks/useRedirectUser";
+import { Apply } from "../components/Dashboard/Apply";
 
 
 export const Customroutes = () => {
@@ -38,6 +39,8 @@ export const Customroutes = () => {
     },[state])
     return (
         <Routes>
+            {/* Apply */}
+            <Route path="/apply" element={<Apply />} />
             {/* Login AND Register */}
             <Route path="/" element={<HomePage />} />
             <Route path="/register" element={
