@@ -18,6 +18,12 @@ export const TeacherDashboard = () => {
               </NavLink>
             </li>
           </div>
+          <li>
+            <NavLink to={"/teacherNewstudent"}>
+              <i class="bx bxs-shopping-bag-alt"></i>
+              <span class="text">New Students</span>
+            </NavLink>
+          </li>
 
           <li>
             <NavLink to={"/teacherstudent"}>

@@ -27,6 +27,7 @@ import { AdminDashboardContent } from "../components/AdminComponents/AdminDashbo
 import { useSelector } from "react-redux";
 import { useRedirectUser } from "../customhooks/useRedirectUser";
 import { Apply } from "../components/Dashboard/Apply";
+import { TeacherNewStudent } from "../components/TeacherComponents/TeacherNewStudent";
 
 
 export const Customroutes = () => {
@@ -103,6 +104,7 @@ export const Customroutes = () => {
             {/* Teachers Dashboard and Components */}
             <Route path="/teacherdashboard" element={<><TeacherDashboard /><TeacherDashboardContent /></>} />
             <Route path="/teacherstudent" element={<><TeacherDashboard /><TeacherStudent /></>} />
+            <Route path="/teacherNewStudent" element={<><TeacherDashboard /><TeacherNewStudent/></>} />
             <Route path="/teacherstudentknowmore" element={<><TeacherDashboard /><TeacherStudentKnowmore /></>} />
             <Route path="/teachertask" element={<><TeacherDashboard /><TeacherTask /></>} />
             <Route path="/teachercompletetaskview" element={<><TeacherDashboard /><TeacherCompleteTaskView /></>} />
