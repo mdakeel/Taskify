@@ -6,7 +6,8 @@ const { adminRoute } = require("./routes/admin.route");
 const { taskRoute } = require("./routes/task.route");
 const { teacherRoute } = require("./routes/teacher.route");
 require("dotenv").config()
-const cloudinary = require("cloudinary")
+const cloudinary = require("cloudinary");
+const studentRoute = require("./routes/student.route");
 
 const app=express();
 
@@ -18,6 +19,8 @@ app.use("/user",userRoute)  // user route
 app.use("/admin",adminRoute) //admin route
 app.use("/task",taskRoute) // taskRoute
 app.use("/teacher",teacherRoute) // teacher route
+
+app.use("/student",studentRoute) // studentRoute
 
 connectDatabase() // connecting to database
 cloudinary.v2.config({
