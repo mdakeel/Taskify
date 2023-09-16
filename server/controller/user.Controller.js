@@ -1,11 +1,24 @@
 const { UserModel } = require("../model/User.model")
 const bcrypt = require("bcryptjs")
 const mongoose = require("mongoose")
+const getDataURI = require("../utils/getDataURI")
+const cloudinary = require("cloudinary")
 
 // to register user
 exports.userSignUp = async(req,res) => {
+    console.log(req.body)
+    const file = req.file
+    const fileURI = getDataURI(file)
+    console.log(req.body)
+    
+   
+
     try {
-        const newUser=await UserModel(req.body);
+        const mycloud=await cloudinary.v2.uploader.upload(fileURI.data.content,{
+            resource_type:"image"
+        })
+            
+        const newUser=await UserModel({...req.body,avatar:mycloud.url});
         await newUser.save()
         res.status(200).send({
             msg:"SignUp Success"
@@ -24,7 +37,7 @@ exports.userLogin = async(req,res) => {
             const result= await bcrypt.compare(password,getuserData.password)
             const geneRatedToken=await getuserData.jwtToken()
            if(result){
-            res.status(200).send({msg:"User login Successfully",token:geneRatedToken,role:getuserData.role})
+            res.status(200).send({msg:"User login Successfully",token:geneRatedToken,role:getuserData.role,userdetails:getuserData})
            }else{
             res.status(404).send({msg:"Wrong Password,Please try again!"})
            }

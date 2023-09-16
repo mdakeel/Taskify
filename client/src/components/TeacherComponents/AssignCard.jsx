@@ -1,11 +1,11 @@
 import { useState } from "react"
 
-export const AssignCard = ({id}) => {
+export const AssignCard = ({id,name}) => {
     const [clicked,setClicked] = useState(false)
     return (
         <div >
-            <p>USERNAME</p>
-            <button className="assignCard" assignedStatus={clicked?"assigned":"assign"} userid={id} onClick={()=>setClicked(!clicked)}>{clicked?"Assigned":"Assign"}</button>
+            <p>{name}</p>
+            <button className="assignCard" assignedstatus={clicked?"assigned":"assign"} userid={id} onClick={()=>setClicked(!clicked)}>{clicked?"Assigned":"Assign"}</button>
         </div>
     )
 }

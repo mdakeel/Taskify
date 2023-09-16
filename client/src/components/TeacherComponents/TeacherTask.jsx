@@ -1,16 +1,34 @@
 import { NavLink } from "react-router-dom";
 import "../Style/TeacherCss/TeacherTask.css";
 import { AssignCard } from "./AssignCard";
-import { useRef } from "react";
-import { useAssignedStudent } from "../../helpers/AssignedStudents";
+import { useEffect, useRef, useState } from "react";
+import { getAssignedStudent, useAssignedStudent } from "../../helpers/AssignedStudents";
+import { useDispatch, useSelector } from "react-redux";
+import { getStudentsData } from "../../redux/teacherSlice";
 
 export const TeacherTask = () => {
-  const AssignedStudent =useAssignedStudent()
-  
+  const STATE = useSelector((state => state.teacher))
+  const [taskData,setTaskData]  = useState({
+    title:"",
+    description:"",
+    assigned:[],
+    deadline:"",
+    maxpoint:""
+  })
+  const getAssignedStudent = useAssignedStudent()
+
+  const dispatch = useDispatch()
   const submitTask =()=>{
-    const arrayofAssigned = AssignedStudent()
-    console.log(arrayofAssigned)
+    
+    setTaskData((prev)=> {
+        let arrayofAssigned = getAssignedStudent()
+           console.log(arrayofAssigned)
+      return {...prev,assigned:[...arrayofAssigned]}})
   }
+
+  useEffect(()=>{
+    dispatch(getStudentsData())
+  },[])
   return (
     <>
       {/* content */}
@@ -63,15 +81,17 @@ export const TeacherTask = () => {
                         name="title"
                         class="form-control"
                         placeholder="Task Title*"
-                        value=""
+                        value={taskData.title}
+                        onChange={(e)=>{setTaskData((prev)=>{return {...prev,title:e.target.value}})}}
                       />
                     </div>
                     <div id="assign" >
-                      <AssignCard id={1}/>
-                      <AssignCard id={2}/>
-                      <AssignCard id={3}/>
-                      <AssignCard id={4}/>
+                      {
+                        STATE?.studentsData?.map((el)=>{
+                          return <AssignCard name={el.name} id={el._id}/>
 
+                        })
+                        }
                     </div>
                   </div>
                   <div class="col-md-4">
@@ -82,17 +102,21 @@ export const TeacherTask = () => {
                         class="form-control"
                         id="exampleInputName"
                         placeholder="Enter Deadline Date*"
-                        value=""
+                        value={taskData.deadline}
+                        onChange={(e)=>{setTaskData((prev)=>{return {...prev,deadline:e.target.value}})}}
                       />
                     </div>
                     <div class="form-group">
                       <input
-                        type="text"
+                        type="number"
                         name="point"
                         class="form-control"
                         id="exampleInputName"
                         placeholder="Enter Points* "
                         required="required"
+
+                        value={taskData.maxpoint}
+                        onChange={(e)=>{setTaskData((prev)=>{return {...prev,maxpoint:e.target.value}})}}
                       />
                     </div>
                   </div>
@@ -103,12 +127,13 @@ export const TeacherTask = () => {
                       placeholder="Enter Discription"
                       rows="4"
                       cols="115"
-                      value=""
+                      value={taskData.description}
+                      onChange={(e)=>{setTaskData((prev)=>{return {...prev,description:e.target.value}})}}
                     ></textarea>
                   </div>
                 </div>
                 <hr />
-                <button type="submit" onClick={submitTask} class="btn btn-primary">
+                <button onClick={submitTask} class="btn btn-primary">
                   Assign Task
                 </button>
             </div>

@@ -1,0 +1,66 @@
+1. register on cloudinary
+
+2. install cloudinary,multer,datauri
+
+3. config on server fields
+
+cloudinary.v2.config({
+    cloud_name: process.env.CLD_CLIENT_NAME, 
+    api_key:process.env.CLD_CLIENT_API, 
+    api_secret:process.env.CLD_CLIENT_SECRET
+})
+
+
+4. utils
+
+const DataUriParser = require("datauri/parser");
+const path = require("path")
+const getDataURI= (file) => {
+    const parser = new DataUriParser({})
+    const extName= path.extname(file.originalname).toString()
+   return {
+    data:parser.format(extName,file.buffer),
+    extName:extName
+  }
+}
+
+
+module.exports = getDataURI
+
+5. middleware (multer)
+
+const multer = require("multer");
+
+const storage=  multer.memoryStorage();
+
+const singleUpload = multer({storage}).single("file");
+
+
+module.exports = singleUpload
+
+
+6.
+// to register user
+exports.userSignUp = async(req,res) => {
+    console.log(req.body)
+    const file = req.file
+    const fileURI = getDataURI(file)
+    console.log(req.body)
+    
+   
+
+    try {
+        const mycloud=await cloudinary.v2.uploader.upload(fileURI.data.content,{
+            resource_type:"image"
+        })
+            
+        const newUser=await UserModel({...req.body,avatar:mycloud.url});
+        await newUser.save()
+        res.status(200).send({
+            msg:"SignUp Success"
+        })
+    } catch (error) {
+        res.status(501).send({msg:error.message})
+    }
+}
+

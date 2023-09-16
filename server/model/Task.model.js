@@ -16,6 +16,10 @@ const taskSchema = mongoose.Schema({
     deadline: {
         type: Date,
         required: true
+    },
+    maxpoint : {
+        type:Number,
+        required:true
     }
 
 })

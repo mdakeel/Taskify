@@ -54,6 +54,7 @@ export function userLogin(userLogin,navigate){
               const data=await resp.json()
               if(resp.status==200){
                 console.log("login Success")
+                localStorage.setItem("token",data.token)
                 const state = getState()
                 // if(data.role == "user") {
                 //   navigate("/studentdashboard")
@@ -74,32 +75,3 @@ export function userLogin(userLogin,navigate){
     }
 }
 
-// export function signupUser(data,toast){
-//     return async function (dispatch,getState){
-//           try{
-//             const sendData=await fetch("https://finestshave.onrender.com/user/signup",{
-//                 method:"POST",
-//                 headers:{"content-type":"application/json"},
-//                 body:JSON.stringify(data)
-//             })
-//             const resp=await sendData.json();
-//             console.log(resp)
-//             toast({
-//                 title: 'SignUp Successfull',
-             
-//                 status: 'success',
-//                 duration: 9000,
-//                 isClosable: true,
-//               })
-//           }catch(err){
-//             toast({
-//                 title: 'Signup Failed',
-             
-//                 status: 'error',
-//                 duration: 9000,
-//                 isClosable: true,
-//               })
-//            dispatch(signupFailure())
-//           }
-//     }
-// }

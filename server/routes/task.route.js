@@ -4,6 +4,7 @@ const { validateRole} = require("../middleware/validateRole");
 const { getAllTask } = require("../controller/admin.Controller");
 const { Authentication } = require("../middleware/Authentication");
 const { TaskValidation } = require("../middleware/TaskValidation");
+const { TaskModel } = require("../model/Task.model");
 
 const taskRoute = express.Router();
 

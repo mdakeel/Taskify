@@ -1,4 +1,0 @@
-export const LOGINUSER = "LOGINUSER";
-
-
-export const REGISTERUSER = "REGISTERUSER"
