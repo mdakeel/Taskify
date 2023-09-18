@@ -1,6 +1,8 @@
 const { StudentModel } = require("../model/Student.model");
 const getDataURI = require("../utils/getDataURI")
-const cloudinary = require("cloudinary")
+const cloudinary = require("cloudinary");
+const sendMail = require("../utils/sendMail");
+const { registerMail, requestApproved } = require("../utils/msgMail");
 
 
 
@@ -22,6 +24,7 @@ exports.studentRegister = async(req,res) => {
             
         const newStudent=await StudentModel({ name,email,password,studentId,country,state,contact,course,branch,dob,proof:mycloud.url} );
         await newStudent.save()
+        sendMail(email,registerMail(name),"Confirmation of Your Request for Student Portal Access - Taskify")
         res.status(200).send({
             msg:"You have been registered successfully"
         })
@@ -51,6 +54,7 @@ exports.verifyStudents = async(req,res) =>  {
         const studentData= await StudentModel.findOne({isVerified:false,_id:studentId})
         studentData.isVerified = true;
         await studentData.save();
+        sendMail(studentData.email,requestApproved(studentData.name),"Student Portal Access Granted")
         res.status(200).send({msg:"Student has been verified Successfully"})
 
     } catch (error) {
