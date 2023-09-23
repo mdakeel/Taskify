@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch,useSelector} from "react-redux"
 import { useEffect } from "react";
 import { getTeacherData } from "../../redux/adminSlice";
+import { Navbar } from "../Navbar/Navbar";
 export const AdminTeacher = () => {
   const dispatch = useDispatch();
   const state = useSelector((state)=>state.admin);
@@ -14,21 +15,7 @@ export const AdminTeacher = () => {
   return (
     <>
       <section id="content">
-        <nav>
-          <div className="left-nav">
-            <i class="bx bx-menu"></i>
-          </div>
-          <div className="right-nav">
-            <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" className="notification">
-              <i class="bx bxs-bell"></i>
-              <span className="num">8</span>
-            </a>
-            <a href="#" className="profile">
-              <img src="img/people.png" />
-            </a>
-          </div>
-        </nav>
+       <Navbar />
 
         <main>
           <div className="head-title">

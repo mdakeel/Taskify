@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { getAssignedStudent, useAssignedStudent } from "../../helpers/AssignedStudents";
 import { useDispatch, useSelector } from "react-redux";
 import { getStudentsData } from "../../redux/teacherSlice";
+import { Navbar } from "../Navbar/Navbar";
 
 export const TeacherTask = () => {
   const STATE = useSelector((state => state.teacher))
@@ -34,22 +35,7 @@ export const TeacherTask = () => {
       {/* content */}
 
       <section id="content">
-        <nav>
-          <div className="left-nav">
-            <i class="bx bx-menu"></i>
-          </div>
-          <div className="right-nav">
-            <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" className="notification">
-              <i class="bx bxs-bell"></i>
-              <span className="num">8</span>
-            </a>
-            <a href="#" className="profile">
-              <img src="img/people.png" />
-            </a>
-          </div>
-        </nav>
-
+       <Navbar />
         <main>
           <div className="head-title">
             <div className="left">

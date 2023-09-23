@@ -39,6 +39,7 @@ a {
 }
 
 a:hover {
+	text-decoration: none;
 	color: white;
 }
 
@@ -83,16 +84,17 @@ input:hover,
 }
 
 /* style the submit button */
-input[type=submit] {
+/* input[type=submit] {
 	margin-top: 30px;
-	background-color: #3e3e3e;
-	color: white;
+	background-color: #45a049;
+	color: white !important;
 	cursor: pointer;
 }
 
 input[type=submit]:hover {
-	background-color: #45a049;
-}
+	
+	background-color: #3e3e3e;
+} */
 
 
 
@@ -104,23 +106,18 @@ input[type=submit]:hover {
 	margin-left: 480px;
 }
 
-.form_register_bottom_links, .create_account,
-.need_help,
-h2 {
-	font-size: 13px;
-	color: rgb(160, 160, 160);
-}
-
 
 /* login form */
 .login {
-	color: white;
+	color: #fff;
 	float: right;
 	margin: 50px;
 	padding-top: 10%;
 	padding-right: 40px;
 }
-
+.card-content{
+	margin-top: 40px;
+}
 .col {
 	width: 65%;
 	margin: auto;
@@ -151,13 +148,14 @@ input:hover,
 /* style the submit button */
 input[type=submit] {
 	margin-top: 30px;
-	background-color: #3e3e3e;
-	color: white;
+	background-color: #23ca2c;
+	color: #fff !;
+	transition: .3s;
 	cursor: pointer;
 }
 
 input[type=submit]:hover {
-	background-color: #45a049;
+	background-color: #516752;
 }
 
 
@@ -170,11 +168,13 @@ input[type=submit]:hover {
 	margin-left: 160px;
 }
 
-.create_account,
-need_help,
-h2 {
+.create_account{
 	font-size: 13px;
-	color: rgb(160, 160, 160);
+	color: #fff;
+}
+.need_help{
+	font-size: 13px;
+	color: #fff;
 }
 
 /* side bar */

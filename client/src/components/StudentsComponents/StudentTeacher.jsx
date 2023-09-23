@@ -1,25 +1,11 @@
 import "../Style/StudentCss/StudentTeacher.css";
 import { NavLink } from "react-router-dom";
-
+import { Navbar } from "../Navbar/Navbar";
 export const StudentTeacher = () => {
   return (
     <>
       <section id="content">
-        <nav>
-          <div className="left-nav">
-            <i class="bx bx-menu"></i>
-          </div>
-          <div className="right-nav">
-            <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" className="notification">
-              <i class="bx bxs-bell"></i>
-              <span className="num">8</span>
-            </a>
-            <a href="#" className="profile">
-              <img src="img/people.png" />
-            </a>
-          </div>
-        </nav>
+       <Navbar />
         <div className="searchbar">
           <div className="head-title">
             <div className="left">
@@ -54,7 +40,7 @@ export const StudentTeacher = () => {
         <div className="container">
           <div class="row">
             <div class="column">
-              <div class="card">
+              <div class="card001">
                 <div class="card-image">
                   <img
                     src="https://image.ibb.co/dUTfmJ/profile_img.jpg"
@@ -72,7 +58,7 @@ export const StudentTeacher = () => {
               </div>
             </div>
             <div class="column">
-              <div class="card">
+              <div class="card001">
                 <div class="card-image">
                   <img
                     src="https://image.ibb.co/dUTfmJ/profile_img.jpg"
@@ -90,7 +76,7 @@ export const StudentTeacher = () => {
               </div>
             </div>
             <div class="column">
-              <div class="card">
+              <div class="card001">
                 <div class="card-image">
                   <img
                     src="https://image.ibb.co/dUTfmJ/profile_img.jpg"
@@ -108,7 +94,7 @@ export const StudentTeacher = () => {
               </div>
             </div>
             <div class="column">
-              <div class="card">
+              <div class="card001">
                 <div class="card-image">
                   <img
                     src="https://image.ibb.co/dUTfmJ/profile_img.jpg"
@@ -126,7 +112,7 @@ export const StudentTeacher = () => {
               </div>
             </div>
             <div class="column">
-              <div class="card">
+              <div class="card001">
                 <div class="card-image">
                   <img
                     src="https://image.ibb.co/dUTfmJ/profile_img.jpg"
@@ -144,7 +130,7 @@ export const StudentTeacher = () => {
               </div>
             </div>
             <div class="column">
-              <div class="card">
+              <div class="card001">
                 <div class="card-image">
                   <img
                     src="https://image.ibb.co/dUTfmJ/profile_img.jpg"
@@ -162,7 +148,7 @@ export const StudentTeacher = () => {
               </div>
             </div>
             <div class="column">
-              <div class="card">
+              <div class="card001">
                 <div class="card-image">
                   <img
                     src="https://image.ibb.co/dUTfmJ/profile_img.jpg"
@@ -180,7 +166,7 @@ export const StudentTeacher = () => {
               </div>
             </div>
             <div class="column">
-              <div class="card">
+              <div class="card001">
                 <div class="card-image">
                   <img
                     src="https://image.ibb.co/dUTfmJ/profile_img.jpg"
@@ -198,7 +184,7 @@ export const StudentTeacher = () => {
               </div>
             </div>
             <div class="column">
-              <div class="card">
+              <div class="card001">
                 <div class="card-image">
                   <img
                     src="https://image.ibb.co/dUTfmJ/profile_img.jpg"
@@ -216,7 +202,7 @@ export const StudentTeacher = () => {
               </div>
             </div>
             <div class="column">
-              <div class="card">
+              <div class="card001">
                 <div class="card-image">
                   <img
                     src="https://image.ibb.co/dUTfmJ/profile_img.jpg"

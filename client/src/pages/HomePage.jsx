@@ -1,11 +1,11 @@
-import { Navbar } from "../components/Navbar";
 
-import { Login } from "../components/Login";
+import About from "../components/LandingPage/About/About";
+import Home from "../components/LandingPage/Home/Home";
 
 export const HomePage = () => {
   return (
     <div id="homePage">
-      <Login />
+      <Home />
     </div>
   );
 };

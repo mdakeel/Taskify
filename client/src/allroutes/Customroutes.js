@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { HomePage } from "../pages/HomePage";
-import { Register } from "../components/Register";
 import { AdminDashboard } from "../components/Dashboard/AdminDashboard";
 import { StudentDashboard } from "../components/Dashboard/StudentDashboard";
 import { TeacherDashboard } from "../components/Dashboard/TeacherDashboard";
@@ -28,6 +27,12 @@ import { useSelector } from "react-redux";
 import { useRedirectUser } from "../customhooks/useRedirectUser";
 import { Apply } from "../components/Dashboard/Apply";
 import { TeacherNewStudent } from "../components/TeacherComponents/TeacherNewStudent";
+import { StudentLogin } from "../components/Login/StudentLogin";
+import { TeacherLogin } from "../components/Login/TeacherLogin";
+import About from "../components/LandingPage/About/About";
+import Home from "../components/LandingPage/Home/Home";
+import Profile from "../components/Profile/Profile";
+import EditProfile from "../components/Profile/EditProfile";
 
 
 export const Customroutes = () => {
@@ -42,11 +47,22 @@ export const Customroutes = () => {
         <Routes>
             {/* Apply */}
             <Route path="/apply" element={<Apply />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/home" element={<Home />} />
             {/* Login AND Register */}
             <Route path="/" element={<HomePage />} />
-            <Route path="/register" element={
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/editprofile" element={<EditProfile />} />
+            <Route path="/cancel" element={<Profile />} />
+            <Route path="/update" element={<Profile />} />
+            <Route path="/studentlogin" element={
                 <>
-                    <Register />
+                    <StudentLogin />
+                </>
+            } />
+             <Route path="/teacherlogin" element={
+                <>
+                    <TeacherLogin />
                 </>
             } />
 

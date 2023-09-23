@@ -1,25 +1,13 @@
 import "../Style/StudentCss/StudentGroup.css";
+import { Navbar } from "../Navbar/Navbar";
+
 export const StudentGroup = () => {
   return (
     <>
       {/* content */}
 
       <section id="content">
-        <nav>
-          <div className="left-nav">
-            <i class="bx bx-menu"></i>
-          </div>
-          <div className="right-nav">
-            <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" className="notification">
-              <i class="bx bxs-bell"></i>
-              <span className="num">8</span>
-            </a>
-            <a href="#" className="profile">
-              <img src="img/people.png" />
-            </a>
-          </div>
-        </nav>
+        <Navbar />
         <div className="head-title">
           <div className="left">
             <ul className="breadcrumb">

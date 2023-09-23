@@ -1,0 +1,163 @@
+
+
+
+
+
+
+
+
+
+
+
+/* self coding */
+
+.profile-card{
+    background: #fff;
+    margin: 100px;
+    width: 300px;
+    border-radius: 5px;
+    height: 550px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.3);
+}
+
+.account-settings .user-profile {
+    margin: 0 0 1rem 0;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+.account-settings .user-profile .user-avatar {
+    margin: 0 0 1rem 0;
+}
+.account-settings .user-profile .user-avatar img {
+    width: 90px;
+    height: 90px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+}
+.account-settings .user-profile h6.user-email {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #9fa8b9;
+}
+
+.account-settings .about {
+    margin: 2rem 0 0 0;
+    text-align: center;
+}
+.account-settings .about h5 {
+    margin: 0 0 15px 0;
+    color: #007ae1;
+}
+.account-settings .about p {
+    font-size: 0.825rem;
+}
+
+.logout{
+    border: none;
+    text-align: center;
+    text-decoration: none;
+   box-shadow: 0 4px 8px rgba(0,0,0,.3);
+    background-color: #007ae1;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 50px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.logout:hover{
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/*  */
+
+
+.profile-card2{
+    background: #fff;
+    margin: 100px;
+    width: 60%;
+    border-radius: 5px;
+   
+    height: 550px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.3);
+}
+
+.formg{
+   display: flex;
+   margin-top:20px ;
+   margin-left: 20px;
+   
+}
+.formp{
+    margin-left: 20px;
+    margin-top: -5px;
+    background-color: transparent !important;
+    width: 300px;
+    border: none;
+}
+
+.dob{
+    margin-left: 45px;
+}
+
+.edit span{
+    float: right;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,.3);
+    background-color: #007ae1;
+    color: #fff ;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 10px;
+    margin-top: 40px;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+}
+
+.edit-cancel span{
+    float: right;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,.3);
+    background-color: #86888a;
+    color: #fff ;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 10px;
+    margin-top: 40px;
+    cursor: pointer;
+    transition: .3s;
+    width: 200px;
+}
+
+.edit-cancel span:hover{
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* .account-settings .user-profile .user-avatar2 {
+    margin: 0 0 1rem 0;
+}
+.account-settings .user-profile .user-avatar2 img {
+    width: 50px;
+    height: 50px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+} */
+
+.user-avatar input[type="file"]{
+    display: none;
+  }
+
+ .user-avatar label{
+    cursor: pointer;
+}
