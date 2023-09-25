@@ -162,7 +162,7 @@ function EditProfile() {
                 </div>
               </div>
 
-              <div className="edit">
+              <div className="edit2">
                 <NavLink to={"/update"}>
                   <span>Update </span>
                 </NavLink>

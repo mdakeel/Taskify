@@ -175,7 +175,7 @@ function Profile() {
                 </div>
                 
                   
-                <div className="edit">
+                <div className="edit2">
                     <NavLink to={"/editprofile"} >
                     <span>Edit Details</span>
                     </NavLink>

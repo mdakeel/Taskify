@@ -104,7 +104,7 @@
     margin-left: 45px;
 }
 
-.edit span{
+.edit2 span{
     float: right;
     border: none;
     text-align: center;
@@ -115,7 +115,6 @@
     border-radius: 5px;
     padding: 5px;
     margin-right: 10px;
-    margin-top: 40px;
     cursor: pointer;
     transition: .3s;
     width: 200px;
@@ -132,7 +131,6 @@
     border-radius: 5px;
     padding: 5px;
     margin-right: 10px;
-    margin-top: 40px;
     cursor: pointer;
     transition: .3s;
     width: 200px;
