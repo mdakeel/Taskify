@@ -25,7 +25,7 @@ import { StudentTeacherKnowmore } from "../components/StudentsComponents/Student
 import { AdminDashboardContent } from "../components/AdminComponents/AdminDashboardContent";
 import { useSelector } from "react-redux";
 import { useRedirectUser } from "../customhooks/useRedirectUser";
-import { Apply } from "../components/Dashboard/Apply";
+import { Apply, Register } from "../components/Login/Register";
 import { TeacherNewStudent } from "../components/TeacherComponents/TeacherNewStudent";
 import { StudentLogin } from "../components/Login/StudentLogin";
 import { TeacherLogin } from "../components/Login/TeacherLogin";
@@ -34,6 +34,7 @@ import Home from "../components/LandingPage/Home/Home";
 import Profile from "../components/Profile/Profile";
 import EditProfile from "../components/Profile/EditProfile";
 import { NewStudent } from "../components/NewStudent/NewStudent";
+import Waiting from "../components/Waiting/Waiting";
 
 
 export const Customroutes = () => {
@@ -47,9 +48,11 @@ export const Customroutes = () => {
     return (
         <Routes>
             {/* Apply */}
-            <Route path="/apply" element={<Apply />} />
+           
             <Route path="/about" element={<About />} />
             <Route path="/home" element={<Home />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/waiting" element={<Waiting />} />
             {/* Login AND Register */}
             <Route path="/" element={<HomePage />} />
             <Route path="/profile" element={<Profile />} />

@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
-import "../Style/StudentCss/Login.css";
+import "../Style/Login.css";
 import "../../App.css";
 import image from "../../assets/Images/image";
 import { useEffect, useState } from "react";
@@ -97,7 +97,7 @@ export const StudentLogin = () => {
           </div>
           <div className="need_help">
            
-              <NavLink to={"/need_help"}>Need Help?</NavLink>
+              <NavLink to={"/register"}>Register</NavLink>
        
           </div>
         </div>
