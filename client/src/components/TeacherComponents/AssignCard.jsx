@@ -5,7 +5,7 @@ export const AssignCard = ({id,name}) => {
     return (
         <div >
             <p>{name}</p>
-            <button className="assignCard" assignedstatus={clicked?"assigned":"assign"} userid={id} onClick={()=>setClicked(!clicked)}>{clicked?"Assigned":"Assign"}</button>
+            <button className="assignCard" assignedstatus={clicked?"assigned":"assign"} userid={id} onClick={()=>setClicked(prev=>!prev)}>{clicked?"Assigned":"Assign"}</button>
         </div>
     )
 }

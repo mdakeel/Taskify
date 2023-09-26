@@ -15,7 +15,7 @@ export const StudentLogin = () => {
   const navigate = useNavigate()
   const state = useSelector((state)=>state)
   const handleLogin = () =>  {
-    dispatch(userLoginAction(userLogin,navigate))
+    dispatch(userLoginAction(userLogin,navigate,"student"))
   }
   useEffect(()=>{
     console.log(state)

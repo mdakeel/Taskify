@@ -33,6 +33,7 @@ import About from "../components/LandingPage/About/About";
 import Home from "../components/LandingPage/Home/Home";
 import Profile from "../components/Profile/Profile";
 import EditProfile from "../components/Profile/EditProfile";
+import { NewStudent } from "../components/NewStudent/NewStudent";
 
 
 export const Customroutes = () => {
@@ -120,7 +121,8 @@ export const Customroutes = () => {
             {/* Teachers Dashboard and Components */}
             <Route path="/teacherdashboard" element={<><TeacherDashboard /><TeacherDashboardContent /></>} />
             <Route path="/teacherstudent" element={<><TeacherDashboard /><TeacherStudent /></>} />
-            <Route path="/teacherNewStudent" element={<><TeacherDashboard /><TeacherNewStudent/></>} />
+            <Route path="/newstudent" element={<><TeacherDashboard /><TeacherNewStudent/></>} />
+            <Route path="/details/:id" element = {<><TeacherDashboard /><NewStudent/></>}/>
             <Route path="/teacherstudentknowmore" element={<><TeacherDashboard /><TeacherStudentKnowmore /></>} />
             <Route path="/teachertask" element={<><TeacherDashboard /><TeacherTask /></>} />
             <Route path="/teachercompletetaskview" element={<><TeacherDashboard /><TeacherCompleteTaskView /></>} />

@@ -10,11 +10,11 @@ export const useRedirectUser = () =>{
 
   return ()=>{
     if(state && state.auth) {
-        if(state.role == "user") {
+        if(state.role == "student") {
             navigate("/studentdashboard")
           }else if(state.role == "admin"){
             navigate("/admindashboard")
-          }else {
+          }else if(state.role == "teacher") {
             navigate("/teacherdashboard")
           }
     }}

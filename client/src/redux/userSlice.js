@@ -8,7 +8,7 @@ const userSlice=createSlice({
     initialState:initialState,
     reducers:{
         loginSuccess(state,action){
-            return {...state,auth:true,role:"admin"}
+            return {...state,auth:true,role:action.payload}
         }
         
     },
@@ -41,10 +41,10 @@ export function userRegister(userLogin){
            }
     }
 }
-export function userLogin(userLogin,navigate){
+export function userLogin(userLogin,navigate,role){
     return async function (dispatch,getState){
         try {
-            const resp=await fetch("http://localhost:8081/user/login",{
+            const resp=await fetch(`http://localhost:8081/${role}/login`,{
                 method:"POST",
                 headers:{
                   "content-type":"application/json"

@@ -6,7 +6,7 @@ import { getAssignedStudent, useAssignedStudent } from "../../helpers/AssignedSt
 import { useDispatch, useSelector } from "react-redux";
 import { getStudentsData } from "../../redux/teacherSlice";
 import { Navbar } from "../Navbar/Navbar";
-
+import { Axiosinstance as axios } from "../../helpers/axiosInstance";
 export const TeacherTask = () => {
   const STATE = useSelector((state => state.teacher))
   const [taskData,setTaskData]  = useState({
@@ -14,17 +14,39 @@ export const TeacherTask = () => {
     description:"",
     assigned:[],
     deadline:"",
-    maxpoint:""
+    maxpoint:0
   })
-  const getAssignedStudent = useAssignedStudent()
+  const getAssignedStudent = ()=> {
+    const assignedStudent = []
+    const parentElement = document.querySelectorAll(".assignCard");
+    for(let list of parentElement) {
+        if(list.getAttribute("assignedStatus")=="assigned"){
+            assignedStudent.push(list.getAttribute("userid"))
+        }
+    }
+    return assignedStudent
+}
 
   const dispatch = useDispatch()
   const submitTask =()=>{
+    let arrayofAssigned = getAssignedStudent()
+    setTaskData({...taskData,assigned:arrayofAssigned})
+      console.log(taskData)
+      sendData(arrayofAssigned)
     
-    setTaskData((prev)=> {
-        let arrayofAssigned = getAssignedStudent()
-           console.log(arrayofAssigned)
-      return {...prev,assigned:[...arrayofAssigned]}})
+  }
+
+   function sendData (data) {
+        axios.post("/task/create",{...taskData,assigned:data},{
+          headers : {
+            "Authorization":`bearer ${localStorage.getItem("token")}`
+          }
+        }).then((res)=>{
+          console.log(res.data)
+        }).catch((err)=>{
+          console.log("Error",err.message)
+        })
+      
   }
 
   useEffect(()=>{
@@ -74,7 +96,7 @@ export const TeacherTask = () => {
                     <div id="assign" >
                       {
                         STATE?.studentsData?.map((el)=>{
-                          return <AssignCard name={el.name} id={el._id}/>
+                          return <AssignCard name={el.name} key={el._id} id={el._id}/>
 
                         })
                         }
@@ -102,7 +124,7 @@ export const TeacherTask = () => {
                         required="required"
 
                         value={taskData.maxpoint}
-                        onChange={(e)=>{setTaskData((prev)=>{return {...prev,maxpoint:e.target.value}})}}
+                        onChange={(e)=>{setTaskData((prev)=>{return {...prev,maxpoint:+e.target.value}})}}
                       />
                     </div>
                   </div>

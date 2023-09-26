@@ -43,8 +43,8 @@ export const TeacherNewStudent = () => {
           <div className="table-data">
             <div className="order">
               <div className="head">
-                <h3>Students List</h3>
-                <a href="#">All Students : 04</a>
+                <h3>New Students List</h3>
+                <a href="#">Total Students : 04</a>
               </div>
               <table>
                 <thead>
@@ -52,7 +52,7 @@ export const TeacherNewStudent = () => {
                     <th>Name</th>
                     <th>Email</th>
                     <th>Education</th>
-                    <th>View</th>
+                    <th>Details</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -67,7 +67,7 @@ export const TeacherNewStudent = () => {
                     <td>{e.email}</td>
                     <td>{e.course}</td>
                     <td>
-                      <NavLink to={"/teacherstudentknowmore"}>
+                      <NavLink to={`/details/${e._id}`}>
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>

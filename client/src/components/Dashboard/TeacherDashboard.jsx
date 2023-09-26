@@ -19,7 +19,7 @@ export const TeacherDashboard = () => {
             </li>
           </div>
           <li>
-            <NavLink to={"/teacherNewstudent"}>
+            <NavLink to={"/newstudent"}>
               <i class="bx bxs-shopping-bag-alt"></i>
               <span class="text">New Students</span>
             </NavLink>
