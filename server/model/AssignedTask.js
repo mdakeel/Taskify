@@ -25,7 +25,7 @@ const MyTaskSchema = mongoose.Schema({
     },
     assignedTo: {
         type: mongoose.Types.ObjectId,
-        ref: "user"
+        ref: "student"
     },
     attachedLink : {
         type:String,

@@ -3,10 +3,10 @@ const { TaskModel } = require("../model/Task.model");
 
 // to create a task
 exports.createTask =async(req,res)=> {
-    const {title,description,assigned,userid,deadline }  = req.body;
+    const {title,description,assigned,userid,deadline,maxpoint}  = req.body;
     
     try {
-        const createdTask = await TaskModel({title,description,createdBy:userid,deadline})
+        const createdTask = await TaskModel({title,description,createdBy:userid,deadline,maxpoint})
         await createdTask.save();
         if(assigned?.length >= 1) {
             for(let studentID of assigned){

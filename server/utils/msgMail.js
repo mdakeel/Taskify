@@ -16,6 +16,24 @@ Best regards,
 Farman Tasleem`
 
 
+const requestApproved=(studentName)=>{
+    return `
+
+    Dear ${studentName},
+    
+    We are pleased to inform you that your request for access to the student portal has been accepted. You can now access the student portal using your credentials
+    
+    The student portal is your gateway to a wealth of educational resources, course materials, and important information. We encourage you to explore the portal and make the most of the resources available to enhance your academic journey.
+    
+    If you have any questions, encounter any issues, or require assistance with your student portal access, please do not hesitate to reach out to our support team at [support@email.com] or [phone number]. We are here to assist you and ensure a smooth experience.
+    
+    Thank you for choosing Jamia University, and we wish you a successful and enriching academic experience through our student portal.
+    
+    Best regards,
+    Jamia University`
+}
+
 module.exports = {
-    registerMail
+    registerMail,
+    requestApproved
 }
