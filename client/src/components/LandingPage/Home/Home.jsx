@@ -26,7 +26,7 @@ function Home() {
      
 
         <div className="row landing-page-content">
-          <div className="col">
+          {/* <div className="col"> */}
             <div className="main-content">
             <img src={image.jmilogo} alt="jmi" />
               <h1>Jamia Millia Islamia</h1>
@@ -36,8 +36,9 @@ function Home() {
               for sustainable development of society and better
               </p>
             </div>
-          </div>
-          <div className="col card-content">
+          {/* </div> */}
+          {/* <div className="row"> */}
+          <div className="card-content">
             <div className="card-inner">
             <div className="card">
               <img src={image.jmi01} alt="" />
@@ -59,9 +60,9 @@ function Home() {
             </div>
           </div>
         </div>
-      
+        </div>
       </div>
-      </div>
+      {/* </div> */}
       </>
   );
 }

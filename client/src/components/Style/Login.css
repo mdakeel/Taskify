@@ -50,8 +50,8 @@
 
 }
 .main-content2{ 
-	margin-top: 110px;
-    margin-left: 100px;
+	margin-top: 119px;
+    margin-left: 80px;
     width: 500px;
 	 
  }
@@ -117,7 +117,7 @@ font-size: 45px;
 
 .card-content002{
 	margin-right: 150px !important;
-	margin-top: 100px !important;
+	margin-top: 90px !important;
 	margin-bottom: 50px !important;
 }
 
@@ -143,7 +143,7 @@ font-size: 45px;
 }
 
 .register-content{
-	margin-top: 80px !important;
+	margin-top: 70px !important;
 	padding-bottom: 22px;
 	margin-bottom: 20px !important;
 	
@@ -179,7 +179,12 @@ font-size: 45px;
            height: 88vh;
 		   
     }
-
+    .landing-page-content{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 	.main-content2{ 
 		margin-top: 50px;
 		 width: auto !important;
@@ -188,7 +193,7 @@ font-size: 45px;
 	 }
 
 	 .main-content2 h1{
-		
+	
         color: #fff;
 		text-shadow: 0 4px 8px rgba(0,0,0, 0.3);
 		font-weight: 700;
@@ -199,14 +204,15 @@ font-size: 45px;
     }
 
 	.main-content2 p{
-		width: 330px;
-        color: #ccc9c9;
+		width: 330px !important;
+        color: #dfdddd;
 		text-shadow: 0 4px 8px rgba(0,0,0, 0.3);
 		font-weight: 500;
+		margin-left: 40px;
 		text-align: center;
-        display: flex;
+        /* display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: center; */
         font-size: 15px;
      }
 
