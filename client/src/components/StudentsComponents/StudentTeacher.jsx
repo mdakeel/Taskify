@@ -1,11 +1,12 @@
 import "../Style/StudentCss/StudentTeacher.css";
 import { NavLink } from "react-router-dom";
 import { Navbar } from "../Navbar/Navbar";
+import { useState } from "react";
 export const StudentTeacher = () => {
   return (
     <>
       <section id="content">
-       <Navbar />
+       {/* <Navbar /> */}
         <div className="searchbar">
           <div className="head-title">
             <div className="left">
@@ -38,8 +39,8 @@ export const StudentTeacher = () => {
           </div>
         </div>
         <div className="container">
-          <div class="row">
-            <div class="column">
+          <div class="row ">
+            <div class="col card-pro">
               <div class="card001">
                 <div class="card-image">
                   <img
@@ -57,7 +58,7 @@ export const StudentTeacher = () => {
                 </div>
               </div>
             </div>
-            <div class="column">
+            <div class="col card-pro">
               <div class="card001">
                 <div class="card-image">
                   <img
@@ -75,7 +76,7 @@ export const StudentTeacher = () => {
                 </div>
               </div>
             </div>
-            <div class="column">
+            <div class="col card-pro">
               <div class="card001">
                 <div class="card-image">
                   <img
@@ -93,7 +94,7 @@ export const StudentTeacher = () => {
                 </div>
               </div>
             </div>
-            <div class="column">
+            <div class="col card-pro">
               <div class="card001">
                 <div class="card-image">
                   <img
@@ -111,7 +112,7 @@ export const StudentTeacher = () => {
                 </div>
               </div>
             </div>
-            <div class="column">
+            <div class="col card-pro">
               <div class="card001">
                 <div class="card-image">
                   <img
@@ -129,7 +130,7 @@ export const StudentTeacher = () => {
                 </div>
               </div>
             </div>
-            <div class="column">
+            <div class="col">
               <div class="card001">
                 <div class="card-image">
                   <img
@@ -147,7 +148,7 @@ export const StudentTeacher = () => {
                 </div>
               </div>
             </div>
-            <div class="column">
+            <div class="col card-pro">
               <div class="card001">
                 <div class="card-image">
                   <img
@@ -165,7 +166,7 @@ export const StudentTeacher = () => {
                 </div>
               </div>
             </div>
-            <div class="column">
+            <div class="col card-pro">
               <div class="card001">
                 <div class="card-image">
                   <img
@@ -183,7 +184,7 @@ export const StudentTeacher = () => {
                 </div>
               </div>
             </div>
-            <div class="column">
+            <div class="col card-pro">
               <div class="card001">
                 <div class="card-image">
                   <img
@@ -201,7 +202,7 @@ export const StudentTeacher = () => {
                 </div>
               </div>
             </div>
-            <div class="column">
+            <div class="col card-pro">
               <div class="card001">
                 <div class="card-image">
                   <img

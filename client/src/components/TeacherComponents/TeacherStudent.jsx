@@ -7,7 +7,7 @@ export const TeacherStudent = () => {
       {/* content */}
 
       <section id="content">
-       <Navbar />
+       {/* <Navbar /> */}
 
         <main>
           <div className="head-title">
@@ -33,7 +33,7 @@ export const TeacherStudent = () => {
             <div className="order">
               <div className="head">
                 <h3>Students List</h3>
-                <a href="#">All Students : 04</a>
+                <a href="#">04</a>
               </div>
               <table>
                 <thead>

@@ -1,0 +1,46 @@
+.req-btn{
+    display: flex;
+     text-align: center;
+    justify-content: space-evenly !important;
+     align-items: center;
+   width: 700px;
+}
+
+.req-btn button{
+    text-align: center;
+    width: 200px;
+    border: none;
+    color: #fff;
+    border-radius: 3px;
+    padding: 5px;
+    margin-left: -30px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+
+.btn-success{
+    background-color: rgb(6, 147, 39);
+}
+.btn-red{
+    background-color: rgb(185, 5, 5);
+}
+.btn-dark{
+    background-color: #000;
+}
+
+
+
+
+@media  screen and (max-width: 769px) {
+    .req-btn{
+        margin-left: -100px;
+        width: 450px;
+        padding: 20px;
+    }
+
+    .req-btn button{
+        font-size: 12px;
+     width: 110px;
+    }
+}

@@ -57,7 +57,7 @@ export const TeacherTask = () => {
       {/* content */}
 
       <section id="content">
-       <Navbar />
+       {/* <Navbar /> */}
         <main>
           <div className="head-title">
             <div className="left">
@@ -71,7 +71,7 @@ export const TeacherTask = () => {
                 </li>
                 <li>
                   <a className="active" href="#">
-                    Task
+                    Assign Task
                   </a>
                 </li>
               </ul>
@@ -79,7 +79,7 @@ export const TeacherTask = () => {
           </div>
 
           <div class="col-md-10">
-            <div className="form-main">
+            <div className="form-main assign-task-css">
               <hr />
                 <div class="row">
                   <div class="col-md-8">
@@ -87,13 +87,13 @@ export const TeacherTask = () => {
                       <input
                         type="text"
                         name="title"
-                        class="form-control"
+                        class="form-control task-dis"
                         placeholder="Task Title*"
                         value={taskData.title}
                         onChange={(e)=>{setTaskData((prev)=>{return {...prev,title:e.target.value}})}}
                       />
                     </div>
-                    <div id="assign" >
+                    <div id="assign" className="assign-task-std" >
                       {
                         STATE?.studentsData?.map((el)=>{
                           return <AssignCard name={el.name} key={el._id} id={el._id}/>
@@ -107,7 +107,7 @@ export const TeacherTask = () => {
                       <input
                         type="date"
                         name="date"
-                        class="form-control"
+                        class="form-control task-dis"
                         id="exampleInputName"
                         placeholder="Enter Deadline Date*"
                         value={taskData.deadline}
@@ -118,7 +118,7 @@ export const TeacherTask = () => {
                       <input
                         type="number"
                         name="point"
-                        class="form-control"
+                        class="form-control task-dis"
                         id="exampleInputName"
                         placeholder="Enter Points* "
                         required="required"
@@ -131,17 +131,17 @@ export const TeacherTask = () => {
                   <div class="form-group">
                     <textarea
                       name="textarea"
-                      class="form-control"
+                      class="form-control task-dis"
                       placeholder="Enter Discription"
-                      rows="4"
-                      cols="115"
+                      rows="2"
+                      cols="110"
                       value={taskData.description}
                       onChange={(e)=>{setTaskData((prev)=>{return {...prev,description:e.target.value}})}}
                     ></textarea>
                   </div>
                 </div>
                 <hr />
-                <button onClick={submitTask} class="btn btn-primary">
+                <button onClick={submitTask} class="btn but-task btn-primary">
                   Assign Task
                 </button>
             </div>

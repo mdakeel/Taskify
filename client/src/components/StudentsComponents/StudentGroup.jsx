@@ -7,7 +7,7 @@ export const StudentGroup = () => {
       {/* content */}
 
       <section id="content">
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="head-title">
           <div className="left">
             <ul className="breadcrumb">

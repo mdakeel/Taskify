@@ -5,6 +5,7 @@ import image from "../../assets/Images/image";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin as userLoginAction } from "../../redux/userSlice";
+import HomeNavbar from "../Navbar/HomeNavbar";
 
 export const TeacherLogin = () => {
   const [userLogin, setUserLogin] = useState({
@@ -23,33 +24,19 @@ export const TeacherLogin = () => {
   return (
 
     <>
+    <div className="home50">
     <div className="home-container">
     <img src={image.jmi1} alt="jmi1" />
     </div>
-      <div className="home-main-content">
-        <div className="home-navbar">
-        <div className="home-logo">
-            <img src={image.taskify} alt="taskify" />
-          </div>
-          <div className="home-nav_items">
-            <ul>
-              <li>
-                <NavLink to="/home">Home</NavLink>
-              </li>
-              <li>
-              <NavLink to="/about">About</NavLink>
-              </li>
-              <li>
-              <NavLink to="/Studentlogin">login</NavLink>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <HomeNavbar />
+      <div className="home-main-content2">
+       
 
         <div className="row ">
           <div className="col">
-            <div className="jmi-logo"></div>
-            <div className="main-content">
+          
+            <div className="main-content2">
+            <img src={image.jmilogo} alt="jmi" />
               <h1>Jamia Millia Islamia</h1>
               <p>
               Jamia Vision. Strive to foster the goals of building 
@@ -60,10 +47,11 @@ export const TeacherLogin = () => {
           </div>
           <div className="login card-content002">
         <div className="login_form">
-            <div className="col">
+       
               <input
                 type="email"
                 value={userLogin.email}
+                className="form-login"
                 onChange={(e) => {
                   setUserLogin({ ...userLogin, email: e.target.value });
                 }}
@@ -74,6 +62,7 @@ export const TeacherLogin = () => {
               <input
                 type="password"
                 value={userLogin.password}
+                className="form-login"
                 onChange={(e) => {
                   setUserLogin({ ...userLogin, password: e.target.value });
                 }}
@@ -83,10 +72,11 @@ export const TeacherLogin = () => {
               <input
                 type="submit"
                 name="button"
+                className="login01 form-login"
                 onClick={handleLogin}
                 value="Login"
               />
-            </div>
+      
         </div>
         <div className="form_bottom_links">
           <div className="create_account ">
@@ -102,9 +92,8 @@ export const TeacherLogin = () => {
         </div>
       </div>
     </div>
-      
-      </div>
-  
+    </div>
+  </div>
 
     </>
   );

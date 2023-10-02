@@ -7,7 +7,7 @@ export const TeacherCompleteTaskView = () => {
       {/* content */}
 
       <section id="content">
-       <Navbar />
+       {/* <Navbar /> */}
         <div className="head-title">
           <div className="left">
             <ul className="breadcrumb">
@@ -26,23 +26,23 @@ export const TeacherCompleteTaskView = () => {
           </div>
         </div>
         <section class="gray-bg" id="about">
-          <div class="row align-items-center">
-            <div class="col-lg-8">
-              <div class="about-text ">
+          <div class="row row-main2">
+            {/* <div class="col-lg-8"> */}
+              <div class="about-text2 ">
                 <h3 class="dark-color">Task Info</h3>
                 <div class="row about-list">
                   <div class="col-md-10">
-                    <div class="media">
+                    <div class="media media2">
                       <label>Tile </label>
-                      <h6 class="media">
-                        <p>Build Mern E-Commerce Website</p>
-                      </h6>
+                     
+                        <h3>Build Mern E-Commerce Website</h3>
+                      
                     </div>
-                    <div class="media ">
+                    <div class="media media2">
                       <label>Discription </label>
                       <div class="media discription">
                         <p>
-                          Note Website should be Responsive or multi user ,multi
+                          Note Website should be Responsive or multi user multi
                           vender login system. and its should be MERN Project
                         </p>
                       </div>
@@ -81,7 +81,7 @@ export const TeacherCompleteTaskView = () => {
                 </div>
               </div>
             </div>
-          </div>
+          {/* </div> */}
           <div class="col-md-8">
             <div className="form-main">
               <hr />
@@ -90,7 +90,7 @@ export const TeacherCompleteTaskView = () => {
                   <input
                     type="text"
                     name="fullname"
-                    class="form-control"
+                    class="form-control form-task"
                     id="exampleInputName"
                     value="Task Link : https://github.com/mdakeel"
                     required="required"
@@ -103,12 +103,13 @@ export const TeacherCompleteTaskView = () => {
                     <input
                       type="text"
                       name="file"
-                      class="form-control"
+                      class="form-control form-task-file"
                       placeholder="Task File"
                       value="Task File "
                       disabled
                     />
                   </div>
+                  <div className="assignment-taks">
                   <div class="form-group3">
                     <input
                       type="text"
@@ -121,11 +122,12 @@ export const TeacherCompleteTaskView = () => {
                   <input
                     type="text"
                     name="point"
-                    class="form-control"
+                    class="form-control form-task2 form-task"
                     placeholder="Assign Point"
                   />
                 </div>
-                <button type="submit" class="btn btn-primary">
+                </div>
+                <button type="submit" class="btn form-task btn-primary">
                   Assign Point
                 </button>
               </form>

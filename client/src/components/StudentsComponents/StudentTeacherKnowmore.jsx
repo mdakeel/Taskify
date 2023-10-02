@@ -8,7 +8,7 @@ export const StudentTeacherKnowmore = () => {
       {/* content */}
 
       <section id="content">
-       <Navbar />
+       {/* <Navbar /> */}
         <div className="head-title">
           <div className="left">
             <ul className="breadcrumb">
@@ -45,17 +45,14 @@ export const StudentTeacherKnowmore = () => {
             </div>
 
             <div class="about-text ">
-              <dev class="about">
+              <div class="about">
                 <h3 class="about1">About Me</h3>
-                <h4 class="about2">
-                  A Lead UX &amp; UI designer based in Canada
-                </h4>
+                <h4>Assistant professor, Hello world</h4>
                 <p>
                   I design and develop services for customers of all sizes,
-                  specializing in creating stylish, modern websites, web
-                  services and online stores.
+                  specializing in creating stylish.
                 </p>
-              </dev>
+              </div>
               <div class="row about-list">
                 <div class="col-md-6">
                   <div class="media">
@@ -90,39 +87,42 @@ export const StudentTeacherKnowmore = () => {
           </div>
 
           <div class="counter">
-            <div class="row">
-              <div class=" col-lg-3">
-                <div class="count-data text-center">
-                  <h6 class="count h2" data-to="500" data-speed="500">
+            <div class="row counter-inside">
+              <div className="rank">
+              <div class=" col-lg-2">
+            
+                  <h6 >
                     500
                   </h6>
-                  <p class="m-0px font-w-600">Totle Task</p>
-                </div>
+                  <p >Totle Task</p>
+             
               </div>
               <div class="col-6 col-lg-3">
-                <div class="count-data text-center">
-                  <h6 class="count h2" data-to="150" data-speed="150">
+                
+                  <h6 >
                     150
                   </h6>
-                  <p class="m-0px font-w-600">Task Completed</p>
-                </div>
+                  <p >Task Completed</p>
+               
               </div>
+              </div>
+              <div className="rank">
               <div class="col-6 col-lg-3">
-                <div class="count-data text-center">
-                  <h6 class="count h2" data-to="850" data-speed="850">
+                
+                  <h6>
                     350
                   </h6>
-                  <p class="m-0px font-w-600">Task Pending</p>
-                </div>
+                  <p >Task Pending</p>
+          
               </div>
               <div class="col-6 col-lg-3">
-                <div class="count-data text-center">
-                  <h6 class="count h2" data-to="190" data-speed="190">
+                
+                  <h6 >
                     1500
                   </h6>
-                  <p class="m-0px font-w-600">Totle Poins Gain</p>
+                  <p >Totle Poins Gain</p>
                 </div>
-              </div>
+                </div>
             </div>
           </div>
         </section>

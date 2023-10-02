@@ -2,12 +2,13 @@ import { NavLink } from "react-router-dom";
 import { Navbar } from "../Navbar/Navbar";
 
 export const StudentTask = () => {
+  
   return (
     <>
       {/* content */}
 
       <section id="content">
-        <Navbar />
+        {/* <Navbar /> */}
 
         <main>
           <div className="head-title">

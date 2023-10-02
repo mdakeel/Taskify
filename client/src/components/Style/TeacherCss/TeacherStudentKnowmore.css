@@ -22,7 +22,7 @@
   color: rgb(37, 37, 37);
 }
 .about-avatar{
-  margin-top: 100px;
+  margin-top: 60px;
   margin-left: 30px;
 }
 .about-avatar img{
@@ -35,8 +35,38 @@
 
 .counter{
   background-color: #fff;
+  padding-left: 20px !important;
   padding: 10px;
   padding-top: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgb(0,0,0,0.3);
+}
+
+.counter h6{
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.counter p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  text-align: center;
+  font-size: 17px;
+}
+.counter-inside{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.rank{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
 }

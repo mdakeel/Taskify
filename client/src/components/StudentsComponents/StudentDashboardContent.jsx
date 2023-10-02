@@ -1,9 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getTask } from "../../redux/studentSlice";
-import image from "../../assets/Images/image"
-import { Navbar } from "../Navbar/Navbar";
+import './StudentComponent.css';
 
 export const StudentDashboardContent = () => {
   const dispatch = useDispatch()
@@ -15,7 +14,7 @@ export const StudentDashboardContent = () => {
       {/* content */}
 
       <section id="content">
-       <Navbar />
+       {/* <Navbar /> */}
 
         <main>
           <div className="head-title">
@@ -28,11 +27,11 @@ export const StudentDashboardContent = () => {
                 <li>
                   <i class="bx bx-chevron-right"></i>
                 </li>
-                <li>
+                {/* <li>
                   <a className="active" href="#">
                     Student
                   </a>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>

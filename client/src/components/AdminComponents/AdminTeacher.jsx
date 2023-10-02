@@ -15,7 +15,7 @@ export const AdminTeacher = () => {
   return (
     <>
       <section id="content">
-       <Navbar />
+       {/* <Navbar /> */}
 
         <main>
           <div className="head-title">

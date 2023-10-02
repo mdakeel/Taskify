@@ -1,6 +1,7 @@
 import { Navbar } from "../Navbar/Navbar";
 import "../Style/TeacherCss/TeacherStudentKnowmore.css";
 import { NavLink, useParams } from "react-router-dom";
+import './NewStudent.css';
 import axios from "axios"
 import { Axiosinstance as request } from "../../helpers/axiosInstance";
 import { useEffect, useState } from "react";
@@ -25,7 +26,7 @@ export const NewStudent = () => {
   
 
       <section id="content">
-       <Navbar />
+      
         <div className="head-title">
           <div className="left">
             <ul className="breadcrumb">
@@ -52,12 +53,13 @@ export const NewStudent = () => {
           </div>
         </div>
         <section class="section about-section gray-bg" id="about">
-          <div class="row row-main">
+          <div class="row row-main2">
          
 
-            <div class="about-text ">
-              <h3 class="dark-color">Student Information</h3>
-             
+            <div class="about-text2 ">
+            <div class="about2">
+              <h3 class="dark-colour">Student Information</h3>
+             </div>
               <div class="row about-list">
                 <div class="col-md-6">
                   <div class="media">
@@ -91,15 +93,15 @@ export const NewStudent = () => {
             </div>
           </div>
 
-          <div class="flex row gap flex-center justify-content-center mb-3">
+          <div class="flex req-btn row gap flex-center justify-content-center mb-3">
             <div>
-                <button className="btn btn-success btn-sm ">Approve Request</button>
+                <button className="btn-success  ">Approve Request</button>
             </div>
             <div>
-                <button className="btn btn-dark btn-sm">Cancel Request</button>
+                <button className="btn-red ">Cancel Request</button>
             </div>
             <div>
-                <button className="btn btn-dark btn-sm">View Proof</button>
+                <button className="btn-dark ">View Proof</button>
             </div>
           </div>
         </section>

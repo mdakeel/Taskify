@@ -5,9 +5,11 @@ import jmi03 from "../jmi03.png";
 import jmi04 from "../jmi04.png";
 import people from "../people.png";
 import taskify from '../taskify.png';
+import jmilogo from '../jmi-logo.png';
 
 export default {
    taskify,
+   jmilogo,
   jmi1,
   jmi01,
   jmi02,

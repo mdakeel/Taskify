@@ -18,7 +18,7 @@ export const TeacherNewStudent = () => {
       {/* content */}
 
       <section id="content">
-       <Navbar />
+       {/* <Navbar /> */}
 
         <main>
           <div className="head-title">
@@ -43,8 +43,8 @@ export const TeacherNewStudent = () => {
           <div className="table-data">
             <div className="order">
               <div className="head">
-                <h3>New Students List</h3>
-                <a href="#">Total Students : 04</a>
+                <h3>New Students</h3>
+                <a href="#">04</a>
               </div>
               <table>
                 <thead>

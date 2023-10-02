@@ -4,7 +4,6 @@
     font-size: 16px;
     border: none;
   }
-  
   .dropdown2 {
     position: relative;
     display: inline-block;
@@ -30,3 +29,16 @@
   
   .dropdown2:hover .dropdown-content2 {display: block;}
   
+  @media screen and (max-width:769px) {
+    nav{
+
+      width: 100%;
+    }
+    .left-nav{
+     
+      margin-left: -40px !important;
+    }
+    .dropdown2 {
+      margin-right: -30px !important;
+    }
+  }

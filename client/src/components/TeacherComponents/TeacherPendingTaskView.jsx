@@ -7,7 +7,7 @@ export const TeacherPendingTaskView = () => {
       {/* content */}
 
       <section id="content">
-       <Navbar />
+       {/* <Navbar /> */}
         <div className="head-title">
           <div className="left">
             <ul className="breadcrumb">
@@ -25,24 +25,24 @@ export const TeacherPendingTaskView = () => {
             </ul>
           </div>
         </div>
-        <section class="section about-section gray-bg" id="about">
-          <div class="row align-items-center">
-            <div class="col-lg-8">
-              <div class="about-text ">
+        <section class="section2 about-section gray-bg" id="about">
+          <div class="row row-main2">
+            {/* <div class="col-lg-8"> */}
+              <div class="about-text2 ">
                 <h3 class="dark-color">Task Info</h3>
                 <div class="row about-list">
                   <div class="col-md-10">
-                    <div class="media">
+                    <div class="media media2">
                       <label>Tile </label>
-                      <h6 class="media">
-                        <p>Build Mern E-Commerce Website</p>
-                      </h6>
+                     
+                        <h3>Build Mern E-Commerce Website</h3>
+                
                     </div>
-                    <div class="media">
+                    <div class="media media2">
                       <label>Discription </label>
                       <div class="media discription">
                         <p>
-                          Note Website should be Responsive or multi user ,multi
+                          Note Website should be Responsive or multi user multi
                           vender login system. and its should be MERN Project
                         </p>
                       </div>
@@ -73,7 +73,7 @@ export const TeacherPendingTaskView = () => {
                 </div>
               </div>
             </div>
-          </div>
+          {/* </div> */}
         </section>
 
         {/* submit */}

@@ -47,6 +47,11 @@
     color: #000;
   }
 
+  .assignment-taks{
+    display: flex;
+    flex-direction: row;
+  }
+
   /* submite */
   h1 {
     font-size: 25px;
@@ -76,4 +81,21 @@
   .form-group3{
     width: 400px;
     color: #000;
+  }
+
+  @media screen and (max-width:769px) {
+    .assignment-taks{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-task2{
+      margin-left: -400px;
+    }
+
+    .form-task-file{
+      width: 150px;
+    }
   }

@@ -1,31 +1,16 @@
 import React from "react";
 import "./About.css";
 import { NavLink } from "react-router-dom";
+import HomeNavbar from "../../Navbar/HomeNavbar";
 
 function About() {
   return (
     <>
-      <div className="home-container2">
-        <div className="home-navbar2">
-          <div className="logo2">
-            <div className="home-logo2"> </div>
-          </div>
-          <div className="home-nav_items2">
-            <ul>
-              <li>
-                <NavLink to="/home">Home</NavLink>
-              </li>
-              <li>
-                <NavLink to="/about">About</NavLink>
-              </li>
-              <li>
-                <NavLink to="/Studentlogin">login</NavLink>
-              </li>
-            </ul>
-          </div>
-        </div>
-
+      <div className="home-container3">
+       
+      <HomeNavbar />
         <div className="about-body-content">
+        {/* <HomeNavbar /> */}
           {/* <h2>About Us</h2> */}
           <div className="about-body-content1">
             <h3>Introduction</h3>

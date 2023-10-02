@@ -8,7 +8,7 @@ export const TeacherStudentKnowmore = () => {
       {/* content */}
 
       <section id="content">
-       <Navbar />
+       {/* <Navbar /> */}
         <div className="head-title">
           <div className="left">
             <ul className="breadcrumb">
@@ -45,17 +45,14 @@ export const TeacherStudentKnowmore = () => {
             </div>
 
             <div class="about-text ">
-              <h3 class="dark-color">About Me</h3>
-              <h6 class="theme-color lead">
-                A Lead UX &amp; UI designer based in Canada
-              </h6>
+            <div class="about">
+              <h3 class="about1">About Me</h3>
+              <h4>Full Stack Developer at Google</h4>
               <p>
                 I design and develop services for customers of all sizes,
-                specializing in creating stylish, modern websites, web services
-                and online stores. My passion is to design digital user
-                experiences through the bold interface and meaningful
-                interactions.
+                specializing in creating stylish.
               </p>
+              </div>
               <div class="row about-list">
                 <div class="col-md-6">
                   <div class="media">
@@ -90,7 +87,8 @@ export const TeacherStudentKnowmore = () => {
           </div>
 
           <div class="counter">
-            <div class="row">
+            <div class="row counter-inside">
+            <div className="rank">
               <div class=" col-lg-3">
                 <div class="count-data text-center">
                   <h6 class="count h2" data-to="500" data-speed="500">
@@ -107,6 +105,8 @@ export const TeacherStudentKnowmore = () => {
                   <p class="m-0px font-w-600">Task Completed</p>
                 </div>
               </div>
+              </div>
+              <div className="rank">
               <div class="col-6 col-lg-3">
                 <div class="count-data text-center">
                   <h6 class="count h2" data-to="850" data-speed="850">
@@ -122,6 +122,7 @@ export const TeacherStudentKnowmore = () => {
                   </h6>
                   <p class="m-0px font-w-600">Totle Poins Gain</p>
                 </div>
+              </div>
               </div>
             </div>
           </div>

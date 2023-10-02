@@ -825,3 +825,38 @@ button[assignedStatus="assigned"]{
 	color: white;
 	background-color: rgb(117,46,207);
 }
+
+
+
+
+@media screen and (max-width:769px) {
+	.table-data{
+		width: auto;
+	}
+	.table-data .head h3{
+		color: #000 !important;
+		font-size: 22px !important;
+	}
+	.table-data .head a{
+		margin-top: -10px !important;
+		margin-right: -30px !important;
+		font-size: 18px !important;
+	}
+
+	.table-data thead tr th{
+		padding-right: 150px !important;
+	}
+
+	.table-data tbody tr td{
+
+		padding-right: 50px  !important;
+		font-size: 10px;
+	}
+
+	.table-data tbody tr td h6 {
+		font-size: 13px !important;
+	}
+	.table-data tbody tr td p {
+		padding-top: 10px;
+	}
+  }
