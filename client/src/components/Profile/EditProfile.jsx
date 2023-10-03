@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 function EditProfile() {
   return (
     <>
+    <div className="profile-cont">
       <div class="row ">
         <div class="col-xl-3 ">
           <div class="profile-card">
@@ -103,12 +104,13 @@ function EditProfile() {
                   />
                 </div>
                 <div class="form-group formg">
-                  <label for="website">Skills :</label>
+                  <label for="website">Id Number :</label>
                   <input
                     type="text"
                     class="form-control formp"
                     id="website"
-                    placeholder="   "
+                    placeholder="21DCS8017"
+                 
                   />
                 </div>
               </div>
@@ -176,6 +178,8 @@ function EditProfile() {
           </div>
         </div>
         {/* </form> */}
+      </div>
+
       </div>
     </>
   );

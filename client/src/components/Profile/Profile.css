@@ -1,14 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
 /* self coding */
 
 .profile-card{
@@ -53,6 +43,10 @@
 .account-settings .about p {
     font-size: 0.825rem;
 }
+h6{
+    font-size: 20px;
+    font-weight: 700p;
+}
 
 .logout{
     border: none;
@@ -94,7 +88,7 @@
 }
 .formp{
     margin-left: 20px;
-    margin-top: -5px;
+    margin-top: -12px;
     background-color: transparent !important;
     width: 300px;
     border: none;
@@ -158,4 +152,86 @@
 
  .user-avatar label{
     cursor: pointer;
+}
+
+
+
+@media  screen and (max-width:769px) {
+    .profile-cont{
+      
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+     .profile-card{
+        margin-top: 50px !important;
+        margin-left: 235px;
+        margin-bottom: 20px !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+     }
+    .account-settings h5{
+        font-size: 20px ;
+        font-weight: 700;
+        text-align: center;
+    }
+
+    .account-settings p{
+        font-size: 20px ;
+        width: auto !important;
+        text-align: center;
+    }
+
+    .profile-card2{
+        margin: 200px;
+        width: 400px !important;
+        height: auto !important;
+        margin-top: 0px !important;
+        padding-bottom: 20px;
+        
+    }
+
+    .profile-card2 p, label{
+        margin: 0px !important;
+        width: 100px;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .dob{
+        margin-left: 20px;
+    }
+
+    .dob input[type=date]{
+        width: 200px;
+        border: 1px solid #4ea1e0;
+        color: black;
+    }
+
+    .formp{
+        margin-top: -6px !important;
+        padding: 5px !important;
+        margin: 0px ;
+        font-size: 15px;
+        width: auto;
+    }
+
+    .gutters label{
+        margin: 0px !important;
+        width: 100px;
+        font-size: 15px;
+        font-weight: 600;
+    }
+     
+    .edit2 span{
+       
+        width: 170px;
+    }
+
+    .edit-cancel span{
+        width: 170px;
+    }
 }

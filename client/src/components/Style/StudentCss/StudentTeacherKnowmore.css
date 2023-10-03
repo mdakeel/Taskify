@@ -97,6 +97,11 @@
     font-size: 25px;
   }
 
+  .about h4{
+    font-size: 22px;
+   width: 320px;
+  }
+
   .about p{
     width: 320px !important;
   }
