@@ -104,3 +104,17 @@ exports.studentLogin = async(req,res) => {
         res.status(501).send({msg:error.message})
     }
 }
+
+
+
+// GET ALL VERIFIED STUDENTS
+
+
+exports.getallStudents=async(req,res)=>{
+    try {
+        const allUser= await StudentModel.find({isVerified:true}).select("-password");
+        res.status(200).send({msg:"All Students Data Fetched Successfully",data:allUser})
+    } catch (error) {
+        res.status(501).send({msg:error.message,"series":"serioesly"})
+    }
+}

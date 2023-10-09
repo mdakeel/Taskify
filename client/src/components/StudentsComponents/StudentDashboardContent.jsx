@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getTask } from "../../redux/studentSlice";
 import './StudentComponent.css';
 
 export const StudentDashboardContent = () => {
   const dispatch = useDispatch()
+  const task = useSelector((state)=>state.student.mytask)
   useEffect(()=>{
     dispatch(getTask())
-  })
+  },[])
   return (
     <>
       {/* content */}
@@ -77,7 +78,7 @@ export const StudentDashboardContent = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  {/* <tr>
                     <td>
                       <h6>01</h6>
                       <p>Make Calculator</p>
@@ -92,65 +93,29 @@ export const StudentDashboardContent = () => {
                         <span className="status completed"> View </span>
                       </NavLink>
                     </td>
-                  </tr>
+                  </tr> */}
+                  {
+                    task?.map((e)=>{
+                      return <tr>
+                      <td>
+                        <h6>01</h6>
+                        <p>{e.task.title}</p>
+                      </td>
+                      <td>{e.assignedBy.name}</td>
+                      <td>5AM</td>
+                      <td>
+                        <span className="status completed">{e.task.maxpoint}</span>
+                      </td>
+                      <td>
+                        <NavLink to={`/task/${e._id}`}>
+                          <span className="status completed"> View </span>
+                        </NavLink>
+                      </td>
+                    </tr>
+                    })
+                  }
                 </tbody>
 
-                <tbody>
-                  <tr>
-                    <td>
-                      <h6>02</h6>
-                      <p>Make Calculator</p>
-                    </td>
-                    <td>Farman Tasleem</td>
-                    <td>5AM</td>
-                    <td>
-                      <span className="status completed"> 10 </span>
-                    </td>
-                    <td>
-                      <NavLink to={"/studenttaskview"}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
-                </tbody>
-
-                <tbody>
-                  <tr>
-                    <td>
-                      <h6>03</h6>
-                      <p>Make Calculator</p>
-                    </td>
-                    <td>Farman Sir</td>
-                    <td>8AM</td>
-                    <td>
-                      <span className="status completed"> 10 </span>
-                    </td>
-                    <td>
-                      <NavLink to={"/studenttaskview"}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
-                </tbody>
-
-                <tbody>
-                  <tr>
-                    <td>
-                      <h6>04</h6>
-                      <p>Make Calculator</p>
-                    </td>
-                    <td>Aakil Tayyab</td>
-                    <td>11PM</td>
-                    <td>
-                      <span className="status completed"> 10 </span>
-                    </td>
-                    <td>
-                      <NavLink to={"/studenttaskview"}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
-                </tbody>
               </table>
             </div>
           </div>

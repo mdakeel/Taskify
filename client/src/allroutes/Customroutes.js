@@ -102,7 +102,7 @@ export const Customroutes = () => {
                     <StudentTask />
                 </>
             } />
-            <Route path="/studenttaskview" element={
+            <Route path="/task/:id" element={
                 <>
                     <StudentDashboard />
                     <StudentTaskView />

@@ -1,7 +1,17 @@
 import "../Style/StudentCss/StudentTaskView.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { Navbar } from "../Navbar/Navbar";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import {setviewTask} from "../../redux/studentSlice"
 export const StudentTaskView = () => {
+  const dispatch = useDispatch();
+  const {id} = useParams()
+  const taskData = useSelector((state) => state.student.viewTask)
+  useEffect(()=>{
+    console.log("id",id)
+dispatch(setviewTask(id))
+  },[])
   return (
     <>
       {/* content */}
@@ -19,7 +29,7 @@ export const StudentTaskView = () => {
               </li>
               <li>
                 <a className="active" href="#">
-                  Task Submition
+                  Task Submission
                 </a>
               </li>
             </ul>
@@ -32,17 +42,16 @@ export const StudentTaskView = () => {
               <div class="row about-list">
                 <div class="col-md-10">
                   <div class="media media2">
-                    <label>Tile </label>
+                    <label>Title </label>
                     
-                      <h3>Build Mern E-Commerce Website</h3>
+                      <h3>{taskData?.task?.title}</h3>
                  
                   </div>
                   <div class="media media2 ">
                     <label>Discription </label>
                     <div class="media discription">
                       <p>
-                        Note Website should be Responsive or multi user multi
-                        vender login system. and its should be MERN Project
+                       {taskData?.task?.description}                        
                       </p>
                     </div>
                   </div>
@@ -52,11 +61,11 @@ export const StudentTaskView = () => {
                 <div class="col-md-6">
                   <div class="media">
                     <label>Createdby</label>
-                    <p>Farman tasleem</p>
+                    <p>{taskData?.assignedBy?.name}</p>
                   </div>
                   <div class="media">
                     <label>Date </label>
-                    <p>12 / 08 / 2023</p>
+                    <p>{taskData?.task?.deadline}</p>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -66,7 +75,7 @@ export const StudentTaskView = () => {
                   </div>
                   <div class="media">
                     <label> Deadline </label>
-                    <p> Befor 5PM</p>
+                    <p>{taskData?.task?.deadline}</p>
                   </div>
                 </div>
               </div>
@@ -79,12 +88,12 @@ export const StudentTaskView = () => {
               <form>
                 <div class="form-group">
                   <input
-                    type="text"
-                    name="fullname"
-                    class="form-control form-task"
-                    id="exampleInputName"
-                    placeholder="Enter your project link"
-                    required="required"
+                                                            type="text"
+                                                            name="fullname"
+                                                            class="form-control form-task"
+                                                            id="exampleInputName"                                                     
+                                                            placeholder="Enter your project link"
+                                                            required="required"
                   />
                 </div>
                 <hr />
@@ -104,3 +113,4 @@ export const StudentTaskView = () => {
     </>
   );
 };
+

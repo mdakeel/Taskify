@@ -1,5 +1,5 @@
 const express = require("express");
-const { studentRegister, unverifiedStudents, verifyStudents, getStudentById, studentLogin } = require("../controller/student.Controller");
+const { studentRegister, unverifiedStudents, verifyStudents, getStudentById, studentLogin, getallStudents } = require("../controller/student.Controller");
 const singleUpload = require("../middleware/singleUpload");
 
 
@@ -10,6 +10,9 @@ studentRoute.post("/register",singleUpload,studentRegister)
 
 // get unverified students list
 studentRoute.get("/unverified",unverifiedStudents)
+// to get all student which are verified
+
+studentRoute.get("/verified",getallStudents)
 
 // get student by id
 studentRoute.get("/:_id",getStudentById)
@@ -19,6 +22,7 @@ studentRoute.patch("/verify/:verifyStudent",verifyStudents)
 
 // to login student
 studentRoute.post("/login",studentLogin)
+
 
 
 

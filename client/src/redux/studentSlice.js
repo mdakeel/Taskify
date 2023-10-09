@@ -1,4 +1,6 @@
-const { createSlice } = require("@reduxjs/toolkit");
+import { Axiosinstance } from "../helpers/axiosInstance";
+
+const { createSlice,current } = require("@reduxjs/toolkit");
 
 
 
@@ -10,13 +12,15 @@ const studentSlice = createSlice({
                 return {...state,mytask:action.payload}
             },
             setviewTask(state,action) {
-                return {...state,viewTask:action.payload}
+                const id = action.payload;
+                const details = current(state).mytask.filter((el)=>el._id === id)
+                return {...state,viewTask:{...details[0]}}
             }
     }
 })
 
 
-const {setmyTask,setviewTask} = studentSlice.actions;
+export const {setmyTask,setviewTask} = studentSlice.actions;
 
 export default studentSlice.reducer
 
@@ -25,12 +29,8 @@ export default studentSlice.reducer
 export const getTask=()=>{
     return async(dispatch)=> {
             try {
-                const resp =  await fetch("http://localhost:8081/task",{
-                    headers: {
-                        "authorization":`bearer ${localStorage.getItem("token")}`
-                    }
-                });
-                const {data} = await resp.json()
+                const resp =  await Axiosinstance.get("/task")
+                const {data} = await resp.data
                 dispatch(setmyTask(data))
                 console.log("task data",data)
 

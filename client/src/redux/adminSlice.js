@@ -60,7 +60,7 @@ export const getSingleTeacherData=(id)=>{
 export const getStudentsData=()=>{
     return async(dispatch)=> {
             try {
-                const resp =  await fetch("http://localhost:8081/admin/students");
+                const resp =  await fetch("http://localhost:8081/student/all");
                 const {data} = await resp.json()
                 dispatch(studentData(data))
                 console.log("students",data)
