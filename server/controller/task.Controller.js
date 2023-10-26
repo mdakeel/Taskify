@@ -23,7 +23,6 @@ exports.createTask =async(req,res)=> {
 
 
 // get task of specific user
-
 exports.getTaskofStudent = async(req,res) => {
     const {userid} = req.body
     try {
@@ -33,4 +32,21 @@ exports.getTaskofStudent = async(req,res) => {
             res.status(500).send({msg:error.message})
 
     }
+}
+
+
+// submit task
+exports.submitTask = async(req,res)=>{
+        const {taskid,userid,attachedLink} = req.body;
+        if(!attachedLink) return res.status(404).json({msg:"Attached link not found"})
+        try {
+            const taskDetails = await AssignedTask.findOneAndUpdate({_id:taskid},{
+                attachedLink,
+                submitStatus:true
+            });
+            res.status(200).send({msg:"Task Updated Successfully",taskDetails})
+
+        } catch (error) {
+                res.status(500).send({msg:error.message})            
+        }
 }

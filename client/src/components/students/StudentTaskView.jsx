@@ -2,22 +2,34 @@ import "../Style/StudentCss/StudentTaskView.css";
 import { NavLink, useParams } from "react-router-dom";
 import { Navbar } from "../Navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import {setviewTask} from "../../redux/studentSlice"
+import { useEffect, useState } from "react";
+import { setviewTask } from "../../redux/studentSlice"
+import { Axiosinstance as network} from "../../helpers/axiosInstance";
 export const StudentTaskView = () => {
   const dispatch = useDispatch();
-  const {id} = useParams()
+  const { id } = useParams()
   const taskData = useSelector((state) => state.student.viewTask)
-  useEffect(()=>{
-    console.log("id",id)
-dispatch(setviewTask(id))
-  },[])
+
+  const[submitData,setSubmitData] = useState({attachedLink:""})
+
+  const submitTask =async(event)=>{
+    event.preventDefault()
+    if(!submitData) return console.log("All Input Fields are required")
+    try {
+      const data = await network.post(`task/submit/${id}`,submitData)
+      console.log("Task Submitted Successfully")  
+    } catch (error) {
+      console.log({msg:error.message || error.msg})
+    }      
+  }
+
+  useEffect(() => {
+    console.log("id", id)
+    dispatch(setviewTask(id))
+  }, [])
   return (
     <>
-      {/* content */}
-
       <section id="content">
-        {/* <Navbar /> */}
         <div className="head-title">
           <div className="left">
             <ul className="breadcrumb">
@@ -43,15 +55,15 @@ dispatch(setviewTask(id))
                 <div class="col-md-10">
                   <div class="media media2">
                     <label>Title </label>
-                    
-                      <h3>{taskData?.task?.title}</h3>
-                 
+
+                    <h3>{taskData?.task?.title}</h3>
+
                   </div>
                   <div class="media media2 ">
                     <label>Discription </label>
                     <div class="media discription">
                       <p>
-                       {taskData?.task?.description}                        
+                        {taskData?.task?.description}
                       </p>
                     </div>
                   </div>
@@ -88,19 +100,20 @@ dispatch(setviewTask(id))
               <form>
                 <div class="form-group">
                   <input
-                                                            type="text"
-                                                            name="fullname"
-                                                            class="form-control form-task"
-                                                            id="exampleInputName"                                                     
-                                                            placeholder="Enter your project link"
-                                                            required="required"
+                    type="text"
+                    name="fullname"
+                    class="form-control form-task"
+                    id="exampleInputName"
+                    placeholder="Enter your project link"
+                    required="required"
+                    value={submitData.attachedLink}
+                    onChange={
+                      (e)=>{setSubmitData((prev)=>{return {...prev,attachedLink:e.target.value}})}
+                    }
                   />
                 </div>
-                <hr />
-                <div class="form-group">
-                  <input type="file" name="file" />
-                </div>
-                <button type="submit" class="btn form-task btn-primary">
+               
+                <button type="submit" onClick={submitTask} class="btn form-task btn-primary">
                   Submit Task
                 </button>
               </form>

@@ -1,40 +1,42 @@
 import React, { useEffect } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { HomePage } from "../pages/HomePage";
-import { AdminDashboard } from "../components/Dashboard/AdminDashboard";
-import { StudentDashboard } from "../components/Dashboard/StudentDashboard";
-import { TeacherDashboard } from "../components/Dashboard/TeacherDashboard";
-import { StudentGroup } from "../components/StudentsComponents/StudentGroup";
-import { TeacherStudent } from "../components/TeacherComponents/TeacherStudent";
-import { TeacherStudentKnowmore } from "../components/TeacherComponents/TeacherStudentKnowmore";
-import { TeacherTask } from "../components/TeacherComponents/TeacherTask";
-import { TeacherDashboardContent } from "../components/TeacherComponents/TeacherDashboardContent";
+import { AdminDashboard } from "../components/dashboards/AdminDashboard";
+import { StudentDashboard } from "../components/dashboards/StudentDashboard";
+import { TeacherDashboard } from "../components/dashboards/TeacherDashboard";
+import { StudentGroup } from "../components/students/StudentGroup";
+import { TeacherStudent } from "../components/teacher/TeacherStudent";
+import { TeacherStudentKnowmore } from "../components/teacher/TeacherStudentKnowmore";
+import { TeacherTask } from "../components/teacher/TeacherTask";
+import { TeacherDashboardContent } from "../components/teacher/TeacherDashboardContent";
 
-import { TeacherCompleteTaskView } from "../components/TeacherComponents/TeacherCompleteTaskView";
-import { TeacherPendingTaskView } from "../components/TeacherComponents/TeacherPendingTaskView";
-import { AdminStudent } from "../components/AdminComponents/AdminStudent";
-import { AdminTeacher } from "../components/AdminComponents/AdminTeacher";
-import { AdminStudentKnowmore } from "../components/AdminComponents/AdminStudentKnowmore";
-import { AdminTeacherKnowmore } from "../components/AdminComponents/AdminTeacherKnowmore";
-import { StudentChat } from "../components/StudentsComponents/StudentChat";
-import { StudentTaskView } from "../components/StudentsComponents/StudentTaskView";
-import { StudentTask } from "../components/StudentsComponents/StudentTask";
-import { StudentTeacher } from "../components/StudentsComponents/StudentTeacher";
-import { StudentDashboardContent } from "../components/StudentsComponents/StudentDashboardContent";
-import { StudentTeacherKnowmore } from "../components/StudentsComponents/StudentTeacherKnowmore";
-import { AdminDashboardContent } from "../components/AdminComponents/AdminDashboardContent";
+import { TeacherCompleteTaskView } from "../components/teacher/TeacherCompleteTaskView";
+import { TeacherPendingTaskView } from "../components/teacher/TeacherPendingTaskView";
+import { AdminStudent } from "../components/admincomponent/AdminStudent";
+import { AdminTeacher } from "../components/admincomponent/AdminTeacher";
+import { AdminStudentKnowmore } from "../components/admincomponent/AdminStudentKnowmore";
+import { AdminTeacherKnowmore } from "../components/admincomponent/AdminTeacherKnowmore";
+import { StudentChat } from "../components/students/StudentChat";
+import { StudentTaskView } from "../components/students/StudentTaskView";
+import { StudentTask } from "../components/students/StudentTask";
+import { StudentTeacher } from "../components/students/StudentTeacher";
+import { StudentDashboardContent } from "../components/students/StudentDashboardContent";
+import { StudentTeacherKnowmore } from "../components/students/StudentTeacherKnowmore";
+import { AdminDashboardContent } from "../components/admincomponent/AdminDashboardContent";
 import { useSelector } from "react-redux";
 import { useRedirectUser } from "../customhooks/useRedirectUser";
 import { Apply, Register } from "../components/Login/Register";
-import { TeacherNewStudent } from "../components/TeacherComponents/TeacherNewStudent";
+import { TeacherNewStudent } from "../components/teacher/TeacherNewStudent";
 import { StudentLogin } from "../components/Login/StudentLogin";
 import { TeacherLogin } from "../components/Login/TeacherLogin";
-import About from "../components/LandingPage/About/About";
+import About from "../components/LandingPage/About/About.jsx";
 import Home from "../components/LandingPage/Home/Home";
-import Profile from "../components/Profile/Profile";
-import EditProfile from "../components/Profile/EditProfile";
-import { NewStudent } from "../components/NewStudent/NewStudent";
-import Waiting from "../components/Waiting/Waiting";
+import Profile from "../components/profile/Profile";
+import EditProfile from "../components/profile/EditProfile";
+import { NewStudent } from "../components/newstudent/NewStudent";
+import Waiting from "../components/waiting/Waiting";
+import TaskPage from "../pages/Teacher/TaskPage";
+import { TeacherLayout } from "../Layout/TeacherLayout";
 
 
 export const Customroutes = () => {
@@ -128,9 +130,9 @@ export const Customroutes = () => {
             <Route path="/details/:id" element = {<><TeacherDashboard /><NewStudent/></>}/>
             <Route path="/teacherstudentknowmore" element={<><TeacherDashboard /><TeacherStudentKnowmore /></>} />
             <Route path="/teachertask" element={<><TeacherDashboard /><TeacherTask /></>} />
-            <Route path="/teachercompletetaskview" element={<><TeacherDashboard /><TeacherCompleteTaskView /></>} />
+            <Route path="/teacher/task/view/:id" element={<TeacherLayout><TeacherCompleteTaskView/></TeacherLayout>} />
             <Route path="/teacherpendingtaskview" element={<><TeacherDashboard /><TeacherPendingTaskView /></>} />
-
+            <Route path="/teacher/taskpage" element={<TeacherLayout><TaskPage/></TeacherLayout>}/>
 
         </Routes>
     )

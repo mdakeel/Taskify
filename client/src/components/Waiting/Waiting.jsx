@@ -1,5 +1,5 @@
 import React from "react";
-import "./Waiting.css";
+import "./waiting.css";
 import image from "../../assets/Images/image";
 import { NavLink} from "react-router-dom";
 import HomeNavbar from "../Navbar/HomeNavbar";

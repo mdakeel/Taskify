@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Profile.css";
 import { NavLink } from "react-router-dom";
 import image from "../../assets/Images/image";
+import { http } from "../../helpers/http";
+// import { Axiosinstance as http } from "../../helpers/axiosInstance";
 
 function Profile() {
+  const userDetails = async()=> {
+   try {
+    const data = await http("GET","/user/details")
+    console.log(data.data)
+    
+   } catch (error) {
+      console.log({msg:error.message})
+   }
+  }
+  
+  useEffect(()=>{
+    userDetails()
+  },[])
+  
   return (
     <>
         

@@ -1,6 +1,6 @@
 import { createRef, useState } from "react";
 import "../Style/Login.css";
-import "../js/Dashboard";
+import "../helpers/Dashboard";
 import image from "../../assets/Images/image";
 import { NavLink } from "react-router-dom";
 import HomeNavbar from "../Navbar/HomeNavbar";

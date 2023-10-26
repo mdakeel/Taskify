@@ -1,10 +1,10 @@
+import "../helpers/Dashboard";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import "../js/Dashboard";
-import { useEffect, useState } from "react";
 import { Navbar } from "../Navbar/Navbar";
 
-export const StudentDashboard = () => {
-  useEffect(() => {
+export const AdminDashboard = () => {
+  useState(() => {
     window.onload = function () {
      const allSideMenu = document.querySelectorAll("#sidebar .side-menu.top li a");
  
@@ -36,14 +36,12 @@ export const StudentDashboard = () => {
    }, []);
   return (
     <>
-  
       <section id="sidebar">
-      
-        <span className="sidemain hide">Student</span>
+        <span className="sidemain">Admin</span>
         <ul class="side-menu top">
           <div class="drop">
             <li class="active">
-              <NavLink to={"/studentdashboard"}>
+              <NavLink to={"/admindashboard"}>
                 <i class="bx bxs-dashboard"></i>
                 <label for="touch">
                   <span>Dashboard</span>
@@ -53,39 +51,51 @@ export const StudentDashboard = () => {
           </div>
 
           <li>
-            <NavLink to={"/studentteacher"}>
+            <NavLink to={"/adminstudent"}>
+              <i class="bx bxs-shopping-bag-alt"></i>
+              <span class="text">Students</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/adminteacher"}>
               <i class="bx bxs-shopping-bag-alt"></i>
               <span class="text">Teachers</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/studenttask"}>
+            <NavLink to={"/admintask"}>
               <i class="bx bxs-doughnut-chart"></i>
               <span class="text">Task</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/studentchat"}>
+            <NavLink to={"/adminmessage"}>
               <i class="bx bxs-message-dots"></i>
-              <span class="text">Chat</span>
+              <span class="text">Messages</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/studentgroup"}>
+            <NavLink to={"/adminteam"}>
               <i class="bx bxs-group"></i>
-              <span class="text">Join Group</span>
+              <span class="text">Team</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"/admingroup"}>
+              <i class="bx bxs-group"></i>
+              <span class="text">Groups</span>
             </NavLink>
           </li>
         </ul>
         <ul class="side-menu">
           <li>
-            <NavLink to={"/studentsetting"}>
+            <NavLink to={"/adminsetting"}>
               <i class="bx bxs-cog"></i>
               <span class="text">Settings</span>
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/logout"}>
+            <NavLink to={"/adminlogout"}>
               <i class="bx bxs-log-out-circle"></i>
               <span class="text">Logout</span>
             </NavLink>
@@ -95,7 +105,6 @@ export const StudentDashboard = () => {
       <section id="content">
        <Navbar />
 </section>
-
       {/* content */}
     </>
   );

@@ -6,7 +6,7 @@ export const TeacherDashboardContent = () => {
       {/* content */}
 
       <section id="content">
-       {/* <Navbar /> */}
+        {/* <Navbar /> */}
 
         <main>
           <div className="head-title">
@@ -33,21 +33,21 @@ export const TeacherDashboardContent = () => {
               <i class="bx bxs-calendar-check"></i>
               <span class="text">
                 <h3>Task</h3>
-                <p>Completed - 03</p>
+                <p>Submitted - 03</p>
               </span>
             </li>
             <li>
               <i class="bx bxs-group"></i>
               <span className="text">
                 <h3>Task</h3>
-                <p>Pending - 17</p>
+                <p>Pending for Review- 17</p>
               </span>
             </li>
             <li>
               <i class="bx bxs-notification"></i>
               <span className="text">
-                <h3>All Task</h3>
-                <p>Totle - 20</p>
+                <h3>Task</h3>
+                <p>Reviewed  - 20</p>
               </span>
             </li>
           </ul>

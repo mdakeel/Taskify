@@ -76,3 +76,28 @@ exports.assignTask =async(req,res)=> {
 
 
 
+// get all task which is assigned by Teacher
+
+exports.taskCreatedByTeacher = async(req,res)=> {
+        const teacherid = req.body?.userid
+        const taskType = req.query?.submit || false
+        console.log(teacherid)
+         try {
+         const data = await AssignedTask.find({assignedBy:teacherid,evalStatus:taskType}).populate("assignedBy assignedTo task");
+        res.status(200).send({msg:"Task Fetched Successfully",data})
+        } catch (error) {
+        res.status(501).send({message:error.message})    
+        }
+}
+
+// @GET get assinged task by id
+
+exports.getAssignedTaskById =async(req,res)=>{
+    const _id = req.params?.id
+    try {
+        const data = await AssignedTask.findOne({_id})
+        res.status(200).send({msg:"Data Successfully Fetchted",data})
+    } catch (error) {
+        res.status(501).send({message:error.message})
+    }
+}

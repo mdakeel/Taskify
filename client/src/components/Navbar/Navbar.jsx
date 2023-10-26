@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import image from "../../assets/Images/image"
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
-import { StudentDashboard } from "../Dashboard/StudentDashboard";
+import { StudentDashboard } from "../dashboards/StudentDashboard";
 
 export const Navbar = () => {
   useEffect(() => {

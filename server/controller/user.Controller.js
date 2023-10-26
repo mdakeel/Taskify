@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs")
 const mongoose = require("mongoose")
 const getDataURI = require("../utils/getDataURI")
 const cloudinary = require("cloudinary")
+const { StudentModel } = require("../model/Student.model")
 
 // to register user
 exports.userSignUp = async(req,res) => {
@@ -53,3 +54,14 @@ exports.userLogin = async(req,res) => {
 
 
 
+// get my details
+
+exports.getUserDetails =async(req,res)=>{
+    const userId  = req.body.userid
+            try {
+                const userData = await StudentModel.findOne({_id:userId})
+                res.status(200).send({msg:"User Details Successfully Fetched",data:userData})
+            } catch (error) {
+                res.status(501).send({msg:error.message})
+            }
+}

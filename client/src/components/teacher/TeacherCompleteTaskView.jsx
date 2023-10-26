@@ -2,12 +2,11 @@ import "../Style/TeacherCss/TeacherTaskView.css";
 import { NavLink } from "react-router-dom";
 import { Navbar } from "../Navbar/Navbar";
 export const TeacherCompleteTaskView = () => {
+
+
   return (
     <>
-      {/* content */}
-
       <section id="content">
-       {/* <Navbar /> */}
         <div className="head-title">
           <div className="left">
             <ul className="breadcrumb">

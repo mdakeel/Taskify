@@ -1,4 +1,4 @@
-import "../js/Dashboard";
+import "../helpers/Dashboard";
 import { NavLink } from "react-router-dom";
 import { Navbar } from "../Navbar/Navbar";
 export const AdminDashboardContent = () => {

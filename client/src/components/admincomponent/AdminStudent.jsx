@@ -1,15 +1,15 @@
-import "../js/Dashboard";
-import "../Style/StudentCss/StudentTeacher.css";
+import { useDispatch, useSelector } from "react-redux";
+import "../helpers/Dashboard";
 import { NavLink } from "react-router-dom";
-import { useDispatch,useSelector} from "react-redux"
 import { useEffect } from "react";
-import { getTeacherData } from "../../redux/adminSlice";
+import { getStudentsData } from "../../redux/adminSlice";
 import { Navbar } from "../Navbar/Navbar";
-export const AdminTeacher = () => {
+
+export const AdminStudent = () => {
   const dispatch = useDispatch();
   const state = useSelector((state)=>state.admin);
   useEffect(()=>{
-    dispatch(getTeacherData())
+    dispatch(getStudentsData())
     console.log(state)
   },[])
   return (
@@ -30,7 +30,7 @@ export const AdminTeacher = () => {
                 </li>
                 <li>
                   <a className="active" href="#">
-                    Teacher
+                    Student
                   </a>
                 </li>
               </ul>
@@ -40,8 +40,8 @@ export const AdminTeacher = () => {
           <div className="table-data">
             <div className="order">
               <div className="head">
-                <h3>Teachers List</h3>
-                <a href="#">All Teachers : 04</a>
+                <h3>Students</h3>
+                <a href="#">04</a>
               </div>
               <table>
                 <thead>
@@ -52,28 +52,23 @@ export const AdminTeacher = () => {
                     <th>View</th>
                   </tr>
                 </thead>
-               {
-                state?.teachersData?.map((e,i)=>{
-                  return (
-                    <tbody>
-                    <tr>
-                      <td>
-                        <h6>{i+1}</h6>
-                        <p>{e?.name}</p>
-                      </td>
-                      <td>{e.email}</td>
-                      <td>{e.qualification}</td>
-                      <td>
-                        <NavLink to={`/adminteacherknowmore/${e._id}`}>
-                          <span className="status completed"> View </span>
-                        </NavLink>
-                      </td>
-                    </tr>
-                  </tbody>
-                  )
-                })
-               }
-             
+              {state?.studentsData?.map((el)=>{return(  <tbody>
+                  <tr>
+                    <td>
+                      <h6>01</h6>
+                      <p>{el.name}</p>
+                    </td>
+                    <td>{el.email}</td>
+                    <td> Diploma</td>
+                    <td>
+                      <NavLink to={`/adminstudentknowmore/${el._id}`}>
+                        <span className="status completed"> View </span>
+                      </NavLink>
+                    </td>
+                  </tr>
+                </tbody>)})}
+
+               
               </table>
             </div>
           </div>
