@@ -1,13 +1,25 @@
 import { NavLink } from "react-router-dom";
 import { Navbar } from "../Navbar/Navbar";
+import { getTeacherDashboardDetails } from "../../api/manager/teacher.api";
+import { useEffect, useState } from "react";
+import { getDate } from "../../helpers/functions";
 export const TeacherDashboardContent = () => {
+  const [dashboardData, setdashboardData] = useState({
+    countofCompletedTask: 0,
+    countofPendingTask: 0,
+    completedTask: [],
+    pendingTask: [],
+  });
+  const getData = async () => {
+    const data = await getTeacherDashboardDetails();
+    setdashboardData(data);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <>
-      {/* content */}
-
       <section id="content">
-        {/* <Navbar /> */}
-
         <main>
           <div className="head-title">
             <div className="left">
@@ -40,18 +52,57 @@ export const TeacherDashboardContent = () => {
               <i class="bx bxs-group"></i>
               <span className="text">
                 <h3>Task</h3>
-                <p>Pending for Review- 17</p>
+                <p>
+                  Pending for Review-{" "}
+                  {dashboardData?.countofPendingTask || "Loading.."}
+                </p>
               </span>
             </li>
             <li>
               <i class="bx bxs-notification"></i>
               <span className="text">
                 <h3>Task</h3>
-                <p>Reviewed  - 20</p>
+                <p>Reviewed - {dashboardData?.countofCompletedTask}</p>
               </span>
             </li>
           </ul>
+          <div className="table-data">
+            <div className="order">
+              <div className="head">
+                <h3>Review Pending</h3>
+              </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Task</th>
+                    <th>Assigned On</th>
+                    <th>Submit Date</th>
+                    <th>View</th>
+                  </tr>
+                </thead>
+                {dashboardData?.pendingTask?.map((element, index) => {
+                  return (
+                    <tbody>
+                      <tr>
+                        <td>
+                          <h6>{index + 1}</h6>
+                          <p>{element.task.title}</p>
+                        </td>
+                        <td>{getDate(element.createdAt) || "N/a"}</td>
+                        <td>{getDate(element.submitDate) || "N/a"}</td>
 
+                        <td>
+                          <NavLink to={`/teacher/task/view/${element._id}`}>
+                            <span className="status completed"> View </span>
+                          </NavLink>
+                        </td>
+                      </tr>
+                    </tbody>
+                  );
+                })}
+              </table>
+            </div>
+          </div>
           <div className="table-data">
             <div className="table-data">
               <div className="order">
@@ -68,177 +119,31 @@ export const TeacherDashboardContent = () => {
                       <th>View</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <h6>01</h6>
-                        <p>Make Calculator</p>
-                      </td>
-                      <td>5AM</td>
-                      <td>4AM</td>
-                      <td>
-                        <span className="status completed"> 10 </span>
-                      </td>
-                      <td>
-                        <NavLink to={"/teacherCompletetaskview"}>
-                          <span className="status completed"> View </span>
-                        </NavLink>
-                      </td>
-                    </tr>
-                  </tbody>
-
-                  <tbody>
-                    <tr>
-                      <td>
-                        <h6>02</h6>
-                        <p>Make Calculator</p>
-                      </td>
-
-                      <td>5AM</td>
-                      <td>5AM</td>
-                      <td>
-                        <span className="status completed"> 10 </span>
-                      </td>
-                      <td>
-                        <NavLink to={"/teacherCompletetaskview"}>
-                          <span className="status completed"> View </span>
-                        </NavLink>
-                      </td>
-                    </tr>
-                  </tbody>
-
-                  <tbody>
-                    <tr>
-                      <td>
-                        <h6>03</h6>
-                        <p>Make Calculator</p>
-                      </td>
-
-                      <td>8AM</td>
-                      <td>9AM</td>
-                      <td>
-                        <span className="status completed"> 10 </span>
-                      </td>
-                      <td>
-                        <NavLink to={"/teacherCompletetaskview"}>
-                          <span className="status completed"> View </span>
-                        </NavLink>
-                      </td>
-                    </tr>
-                  </tbody>
-
-                  <tbody>
-                    <tr>
-                      <td>
-                        <h6>04</h6>
-                        <p>Make Calculator</p>
-                      </td>
-
-                      <td>11PM</td>
-                      <td>8PM</td>
-                      <td>
-                        <span className="status completed"> 10 </span>
-                      </td>
-                      <td>
-                        <NavLink to={"/teacherCompletetaskview"}>
-                          <span className="status completed"> View </span>
-                        </NavLink>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            {/* previous task */}
-
-            <div className="table-data">
-              <div className="order">
-                <div className="head">
-                  <h3>Pending Task</h3>
-                </div>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Task</th>
-                      <th>DeadLine</th>
-                      <th>Pints</th>
-                      <th>View</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        <h6>01</h6>
-                        <p>Make Calculator</p>
-                      </td>
-                      <td>5AM</td>
-                      <td>
-                        <span className="status completed"> 10 </span>
-                      </td>
-                      <td>
-                        <NavLink to={"/teacherpendingtaskview"}>
-                          <span className="status completed"> View </span>
-                        </NavLink>
-                      </td>
-                    </tr>
-                  </tbody>
-
-                  <tbody>
-                    <tr>
-                      <td>
-                        <h6>02</h6>
-                        <p>Make Calculator</p>
-                      </td>
-
-                      <td>5AM</td>
-                      <td>
-                        <span className="status completed"> 10 </span>
-                      </td>
-                      <td>
-                        <NavLink to={"/teacherpendingtaskview"}>
-                          <span className="status completed"> View </span>
-                        </NavLink>
-                      </td>
-                    </tr>
-                  </tbody>
-
-                  <tbody>
-                    <tr>
-                      <td>
-                        <h6>03</h6>
-                        <p>Make Calculator</p>
-                      </td>
-
-                      <td>8AM</td>
-                      <td>
-                        <span className="status completed"> 10 </span>
-                      </td>
-                      <td>
-                        <NavLink to={"/teacherpendingtaskview"}>
-                          <span className="status completed"> View </span>
-                        </NavLink>
-                      </td>
-                    </tr>
-                  </tbody>
-
-                  <tbody>
-                    <tr>
-                      <td>
-                        <h6>04</h6>
-                        <p>Make Calculator</p>
-                      </td>
-
-                      <td>11PM</td>
-                      <td>
-                        <span className="status completed"> 10 </span>
-                      </td>
-                      <td>
-                        <NavLink to={"/teacherpendingtaskview"}>
-                          <span className="status completed"> View </span>
-                        </NavLink>
-                      </td>
-                    </tr>
-                  </tbody>
+                  {dashboardData?.completedTask?.map((element, index) => {
+                    return (
+                      <tbody>
+                        <tr>
+                          <td>
+                            <h6>{index + 1}</h6>
+                            <p>{element.task.title}</p>
+                          </td>
+                          <td>5AM</td>
+                          <td>4AM</td>
+                          <td>
+                            <span className="status completed">
+                              {" "}
+                              {element.point}
+                            </span>
+                          </td>
+                          <td>
+                            <NavLink to={"/teacherCompletetaskview"}>
+                              <span className="status completed"> View </span>
+                            </NavLink>
+                          </td>
+                        </tr>
+                      </tbody>
+                    );
+                  })}
                 </table>
               </div>
             </div>

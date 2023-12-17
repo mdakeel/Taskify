@@ -7,21 +7,29 @@ import HomeNavbar from "../Navbar/HomeNavbar";
 
 export const Register = () => {
   const fileInput = createRef();
+  const [formData, setformData] = useState({
+    email: "",
+    name: "",
+    password: "",
+    dob: "",
+    contact: "",
+    studentId: "",
+    file: "",
+    course: "",
+    branch: "",
+    state: "",
+    country: "",
+  });
   const handleFormData = async (e) => {
     e.preventDefault();
     const newData = new FormData();
-    const data = Array.from(e.target.elements)
-      .filter((input) => input.name)
-      .reduce(
-        (obj, input) =>
-          Object.assign(obj, { [input.name]: input.file || input.value }),
-        {}
-      );
-    for (let key in data) {
+
+    for (let key in formData) {
       if (key !== "file") {
-        newData.append(key, data[key]);
+        newData.append(key, formData[key]);
       }
     }
+
     newData.set("file", fileInput.current.files[0]);
 
     console.log(...newData);
@@ -46,11 +54,7 @@ export const Register = () => {
           <div class="row">
             <div class="col-md-12">
               <div class="p-3">
-                <form
-                  action="http://localhost:8081/student/register"
-                  onSubmit={handleFormData}
-                  method="post"
-                >
+                <form>
                   <div class="row mt-3">
                     <div class="col-md-6">
                       <input
@@ -58,6 +62,12 @@ export const Register = () => {
                         class="form-control r-form"
                         name="name"
                         placeholder="first name"
+                        value={formData.name}
+                        onChange={(e) =>
+                          setformData((prev) => {
+                            return { ...prev, name: e.target.value };
+                          })
+                        }
                       />
                     </div>
                     <div class="col-md-6">
@@ -66,6 +76,12 @@ export const Register = () => {
                         class="form-control r-form"
                         name="email"
                         placeholder="Email"
+                        value={formData.email}
+                        onChange={(e) =>
+                          setformData((prev) => {
+                            return { ...prev, email: e.target.value };
+                          })
+                        }
                       />
                     </div>
                   </div>
@@ -76,6 +92,12 @@ export const Register = () => {
                         class="form-control r-form"
                         placeholder="Password"
                         name="password"
+                        value={formData.password}
+                        onChange={(e) =>
+                          setformData((prev) => {
+                            return { ...prev, password: e.target.value };
+                          })
+                        }
                       />
                     </div>
                     <div class="col-md-6">
@@ -84,6 +106,12 @@ export const Register = () => {
                         class="form-control r-form"
                         placeholder="Date Of Birth"
                         name="dob"
+                        value={formData.dob}
+                        onChange={(e) =>
+                          setformData((prev) => {
+                            return { ...prev, dob: e.target.value };
+                          })
+                        }
                       />
                     </div>
                   </div>
@@ -94,6 +122,12 @@ export const Register = () => {
                         class="form-control r-form"
                         placeholder="Mobile Number"
                         name="contact"
+                        value={formData.contact}
+                        onChange={(e) =>
+                          setformData((prev) => {
+                            return { ...prev, contact: e.target.value };
+                          })
+                        }
                       />
                     </div>
                     <div class="col-md-6">
@@ -102,6 +136,12 @@ export const Register = () => {
                         name="studentId"
                         class="form-control r-form"
                         placeholder="Student ID"
+                        value={formData.studentId}
+                        onChange={(e) =>
+                          setformData((prev) => {
+                            return { ...prev, studentId: e.target.value };
+                          })
+                        }
                       />
                     </div>
                   </div>
@@ -123,7 +163,16 @@ export const Register = () => {
                       <div class="col-md-4">
                         <label class="labels section-label">
                           Course
-                          <select name="course " className="sec">
+                          <select
+                            name="course "
+                            className="sec"
+                            value={formData.course}
+                            onChange={(e) =>
+                              setformData((prev) => {
+                                return { ...prev, course: e.target.value };
+                              })
+                            }
+                          >
                             <option>Diploma</option>
                             <option>B.Tech</option>
                             <option>Dental</option>
@@ -134,7 +183,16 @@ export const Register = () => {
                       <div class="col-md-4">
                         <label class="labels section-label2">
                           Branch
-                          <select name="branch" className="sec">
+                          <select
+                            name="branch"
+                            className="sec"
+                            value={formData.branch}
+                            onChange={(e) =>
+                              setformData((prev) => {
+                                return { ...prev, branch: e.target.value };
+                              })
+                            }
+                          >
                             <option>Computer</option>
                             <option>Electronic</option>
                             <option>Electricale</option>
@@ -151,6 +209,12 @@ export const Register = () => {
                         class="form-control r-form"
                         name="country"
                         placeholder="Country"
+                        value={formData.country}
+                        onChange={(e) =>
+                          setformData((prev) => {
+                            return { ...prev, country: e.target.value };
+                          })
+                        }
                       />
                     </div>
                     <div class="col-md-6">
@@ -159,19 +223,23 @@ export const Register = () => {
                         class="form-control r-form"
                         name="state"
                         placeholder="State"
+                        value={formData.state}
+                        onChange={(e) =>
+                          setformData((prev) => {
+                            return { ...prev, state: e.target.value };
+                          })
+                        }
                       />
                     </div>
                   </div>
 
                   <div class="mt-3 text-center">
-                    <NavLink to={"/waiting"}>
-                      <button
-                        class="btn btn-primary profile-button"
-                        type="submit"
-                      >
-                        Register
-                      </button>
-                    </NavLink>
+                    <button
+                      onClick={(event) => handleFormData(event)}
+                      class="btn btn-primary profile-button"
+                    >
+                      Register
+                    </button>
                   </div>
                 </form>
               </div>

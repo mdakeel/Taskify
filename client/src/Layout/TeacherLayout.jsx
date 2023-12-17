@@ -4,25 +4,26 @@ import { Navbar } from "../components/Navbar/Navbar";
 import { getAssignedTask } from "../api/manager/teacher.api";
 // import "../js/Dashboard";
 
-export const TeacherLayout = ({children}) => {
-  const [taskCreatedByTeacher, setTask] = useState([])
+export const TeacherLayout = ({ children }) => {
+  const [taskCreatedByTeacher, setTask] = useState([]);
   const getData = async () => {
-    const data = await getAssignedTask()
+    const data = await getAssignedTask();
     if (data) {
-      setTask(data)
+      setTask(data);
     } else {
-      console.log("There was definetyly some error")
+      console.log("There was definetyly some error");
     }
-
-  }
+  };
 
   useEffect(() => {
-    getData()
-  }, [])
+    getData();
+  }, []);
 
   useState(() => {
     window.onload = function () {
-      const allSideMenu = document.querySelectorAll("#sidebar .side-menu.top li a");
+      const allSideMenu = document.querySelectorAll(
+        "#sidebar .side-menu.top li a"
+      );
 
       allSideMenu.forEach((item) => {
         const li = item.parentElement;
@@ -46,13 +47,10 @@ export const TeacherLayout = ({children}) => {
       if (window.innerWidth < 768) {
         sidebar.classList.add("hide");
       }
-
-    }
-
+    };
   }, []);
   return (
     <>
-
       <section id="sidebar">
         <span className="sidemain">Teacher</span>
         <ul class="side-menu top">
@@ -70,6 +68,12 @@ export const TeacherLayout = ({children}) => {
             <NavLink to={"/newstudent"}>
               <i class="bx bxs-shopping-bag-alt"></i>
               <span class="text">New Students</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to={"taskpage"}>
+              <i class="bx bxs-shopping-bag-alt"></i>
+              <span class="text">All Task</span>
             </NavLink>
           </li>
 

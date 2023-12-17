@@ -3,30 +3,30 @@ import { NavLink, useParams } from "react-router-dom";
 import { Navbar } from "../Navbar/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { setviewTask } from "../../redux/studentSlice"
-import { Axiosinstance as network} from "../../helpers/axiosInstance";
+import { setviewTask } from "../../redux/studentSlice";
+import { Axiosinstance as network } from "../../helpers/axiosInstance";
 export const StudentTaskView = () => {
   const dispatch = useDispatch();
-  const { id } = useParams()
-  const taskData = useSelector((state) => state.student.viewTask)
+  const { id } = useParams();
+  const taskData = useSelector((state) => state.student.viewTask);
 
-  const[submitData,setSubmitData] = useState({attachedLink:""})
+  const [submitData, setSubmitData] = useState({ attachedLink: "" });
 
-  const submitTask =async(event)=>{
-    event.preventDefault()
-    if(!submitData) return console.log("All Input Fields are required")
+  const submitTask = async (event) => {
+    event.preventDefault();
+    if (!submitData) return console.log("All Input Fields are required");
     try {
-      const data = await network.post(`task/submit/${id}`,submitData)
-      console.log("Task Submitted Successfully")  
+      const data = await network.post(`task/submit/${id}`, submitData);
+      console.log("Task Submitted Successfully");
     } catch (error) {
-      console.log({msg:error.message || error.msg})
-    }      
-  }
+      console.log({ msg: error.message || error.msg });
+    }
+  };
 
   useEffect(() => {
-    console.log("id", id)
-    dispatch(setviewTask(id))
-  }, [])
+    console.log("id", id);
+    dispatch(setviewTask(id));
+  }, []);
   return (
     <>
       <section id="content">
@@ -57,14 +57,32 @@ export const StudentTaskView = () => {
                     <label>Title </label>
 
                     <h3>{taskData?.task?.title}</h3>
-
                   </div>
                   <div class="media media2 ">
-                    <label>Discription </label>
-                    <div class="media discription">
-                      <p>
-                        {taskData?.task?.description}
-                      </p>
+                    <label>Description </label>
+                    <div
+                      class="media discription"
+                      style={{
+                        minHeight: "200px",
+                        minWidth: "800px",
+                        maxWidth: "800px",
+                        maxHeight: "200px",
+                        overflow: "scroll",
+                        border: "2px solid silver",
+                        left: "140px",
+                        position: "relative",
+                        padding: "0px",
+                      }}
+                    >
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: taskData?.task?.description,
+                        }}
+                        style={{
+                          marginLeft: "0px",
+                          padding: "10px",
+                        }}
+                      ></p>{" "}
                     </div>
                   </div>
                 </div>
@@ -107,13 +125,19 @@ export const StudentTaskView = () => {
                     placeholder="Enter your project link"
                     required="required"
                     value={submitData.attachedLink}
-                    onChange={
-                      (e)=>{setSubmitData((prev)=>{return {...prev,attachedLink:e.target.value}})}
-                    }
+                    onChange={(e) => {
+                      setSubmitData((prev) => {
+                        return { ...prev, attachedLink: e.target.value };
+                      });
+                    }}
                   />
                 </div>
-               
-                <button type="submit" onClick={submitTask} class="btn form-task btn-primary">
+
+                <button
+                  type="submit"
+                  onClick={submitTask}
+                  class="btn form-task btn-primary"
+                >
                   Submit Task
                 </button>
               </form>
@@ -126,4 +150,3 @@ export const StudentTaskView = () => {
     </>
   );
 };
-

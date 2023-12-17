@@ -7,7 +7,7 @@ export const TeacherStudent = () => {
       {/* content */}
 
       <section id="content">
-       {/* <Navbar /> */}
+        {/* <Navbar /> */}
 
         <main>
           <div className="head-title">
