@@ -1,19 +1,23 @@
 import { NavLink } from "react-router-dom";
 import { Navbar } from "../Navbar/Navbar";
+import { getDate } from "../../helpers/functions";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getTask } from "../../redux/studentSlice";
 
 export const StudentTask = () => {
-  
+  const dispatch = useDispatch();
+  const task = useSelector((state) => state.student.mytask);
+  useEffect(() => {
+    dispatch(getTask());
+  }, []);
   return (
     <>
-      {/* content */}
-
       <section id="content">
-        {/* <Navbar /> */}
-
         <main>
           <div className="head-title">
             <div className="left">
-              <h1>Dashboard</h1>
+              <h1>ALL TASK</h1>
               <ul className="breadcrumb">
                 <li>
                   <a href="#">Dashboard</a>
@@ -29,12 +33,10 @@ export const StudentTask = () => {
               </ul>
             </div>
           </div>
-
           <div className="table-data">
             <div className="order">
               <div className="head">
                 <h3>Recent Task</h3>
-                <a href="#">Score : 40</a>
               </div>
               <table>
                 <thead>
@@ -47,79 +49,28 @@ export const StudentTask = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>
-                      <h6>01</h6>
-                      <p>Make Calculator</p>
-                    </td>
-                    <td>Professor Farman</td>
-                    <td>5AM</td>
-                    <td>
-                      <span className="status completed"> 10 </span>
-                    </td>
-                    <td>
-                      <NavLink to={"/studenttaskview"}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
-                </tbody>
-
-                <tbody>
-                  <tr>
-                    <td>
-                      <h6>02</h6>
-                      <p>Make Calculator</p>
-                    </td>
-                    <td>Farman Tasleem</td>
-                    <td>5AM</td>
-                    <td>
-                      <span className="status completed"> 10 </span>
-                    </td>
-                    <td>
-                      <NavLink to={"/studenttaskview"}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
-                </tbody>
-
-                <tbody>
-                  <tr>
-                    <td>
-                      <h6>03</h6>
-                      <p>Make Calculator</p>
-                    </td>
-                    <td>Farman Sir</td>
-                    <td>8AM</td>
-                    <td>
-                      <span className="status completed"> 10 </span>
-                    </td>
-                    <td>
-                      <NavLink to={"/studenttaskview"}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
-                </tbody>
-
-                <tbody>
-                  <tr>
-                    <td>
-                      <h6>04</h6>
-                      <p>Make Calculator</p>
-                    </td>
-                    <td>Aakil Tayyab</td>
-                    <td>11PM</td>
-                    <td>
-                      <span className="status completed"> 10 </span>
-                    </td>
-                    <td>
-                      <NavLink to={"/studenttaskview"}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
+                  {[...task]?.reverse()?.map((e, index) => {
+                    return (
+                      <tr>
+                        <td>
+                          <h6>{index + 1}</h6>
+                          <p>{e?.task?.title}</p>
+                        </td>
+                        <td>{e?.assignedBy?.name}</td>
+                        <td>{getDate(e?.task?.deadline)}</td>
+                        <td>
+                          <span className="status completed">
+                            {e?.task?.maxpoint}
+                          </span>
+                        </td>
+                        <td>
+                          <NavLink to={`/task/${e._id}`}>
+                            <span className="status completed"> View </span>
+                          </NavLink>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

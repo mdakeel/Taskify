@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { setviewTask } from "../../redux/studentSlice";
 import { Axiosinstance as network } from "../../helpers/axiosInstance";
+import { getDate } from "../../helpers/functions";
 export const StudentTaskView = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -29,123 +30,138 @@ export const StudentTaskView = () => {
   }, []);
   return (
     <>
-      <section id="content">
-        <div className="head-title">
-          <div className="left">
-            <ul className="breadcrumb">
-              <li>
-                <a href="#">Dashboard</a>
-              </li>
-              <li>
-                <i class="bx bx-chevron-right"></i>
-              </li>
-              <li>
-                <a className="active" href="#">
-                  Task Submission
-                </a>
-              </li>
-            </ul>
+      <section id="content" className="">
+        <main className="!h-screen !pb-0 !mb-0">
+          <div className="head-title">
+            <div className="left">
+              <ul className="breadcrumb">
+                <li>
+                  <a href="#">Dashboard</a>
+                </li>
+                <li>
+                  <i class="bx bx-chevron-right"></i>
+                </li>
+                <li>
+                  <a className="active" href="#">
+                    Task Submission
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <section class="section2 about-section gray-bg" id="about">
-          <div class="row row-main2">
-            <div class="about-text2">
-              <h3 class="dark-color">Task Info</h3>
-              <div class="row about-list">
-                <div class="col-md-10">
-                  <div class="media media2">
-                    <label>Title </label>
 
-                    <h3>{taskData?.task?.title}</h3>
-                  </div>
-                  <div class="media media2 ">
-                    <label>Description </label>
-                    <div
-                      class="media discription"
-                      style={{
-                        minHeight: "200px",
-                        minWidth: "800px",
-                        maxWidth: "800px",
-                        maxHeight: "200px",
-                        overflow: "scroll",
-                        border: "2px solid silver",
-                        left: "140px",
-                        position: "relative",
-                        padding: "0px",
-                      }}
-                    >
-                      <p
-                        dangerouslySetInnerHTML={{
-                          __html: taskData?.task?.description,
-                        }}
+          <section
+            class="section2 about-section gray-bg"
+            id="about"
+            className=""
+          >
+            <div
+              class="row row-main2"
+              className="!bg-white p-2 rounded-md !px-10 mt-12"
+            >
+              <div class="about-text2">
+                <h3 class="dark-color text-xl ">Task Info</h3>
+                <div class="row about-list">
+                  <div class="col-md-10">
+                    <div class="media media2">
+                      <label className="!text-[#A3C24B] !font-light">
+                        Title{" "}
+                      </label>
+
+                      <h3>{taskData?.task?.title}</h3>
+                    </div>
+                    <div class="media media2 ">
+                      <label className="!text-[#A3C24B] !font-light">
+                        Description{" "}
+                      </label>
+                      <div
+                        className="media discription rounded-md"
                         style={{
-                          marginLeft: "0px",
-                          padding: "10px",
+                          minHeight: "fit-content",
+                          minWidth: "600px",
+                          maxWidth: "600px",
+                          maxHeight: "150px",
+                          overflow: "scroll",
+                          left: "30px",
+                          position: "relative",
+                          padding: "0px",
                         }}
-                      ></p>{" "}
+                      >
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: taskData?.task?.description,
+                          }}
+                          style={{
+                            marginLeft: "0px",
+                            padding: "10px",
+                          }}
+                        ></p>{" "}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row about-list">
+                  <div class="col-md-6">
+                    <div class="media">
+                      <label className="!text-[#A3C24B] !font-light">
+                        Task Assigned By
+                      </label>
+                      <p>{taskData?.assignedBy?.name}</p>
+                    </div>
+                    <div class="media">
+                      <label className="!text-[#A3C24B] !font-light">
+                        Deadline
+                      </label>
+                      <p>{getDate(taskData?.task?.deadline)}</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="media">
+                      <label className="!text-[#A3C24B] !font-light">
+                        Max Point
+                      </label>
+                      <p>{taskData?.task?.maxpoint}</p>
+                    </div>
+                    <div class="media">
+                      <label className="!text-[#A3C24B] !font-light">
+                        Recieved Point
+                      </label>
+                      <p>
+                        {taskData.evalStatus
+                          ? taskData.points
+                          : "Not Evaluated/submitted yet "}
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="row about-list">
-                <div class="col-md-6">
-                  <div class="media">
-                    <label>Createdby</label>
-                    <p>{taskData?.assignedBy?.name}</p>
-                  </div>
-                  <div class="media">
-                    <label>Date </label>
-                    <p>{taskData?.task?.deadline}</p>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="media">
-                    <label>Point </label>
-                    <p>10</p>
-                  </div>
-                  <div class="media">
-                    <label> Deadline </label>
-                    <p>{taskData?.task?.deadline}</p>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
 
-          <div class="col-md-8">
-            <div className="form-main">
-              <hr />
-              <form>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    name="fullname"
-                    class="form-control form-task"
-                    id="exampleInputName"
-                    placeholder="Enter your project link"
-                    required="required"
-                    value={submitData.attachedLink}
-                    onChange={(e) => {
-                      setSubmitData((prev) => {
-                        return { ...prev, attachedLink: e.target.value };
-                      });
-                    }}
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  onClick={submitTask}
-                  class="btn form-task btn-primary"
-                >
-                  Submit Task
-                </button>
-              </form>
+            <div class="form-group flex gap-x-5 w-full align-middle items-center">
+              <input
+                type="text"
+                name="fullname"
+                class="form-control form-task !h-12"
+                id="exampleInputName"
+                placeholder="Enter your project link"
+                required="required"
+                value={submitData.attachedLink}
+                onChange={(e) => {
+                  setSubmitData((prev) => {
+                    return { ...prev, attachedLink: e.target.value };
+                  });
+                }}
+              />
+              <button
+                type="submit"
+                onClick={submitTask}
+                class="form-task bg-green-400 text-white w-40 !h-12"
+              >
+                Submit Task
+              </button>
             </div>
-          </div>
-        </section>
-
-        {/* submit */}
+          </section>
+        </main>
       </section>
     </>
   );

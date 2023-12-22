@@ -4,6 +4,7 @@ import { Navbar } from "../Navbar/Navbar";
 import { useEffect, useState } from "react";
 import { assignPoint, specificTaskById } from "../../api/manager/teacher.api";
 import { Toaster } from "react-hot-toast";
+import { getDate } from "../../helpers/functions";
 export const TeacherCompleteTaskView = () => {
   const { id } = useParams();
   const [taskData, setData] = useState({});
@@ -55,29 +56,32 @@ export const TeacherCompleteTaskView = () => {
           style={{ borderRadius: "10px", padding: "!0px" }}
           id="about"
         >
-          <div class="row row-main2" style={{ padding: "20px" }}>
+          <div class="row row-main2 !bg-white" style={{ padding: "20px" }}>
             {/* <div class="col-lg-8"> */}
             <div class="about-text2 p-10">
-              <h3 class="dark-color">Task Info</h3>
+              <h3 class="dark-color ml-2">Task Info</h3>
               <div class="row about-list">
                 <div class="col-md-10">
                   <div class="media media2">
-                    <label>Title </label>
+                    <label className="!text-[#A3C24B] !font-light">
+                      Title{" "}
+                    </label>
 
                     <h3>{taskData?.task?.title}</h3>
                   </div>
                   <div class="media media2 ">
-                    <label>Description </label>
+                    <label className="!text-[#A3C24B] !font-light">
+                      Description{" "}
+                    </label>
                     <div
-                      class="media discription"
+                      className="media discription rounded-md"
                       style={{
-                        minHeight: "200px",
-                        minWidth: "800px",
-                        maxWidth: "800px",
-                        maxHeight: "200px",
+                        minHeight: "fit-content",
+                        minWidth: "600px",
+                        maxWidth: "600px",
+                        maxHeight: "150px",
                         overflow: "scroll",
-                        border: "2px solid silver",
-                        left: "140px",
+                        left: "100px",
                         position: "relative",
                         padding: "0px",
                       }}
@@ -98,93 +102,79 @@ export const TeacherCompleteTaskView = () => {
               <div class="row about-list">
                 <div class="col-md-6">
                   <div class="media">
-                    <label>Submitedby</label>
+                    <label className="!text-[#A3C24B] !font-light">
+                      Student Name
+                    </label>
                     <p>{taskData?.assignedTo?.name}</p>
                   </div>
                   <div class="media">
-                    <label>Date </label>
-                    <p>12 / 08 / 2023</p>
-                  </div>
-                  <div class="media">
-                    <label>Submited time </label>
-                    <p>6:30PM</p>
+                    <label className="!text-[#A3C24B] !font-light">
+                      Submit Date
+                    </label>
+                    <p>{getDate(taskData?.submitDate)}</p>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="media">
-                    <label>Max Points </label>
+                    <label className="!text-[#A3C24B] !font-light">
+                      Max Point
+                    </label>
                     <p>{taskData?.task?.maxpoint}</p>
                   </div>
                   <div class="media">
-                    <label> Deadline </label>
-                    <p> {taskData?.task?.deadline}</p>
+                    <label className="!text-[#A3C24B] !font-light">
+                      Deadline
+                    </label>
+                    <p> {getDate(taskData?.task?.deadline)}</p>
                   </div>
                   <div class="media">
-                    <label> Assigned Point</label>
-                    <p> 1:30 hr</p>
+                    <label className="!text-[#A3C24B] !font-light">
+                      Assigned Point
+                    </label>
+                    <p>{taskData?.points}</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           {/* </div> */}
-          <div class="col-md-8">
-            <div className="form-main">
+
+          <div className="form-main">
+            <hr />
+            <form className="flex flex-col justify-center bg-white py-2 items-center">
+              <div class="form-group w-[50%]">
+                <input
+                  type="text"
+                  name="fullname"
+                  class="form-control form-task"
+                  id="exampleInputName"
+                  value={`Attached link: ${taskData.attachedLink}`}
+                  required="required"
+                  disabled
+                />
+              </div>
               <hr />
-              <form>
-                <div class="form-group">
+              <div className="form_file w-[50%]">
+                <div className="assignment-taks">
                   <input
                     type="text"
-                    name="fullname"
-                    class="form-control form-task"
-                    id="exampleInputName"
-                    value={`Attached link: ${taskData.attachedLink}`}
-                    required="required"
-                    disabled
+                    name="point"
+                    class="form-control form-task2 form-task text-center"
+                    placeholder="Assign Point"
+                    value={inputs.point}
+                    onChange={(e) =>
+                      setInput({ ...inputs, point: e.target.value })
+                    }
                   />
                 </div>
-                <hr />
-                <div className="form_file">
-                  <div class="form-group2">
-                    <input
-                      type="text"
-                      name="file"
-                      class="form-control form-task-file"
-                      placeholder="Task File"
-                      value="Task File "
-                      disabled
-                    />
-                  </div>
-                  <div className="assignment-taks">
-                    <div class="form-group3">
-                      <input
-                        type="text"
-                        name="file"
-                        placeholder="Task File"
-                        value="Assignment-2.pdf"
-                        disabled
-                      />
-                    </div>
-                    <input
-                      type="text"
-                      name="point"
-                      class="form-control form-task2 form-task"
-                      placeholder="Assign Point"
-                      value={inputs.point}
-                      onChange={(e) =>
-                        setInput({ ...inputs, point: e.target.value })
-                      }
-                    />
-                  </div>
-                </div>
-                <button
-                  onClick={handleAssignPoint}
-                  class="btn form-task btn-primary"
-                >
-                  Assign Point
-                </button>
-              </form>
-            </div>
+              </div>
+              <button
+                onClick={handleAssignPoint}
+                class="btn form-task btn-primary !w-[50%]"
+              >
+                Assign Point
+              </button>
+            </form>
           </div>
         </section>
         {/* submit */}
