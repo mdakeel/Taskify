@@ -104,6 +104,22 @@ exports.verifyStudents = async (req, res) => {
   }
 };
 
+// cancel student approve
+exports.cancelStudent = async (req, res) => {
+  const studentID = req.params.studentId;
+  try {
+    const studentOne = await StudentModel.findOneAndDelete({ _id: studentID })
+    sendMail(
+      studentOne.email,
+      'Your request to join student portal has been cancelled, please talk with your admin to know the details or mail at help@jamia.com',
+      "Student Portal Request Cancelled"
+    );
+    res.status(200).send({ msg: "Student portal access cancelled successfully" })
+  } catch (error) {
+    res.status(500).send({ msg: error.message })
+  }
+}
+
 // get student by id
 
 exports.getStudentById = async (req, res) => {

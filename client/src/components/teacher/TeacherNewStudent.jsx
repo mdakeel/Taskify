@@ -3,23 +3,19 @@ import { NavLink } from "react-router-dom";
 import { Navbar } from "../Navbar/Navbar";
 
 export const TeacherNewStudent = () => {
-  const[newStudent,setNewStudent] = useState([])
-  const getData=async()=>{
-    const resp =  await fetch("http://localhost:8081/student/unverified");
-    const {data} = await resp.json()
-    console.log(data)
-    setNewStudent(data)
-  }
-  useEffect(()=>{
-    getData()
-  },[])
+  const [newStudent, setNewStudent] = useState([]);
+  const getData = async () => {
+    const resp = await fetch("http://localhost:8082/student/unverified");
+    const { data } = await resp.json();
+    console.log(data);
+    setNewStudent(data);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <>
-      {/* content */}
-
       <section id="content">
-       {/* <Navbar /> */}
-
         <main>
           <div className="head-title">
             <div className="left">
@@ -40,7 +36,7 @@ export const TeacherNewStudent = () => {
             </div>
           </div>
 
-          <div className="table-data">
+          <div className="table-data" id="section">
             <div className="order">
               <div className="head">
                 <h3>New Students</h3>
@@ -49,35 +45,31 @@ export const TeacherNewStudent = () => {
               <table>
                 <thead>
                   <tr>
+                    <th>Sr No.</th>
                     <th>Name</th>
                     <th>Email</th>
                     <th>Education</th>
-                    <th>Details</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {
-                    newStudent?.map((e)=>{ 
-                      return (
-                        <tr>
-                    <td>
-                      <h6>01</h6>
-                      <p>{e.name}</p>
-                    </td>
-                    <td>{e.email}</td>
-                    <td>{e.course}</td>
-                    <td>
-                      <NavLink to={`/details/${e._id}`}>
-                        <span className="status completed"> View </span>
-                      </NavLink>
-                    </td>
-                  </tr>
-                      )
-                    })
-                  }
+                  {newStudent?.map((e, i) => {
+                    return (
+                      <tr>
+                        <td>
+                          <h6>{i + 1}</h6>
+                          <p>{e.name}</p>
+                        </td>
+                        <td>{e.email}</td>
+                        <td>{e.course}</td>
+                        <td>
+                          <NavLink to={`/details/${e._id}`}>
+                            <span className="status completed"> View </span>
+                          </NavLink>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
-
-                
               </table>
             </div>
           </div>

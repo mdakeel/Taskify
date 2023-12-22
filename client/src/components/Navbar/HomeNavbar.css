@@ -1,121 +1,113 @@
-*{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.home-navbar-nav{
-    display: flex;
-    align-items: center;
-    justify-content:space-between ;
-    padding: 0 50px;
-}
-
-.home-nav{
-    width: 100%;
-    top: 0;
-    position: fixed;
-    background-color: rgba(0,0,0,0.2);
-    height: 80px !important;
-    
+.home-navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
 }
 
-.home-logo img{
-    margin-top: -25px !important;
+.home-nav {
+  width: 100%;
+  top: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 80px !important;
 }
 
-#navbar{
-    /* z-index: 2 !important; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.home-logo img {
+  margin-top: -25px !important;
 }
 
-#navbar li a{
-    list-style: none;
-    padding: 0 20px;
-    position: relative;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #fff;
-    transition: 0.3s ease-in-out;
+#navbar {
+  /* z-index: 2 !important; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#navbar li a {
+  list-style: none;
+  padding: 0 20px;
+  position: relative;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  transition: 0.3s ease-in-out;
 }
 
 #navbar li a:hover,
-#navbar li a.active{
-    color: #17cf97 !important;
-   
+#navbar li a.active {
+  color: #17cf97 !important;
 }
 
-#mobile-nav{
-    
-    display: none;
+#mobile-nav {
+  display: none;
 }
 
-#mobile-nav i{
-    font-size: 30px;
-    margin-top: -58px;
-    color: #fff;
-    float: right;
-    margin-right: 30px !important;
-    align-items: center;
+#mobile-nav i {
+  font-size: 30px;
+  margin-top: -58px;
+  color: #fff;
+  float: right;
+  margin-right: 30px !important;
+  align-items: center;
 }
 
-@media  screen and (max-width:769px) {
+@media screen and (max-width: 769px) {
+  .home-nav {
+    z-index: 2 !important;
+    top: 0 !important;
+    height: 70px !important;
+  }
 
-    .home-nav{
-        z-index: 2 !important;
-        top: 0 !important;
-        height: 70px !important;
-    }
-    
-    .home-logo img{
-        width: 200px !important;
-        margin-top: -15px !important;
-        margin-left: -50px !important;
-    }
+  .home-logo img {
+    width: 200px !important;
+    margin-top: -15px !important;
+    margin-left: -50px !important;
+  }
 
-    #navbar{
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        position: absolute;
-        z-index: 1 !important;
-        top: 70px;
-        right: -250px;
-        width: 250px;
-        height: 60vh;
-        background-color: #393f45;
-        box-shadow: 0 40px 60px rgba(0,0,0,0.3);
-        padding-top: 50px;
-        padding-left: 20px;
-    }
-    #navbar li{
-        font-size: 25px;
-        font-weight: 500;
-        margin-bottom: 10px !important;
-    }
-     #navbar.active{
-        right: 0px;
-     }
+  #navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: absolute;
+    z-index: 1 !important;
+    top: 70px;
+    right: -250px;
+    width: 250px;
+    height: 60vh;
+    background-color: #393f45;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.3);
+    padding-top: 50px;
+    padding-left: 20px;
+  }
+  #navbar li {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px !important;
+  }
+  #navbar.active {
+    right: 0px;
+  }
 
-    #navbar-nav li {
-        margin-bottom: 25px;
-    }
+  #navbar-nav li {
+    margin-bottom: 25px;
+  }
 
-    #mobile-nav{
-       
-        display: block;
-    }
+  #mobile-nav {
+    display: block;
+  }
 
-    #mobile-nav i{
-        right: 0;
-        position: absolute;
-        font-size: 24px;
-        cursor: pointer;
-    }
+  #mobile-nav i {
+    right: 0;
+    position: absolute;
+    font-size: 24px;
+    cursor: pointer;
+  }
 }
-
-

@@ -6,6 +6,7 @@ const {
   getStudentById,
   studentLogin,
   getallStudents,
+  cancelStudent,
 } = require("../controller/student.Controller");
 const singleUpload = require("../middleware/singleUpload");
 
@@ -16,8 +17,8 @@ studentRoute.post("/register", singleUpload, studentRegister);
 
 // get unverified students list
 studentRoute.get("/unverified", unverifiedStudents);
-// to get all student which are verified
 
+// to get all student which are verified
 studentRoute.get("/verified", getallStudents);
 
 // get student by id
@@ -25,6 +26,9 @@ studentRoute.get("/:_id", getStudentById);
 
 // verify student
 studentRoute.patch("/verify/:studentId", verifyStudents);
+
+// cancel student
+studentRoute.delete("/cancel/:studentId", cancelStudent);
 
 // to login student
 studentRoute.post("/login", studentLogin);

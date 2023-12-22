@@ -4,11 +4,7 @@ import { Navbar } from "../Navbar/Navbar";
 export const TeacherStudent = () => {
   return (
     <>
-      {/* content */}
-
       <section id="content">
-        {/* <Navbar /> */}
-
         <main>
           <div className="head-title">
             <div className="left">

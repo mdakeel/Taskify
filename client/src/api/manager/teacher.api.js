@@ -35,6 +35,19 @@ export const verifyStudent = async (studentId) => {
   }
 };
 
+// cancel student
+export const cancelStudent = async (studentId, toast) => {
+  try {
+    const resp = await http.delete(`/student/cancel/${studentId}`);
+    toast.success("Student Request Cancelled Successfully");
+    return resp.data;
+  } catch (error) {
+    console.log({ Error: error.message });
+    toast.error("Error while cancelling Student request, Try Again");
+    return {};
+  }
+};
+
 //  teacher/details teacher dashboard details { countofCompletedTask: number,countofPendingTask: number,completedTask: [], pendingTask: []}
 
 export const getTeacherDashboardDetails = async () => {
@@ -52,7 +65,7 @@ export const getTeacherDashboardDetails = async () => {
   }
 };
 
-export const declineStudent = async () => {};
+export const declineStudent = async () => { };
 
 export const assignPoint = async (id, payload) => {
   try {

@@ -2,11 +2,15 @@ import { createRef, useState } from "react";
 import "../Style/Login.css";
 import "../helpers/Dashboard";
 import image from "../../assets/Images/image";
-import { NavLink } from "react-router-dom";
+import { useNavigate, redirect } from "react-router-dom";
 import HomeNavbar from "../Navbar/HomeNavbar";
+import { classNames } from "../helpers";
+import toast, { Toaster } from "react-hot-toast";
 
 export const Register = () => {
   const fileInput = createRef();
+  const navigate = useNavigate();
+
   const [formData, setformData] = useState({
     email: "",
     name: "",
@@ -34,13 +38,28 @@ export const Register = () => {
 
     console.log(...newData);
     try {
-      const resp = await fetch("http://localhost:8081/student/register", {
+      const resp = await fetch("http://localhost:8082/student/register", {
         method: "POST",
         body: newData,
       });
 
-      console.log(resp);
-    } catch (error) {}
+      if (resp.status !== 200) {
+        toast.error(
+          "There's some Error while Creating your account, Please Try Again!"
+        );
+      } else {
+        toast.success("You are Registered Successfully");
+        navigate("/waiting");
+      }
+    } catch (error) {
+      toast.error(
+        "There's some Error while Creating your account :( Try Again!"
+      );
+    }
+  };
+  const [fileValue, setFileValue] = useState();
+  const onFileChange = () => {
+    setFileValue(fileInput?.current?.files[0] || "");
   };
 
   return (
@@ -48,6 +67,7 @@ export const Register = () => {
       <div className="home-container2">
         <img src={image.jmi1} alt="jmi1 img" />
       </div>
+      <Toaster />
       <HomeNavbar />
       <div className="home-main-content2">
         <div class="container register-content col-md-10 ">
@@ -59,9 +79,15 @@ export const Register = () => {
                     <div class="col-md-6">
                       <input
                         type="text"
-                        class="form-control r-form"
+                        required
                         name="name"
-                        placeholder="first name"
+                        placeholder="First name"
+                        className={classNames(
+                          "form-control r-form border-[2px]",
+                          formData.name.length > 3
+                            ? "border-[2px] border-green-500"
+                            : "border-red-500"
+                        )}
                         value={formData.name}
                         onChange={(e) =>
                           setformData((prev) => {
@@ -73,7 +99,12 @@ export const Register = () => {
                     <div class="col-md-6">
                       <input
                         type="email"
-                        class="form-control r-form"
+                        className={classNames(
+                          "form-control r-form border-[2px]",
+                          formData.email.length > 6
+                            ? "border-[2px] border-green-500"
+                            : "border-red-500"
+                        )}
                         name="email"
                         placeholder="Email"
                         value={formData.email}
@@ -89,7 +120,12 @@ export const Register = () => {
                     <div class="col-md-6">
                       <input
                         type="password"
-                        class="form-control r-form"
+                        className={classNames(
+                          "form-control r-form border-[2px]",
+                          formData.password.length > 5
+                            ? "border-[2px] border-green-500"
+                            : "border-red-500"
+                        )}
                         placeholder="Password"
                         name="password"
                         value={formData.password}
@@ -103,7 +139,13 @@ export const Register = () => {
                     <div class="col-md-6">
                       <input
                         type="date"
-                        class="form-control r-form"
+                        className={classNames(
+                          "form-control r-form cursor-pointer w-full",
+                          "border-[2px]",
+                          formData.dob
+                            ? "border-[2px] border-green-500"
+                            : "border-red-500"
+                        )}
                         placeholder="Date Of Birth"
                         name="dob"
                         value={formData.dob}
@@ -119,7 +161,12 @@ export const Register = () => {
                     <div class="col-md-6">
                       <input
                         type="number"
-                        class="form-control r-form"
+                        className={classNames(
+                          "form-control r-form border-[2px]",
+                          formData.contact.length > 9
+                            ? "border-[2px] border-green-500"
+                            : "border-red-500"
+                        )}
                         placeholder="Mobile Number"
                         name="contact"
                         value={formData.contact}
@@ -134,7 +181,12 @@ export const Register = () => {
                       <input
                         type="text"
                         name="studentId"
-                        class="form-control r-form"
+                        className={classNames(
+                          "form-control r-form border-[2px]",
+                          formData.studentId.length > 3
+                            ? "border-[2px] border-green-500"
+                            : "border-red-500"
+                        )}
                         placeholder="Student ID"
                         value={formData.studentId}
                         onChange={(e) =>
@@ -148,24 +200,37 @@ export const Register = () => {
                   <div class="row mt-3">
                     <div class="row mt-">
                       <div class="col-md-4">
-                        <label class="register-file">
-                          Choose file
+                        <label
+                          className={classNames(
+                            "register-file !text-[12px] p-2 !rounded-sm cursor-pointer border-[1px] ",
+                            fileValue ? "border-green-500" : "border-red-500"
+                          )}
+                        >
+                          Attach ID/Proof
                           <input
                             type="file"
                             id="inputTag"
-                            class="form-control r-form"
+                            className="form-control r-form"
                             ref={fileInput}
                             name="file"
+                            onChange={onFileChange}
+                            required
                             placeholder="Clear Image of Fee Slip/ Id Card"
                           />
                         </label>
                       </div>
                       <div class="col-md-4">
-                        <label class="labels section-label">
+                        <label class="labels section-label !text-[16px]">
                           Course
                           <select
                             name="course "
-                            className="sec"
+                            className={classNames(
+                              "sec text-black cursor-pointer text-[12px] p-2 rounded-sm",
+                              "border-[2px]",
+                              formData.course
+                                ? "border-[2px] border-green-500"
+                                : "border-red-500"
+                            )}
                             value={formData.course}
                             onChange={(e) =>
                               setformData((prev) => {
@@ -181,12 +246,19 @@ export const Register = () => {
                         </label>
                       </div>
                       <div class="col-md-4">
-                        <label class="labels section-label2">
+                        <label class="labels section-label2 !text-[16px]">
                           Branch
                           <select
                             name="branch"
-                            className="sec"
+                            className={classNames(
+                              "sec text-black cursor-pointer text-[12px] p-2 rounded-sm",
+                              "border-[2px]",
+                              formData.branch
+                                ? "border-[2px] border-green-500"
+                                : "border-red-500"
+                            )}
                             value={formData.branch}
+                            required
                             onChange={(e) =>
                               setformData((prev) => {
                                 return { ...prev, branch: e.target.value };
@@ -206,7 +278,14 @@ export const Register = () => {
                     <div class="col-md-6">
                       <input
                         type="text"
-                        class="form-control r-form"
+                        className={classNames(
+                          "form-control r-form",
+                          "border-[2px]",
+                          formData.country
+                            ? "border-[2px] border-green-500"
+                            : "border-red-500"
+                        )}
+                        required
                         name="country"
                         placeholder="Country"
                         value={formData.country}
@@ -220,9 +299,16 @@ export const Register = () => {
                     <div class="col-md-6">
                       <input
                         type="text"
-                        class="form-control r-form"
                         name="state"
                         placeholder="State"
+                        required
+                        className={classNames(
+                          "form-control r-form",
+                          "border-[2px]",
+                          formData.state
+                            ? "border-[2px] border-green-500"
+                            : "border-red-500"
+                        )}
                         value={formData.state}
                         onChange={(e) =>
                           setformData((prev) => {
@@ -233,10 +319,11 @@ export const Register = () => {
                     </div>
                   </div>
 
-                  <div class="mt-3 text-center">
+                  <div className="mt-3 text-center w-full px-2">
                     <button
                       onClick={(event) => handleFormData(event)}
-                      class="btn btn-primary profile-button"
+                      className="btn btn-primary profile-button min-w-full m-0 col-md-12
+                      "
                     >
                       Register
                     </button>

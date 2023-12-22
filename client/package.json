@@ -10,9 +10,11 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "autoprefixer": "^10.4.16",
     "axios": "^1.5.1",
     "framer-motion": "^10.16.4",
     "motion": "^10.16.4",
+    "postcss": "^8.4.32",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
@@ -24,6 +26,7 @@
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "styled-components": "^6.0.8",
+    "tailwind-merge": "^2.2.0",
     "thunk": "^0.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -50,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0"
   }
 }

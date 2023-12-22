@@ -23,31 +23,31 @@ export const StudentLogin = () => {
   }, [state]);
   return (
     <>
-    <div className="home50">
-      <div className="home-container">
-        <img src={image.jmi1} alt="jmi1" />
-      </div>
-      <HomeNavbar />
-      <div className="home-main-content2">
-        <div className="row ">
-          <div className="col">
-            <div className="main-content2">
-              <img src={image.jmilogo} alt="jmi" />
-              <h1>Jamia Millia Islamia</h1>
-              <p>
-                Jamia Vision. Strive to foster the goals of building a secular
-                and modern system of integrated education for sustainable
-                development of society and better
-              </p>
+      <div className="home50">
+        <div className="home-container">
+          <img src={image.jmi1} alt="jmi1" />
+        </div>
+        <HomeNavbar />
+        <div className="home-main-content2">
+          <div className="row ">
+            <div className="col">
+              <div className="main-content2">
+                <img src={image.jmilogo} alt="jmi" />
+                <h1>Jamia Millia Islamia</h1>
+                <p>
+                  Jamia Vision. Strive to foster the goals of building a secular
+                  and modern system of integrated education for sustainable
+                  development of society and better
+                </p>
+              </div>
             </div>
-          </div>
-          <div className="login card-content002">
-            <div className="login_form ">
-              {/* <div className="col"> */}
+            <div className="login card-content002">
+              <div className="login_form ">
+                {/* <div className="col"> */}
                 <input
                   type="email"
                   value={userLogin.email}
-                  className="form-login"
+                  className="form-login !text-black active:text-green border-2 border-green"
                   onChange={(e) => {
                     setUserLogin({ ...userLogin, email: e.target.value });
                   }}
@@ -58,7 +58,7 @@ export const StudentLogin = () => {
                 <input
                   type="password"
                   value={userLogin.password}
-                  className="form-login"
+                  className="form-login text-black"
                   onChange={(e) => {
                     setUserLogin({ ...userLogin, password: e.target.value });
                   }}
@@ -68,23 +68,23 @@ export const StudentLogin = () => {
                 <input
                   type="submit"
                   name="button"
-                  className="login01 form-login"
+                  className="login01 form-login cursor-pointer"
                   onClick={handleLogin}
                   value="Login"
                 />
-            {/* </div> */}
-            </div>
-            <div className="form_bottom_links">
-              <div className="create_account student-button">
-                <NavLink to={"/teacherlogin"}>Teacher Login</NavLink>
+                {/* </div> */}
               </div>
-              <div className="need_help">
-                <NavLink to={"/register"}>Register</NavLink>
+              <div className="form_bottom_links">
+                <div className="create_account student-button">
+                  <NavLink to={"/teacherlogin"}>Teacher Login</NavLink>
+                </div>
+                <div className="need_help">
+                  <NavLink to={"/register"}>Register</NavLink>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
     </>
   );

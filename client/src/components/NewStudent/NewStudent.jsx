@@ -5,7 +5,7 @@ import "./NewStudent.css";
 import axios from "axios";
 import { Axiosinstance as request } from "../../helpers/axiosInstance";
 import { useEffect, useState } from "react";
-import { verifyStudent } from "../../api/manager/teacher.api";
+import { cancelStudent, verifyStudent } from "../../api/manager/teacher.api";
 
 import toast, { Toaster } from "react-hot-toast";
 export const NewStudent = () => {
@@ -25,7 +25,10 @@ export const NewStudent = () => {
     console.log(resp);
   };
 
-  const cancelRequest = () => {};
+  const cancelRequestHandle = async () => {
+    const resp = await cancelStudent(id, toast);
+    console.log(resp);
+  };
 
   useEffect(() => {
     getData();
@@ -34,7 +37,7 @@ export const NewStudent = () => {
   return (
     <>
       <Toaster />
-      <section id="content">
+      <section id="content" className="bg-white">
         <div className="head-title">
           <div className="left">
             <ul className="breadcrumb">
@@ -60,71 +63,79 @@ export const NewStudent = () => {
             </ul>
           </div>
         </div>
-        <section class="section about-section gray-bg" id="about">
-          <div class="row row-main2">
-            <div class="about-text2 ">
-              <div class="about2">
-                <h3 class="dark-colour">Student Information</h3>
-              </div>
-              <div class="row about-list">
-                <div class="col-md-6">
-                  <div class="media">
-                    <label>Name</label>
-                    <p>{newStudentData?.name}</p>
-                  </div>
-                  <div class="media">
-                    <label>Date of Birth</label>
-                    <p>{newStudentData?.dob}</p>
-                  </div>
-                  <div class="media">
-                    <label>Location</label>
-                    <p>
-                      {newStudentData?.state + " " + newStudentData?.country}
-                    </p>
-                  </div>
+        <main>
+          <section class="section about-section gray-bg" id="about">
+            <div class="row row-main2">
+              <div class="about-text2 ">
+                <div class="about2">
+                  <h3 class="dark-colour">Student Information</h3>
                 </div>
-                <div class="col-md-6">
-                  <div class="media">
-                    <label>E-mail</label>
-                    <p>{newStudentData?.email}</p>
+                <div class="row about-list">
+                  <div class="col-md-6">
+                    <div class="media">
+                      <label>Name</label>
+                      <p>{newStudentData?.name}</p>
+                    </div>
+                    <div class="media">
+                      <label>Date of Birth</label>
+                      <p>{newStudentData?.dob}</p>
+                    </div>
+                    <div class="media">
+                      <label>Location</label>
+                      <p>
+                        {newStudentData?.state + " " + newStudentData?.country}
+                      </p>
+                    </div>
                   </div>
-                  <div class="media">
-                    <label>Phone</label>
-                    <p>{newStudentData?.contact}</p>
-                  </div>
-                  <div class="media">
-                    <label>Education</label>
-                    <p>M.Tech from JMI</p>
+                  <div class="col-md-6">
+                    <div class="media">
+                      <label>E-mail</label>
+                      <p>{newStudentData?.email}</p>
+                    </div>
+                    <div class="media">
+                      <label>Phone</label>
+                      <p>{newStudentData?.contact}</p>
+                    </div>
+                    <div class="media">
+                      <label>Education</label>
+                      <p>M.Tech from JMI</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="flex req-btn row gap flex-center justify-content-center mb-3">
-            <div>
-              <button className="btn-success" onClick={approveRequest}>
-                Approve Request
-              </button>
-            </div>
-            <div>
-              <button className="btn-red " onClick={cancelRequest}>
-                Cancel Request
-              </button>
-            </div>
-            <div>
-              <button className="btn-dark ">
-                <a
-                  href={newStudentData?.proof}
-                  target="_blank"
-                  rel="noopener noreferrer"
+            <div class="flex req-btn row gap flex-center justify-content-center mb-3">
+              <div>
+                <button
+                  className="bg-[rgb(220,247,226)] !text-[#48B262] !text-[14px] font-medium border-2 border-[#48B262] shadow-md"
+                  onClick={approveRequest}
                 >
-                  View Document
-                </a>
-              </button>
+                  APPROVE REQUEST
+                </button>
+              </div>
+              <div>
+                <button className="!text-[#3A7EF5] !text-[14px] bg-[#E5EFFE] font-medium border-2 border-[#ED4D40] shadow-md hover:!text-[#3A7EF5]">
+                  <a
+                    href={newStudentData?.proof}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Document
+                  </a>
+                </button>
+              </div>
+              <div>
+                <button
+                  className="!text-[#ED4D40] !text-[14px] bg-white font-medium border-2 border-[#ED4D40] shadow-md"
+                  onClick={cancelRequestHandle}
+                >
+                  Cancel Request
+                </button>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </main>
       </section>
     </>
   );

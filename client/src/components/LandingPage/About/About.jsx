@@ -7,11 +7,8 @@ function About() {
   return (
     <>
       <div className="home-container3">
-       
-      <HomeNavbar />
+        <HomeNavbar />
         <div className="about-body-content">
-        {/* <HomeNavbar /> */}
-          {/* <h2>About Us</h2> */}
           <div className="about-body-content1">
             <h3>Introduction</h3>
             <p>
