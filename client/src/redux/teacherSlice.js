@@ -30,7 +30,7 @@ export default teacherSlice.reducer
 export const getTeacherData = () => {
     return async (dispatch) => {
         try {
-            const resp = await fetch("http://localhost:8081/admin/teachers");
+            const resp = await fetch(`${process.env.BASE_URL}/admin/teachers`);
             const { data } = await resp.json()
             dispatch(teacherData(data))
             console.log("TeacherData", data)
@@ -45,7 +45,7 @@ export const getTeacherData = () => {
 export const getSingleTeacherData = (id) => {
     return async (dispatch) => {
         try {
-            const resp = await fetch(`http://localhost:8081/admin/teacher/${id}`);
+            const resp = await fetch(`${process.env.BASE_URL}/admin/teacher/${id}`);
             const { data } = await resp.json()
             dispatch(setViewTeacherData(data))
             console.log("singleTeacherData", data)
@@ -60,7 +60,7 @@ export const getSingleTeacherData = (id) => {
 export const getStudentsData = () => {
     return async (dispatch) => {
         try {
-            const resp = await fetch("http://localhost:8082/student/verified");
+            const resp = await fetch(`${process.env.BASE_URL}/student/verified`);
             const { data } = await resp.json()
             dispatch(studentData(data))
             console.log("students", data)
@@ -76,7 +76,7 @@ export const getStudentsData = () => {
 export const getSingleStudentData = (id) => {
     return async (dispatch) => {
         try {
-            const resp = await fetch(`http://localhost:8081/admin/student/${id}`);
+            const resp = await fetch(`${process.env.BASE_URL}/admin/student/${id}`);
             const { data } = await resp.json()
             dispatch(setViewStudentData(data))
             console.log("singleStudentData", data)

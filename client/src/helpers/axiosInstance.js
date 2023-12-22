@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const Axiosinstance = axios.create({
-  baseURL: 'http://localhost:8082'
+  baseURL: `${process.env.BASE_URL}`
 });
 
 

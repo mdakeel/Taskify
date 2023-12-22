@@ -38,7 +38,7 @@ export const Register = () => {
 
     console.log(...newData);
     try {
-      const resp = await fetch("http://localhost:8082/student/register", {
+      const resp = await fetch(`${process.env.BASE_URL}/student/register`, {
         method: "POST",
         body: newData,
       });
