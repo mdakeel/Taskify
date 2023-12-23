@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 const userAuth = localStorage.getItem("TOKEN");
 const initialState = {
   auth: userAuth ? true : false,
@@ -26,7 +25,7 @@ export default userSlice.reducer;
 export function userRegister(userLogin) {
   return async function (dispatch, getState) {
     try {
-      const resp = await fetch(`${process.env.BASE_URL}/user/signup`, {
+      const resp = await fetch(`${'https://dark-red-kitten-fez.cyclic.app'}/user/signup`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -47,10 +46,9 @@ export function userRegister(userLogin) {
 }
 export function userLogin(userLogin, navigate, role) {
   return async function (dispatch, getState) {
-    const navigate = useNavigate()
 
     try {
-      const resp = await fetch(`${process.env.BASE_URL}/${role}/login`, {
+      const resp = await fetch(`${'https://dark-red-kitten-fez.cyclic.app'}/${role}/login`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -59,7 +57,6 @@ export function userLogin(userLogin, navigate, role) {
       });
       const data = await resp.json();
       if (resp.status == 401 && data.status == "pending") {
-        navigate("/waiting")
         toast("Application is in pending");
       }
       if (resp.status == 200) {

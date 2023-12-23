@@ -1,101 +1,93 @@
-
 .gray-bg {
-  
-    background-color: #eee;
-  }
- 
-  .head-title li a{
-    color: #444242;
-  }
-  
-  /* About Me 
-  ---------------------*/
-  #about{
-    margin: 70px;
-    margin-top: 20px;
-  }
+  background-color: #eee;
+}
 
-  .about-list {
+.head-title li a {
+  color: #444242;
+}
+
+#about {
+  margin: 70px;
+  margin-top: 20px;
+}
+
+.about-list {
   padding-top: 10px;
-  }
-  .about-list .media {
-    
+}
+.about-list .media {
   margin-left: 0;
-
-  }
-  .about-list label {
+}
+.about-list label {
   color: #0072ff;
   font-weight: 600;
   width: 150px !important;
   margin: 0;
-
-  }
- .about-text{
+}
+.about-text {
   margin-left: 40px !important;
- }
+}
 
- .discription{
-    padding-left: 65px;
- }
-  
-  .about-list p{
+.discription {
+  padding-left: 65px;
+}
+
+.about-list p {
   padding-left: 30px;
   font-size: 15px;
-  }
+}
 
-  .dark-color {
-    color: #000;
-  }
+.dark-color {
+  color: #000;
+}
 
-  .assignment-taks{
+.assignment-taks {
+  display: flex;
+  flex-direction: row;
+}
+
+h1 {
+  font-size: 25px;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.form-main {
+  margin-top: 30px;
+}
+
+.btn {
+  font-size: 16px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.form-group2 {
+  width: 200px;
+}
+
+.form_file {
+  width: auto;
+  display: flex;
+
+  justify-content: space-between;
+}
+.form-group3 {
+  width: 400px;
+  color: #000;
+}
+
+@media screen and (max-width: 769px) {
+  .assignment-taks {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
-  /* submite */
-  h1 {
-    font-size: 25px;
-    margin-top: 24px;
-    margin-bottom: 24px;
+  .form-task2 {
+    margin-left: -400px;
   }
 
-  .form-main{
-    margin-top: 30px;
+  .form-task-file {
+    width: 150px;
   }
-
-  .btn{
-    font-size: 16px;
-    border-radius: 10px;
-    font-weight: 700;
-  }
-  .form-group2{
-    width: 200px;
-  }
-
-  .form_file{
-    width: auto;
-    display: flex;
-    
-    justify-content: space-between;
-  }
-  .form-group3{
-    width: 400px;
-    color: #000;
-  }
-
-  @media screen and (max-width:769px) {
-    .assignment-taks{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .form-task2{
-      margin-left: -400px;
-    }
-
-    .form-task-file{
-      width: 150px;
-    }
-  }
+}

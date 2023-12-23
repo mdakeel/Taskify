@@ -1,47 +1,47 @@
-.section{
+.section {
   width: auto;
 }
 
-.row-main{
+.row-main {
   display: flex !important;
   margin-left: 50px;
 }
-.about-text{
+.about-text {
   margin-top: 50px;
   width: 700px;
 }
-.about{
+.about {
   margin-left: 20px !important;
 }
-.about1{
+.about1 {
   font-size: 40px;
   color: #0072ff !important;
-  font-weight: 700 ;
+  font-weight: 700;
 }
-.about2{
+.about2 {
   color: rgb(37, 37, 37);
 }
-.about-avatar{
+.about-avatar {
   margin-top: 60px;
   margin-left: 30px;
 }
-.about-avatar img{
+.about-avatar img {
   width: 220px;
   height: 30vh !important;
 }
-.counter{
+.counter {
   margin-top: 20px !important;
-} 
+}
 
-.counter{
+.counter {
   background-color: #fff;
   padding-left: 20px !important;
   padding: 10px;
   padding-top: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgb(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgb(0, 0, 0, 0.3);
 }
-.counter h6{
+.counter h6 {
   width: 150px;
   display: flex;
   justify-content: center;
@@ -51,7 +51,7 @@
   font-weight: 700;
 }
 
-.counter p{
+.counter p {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,88 +59,81 @@
   text-align: center;
   font-size: 17px;
 }
-.counter-inside{
+.counter-inside {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
 }
-.rank{
+.rank {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
 }
 
-
-
-@media screen and (max-width:769px) {
-
-  .row-main{
+@media screen and (max-width: 769px) {
+  .row-main {
     margin-top: -130px;
     width: auto;
   }
 
-  .row-main .about-avatar img{
+  .row-main .about-avatar img {
     width: 120px;
     margin-left: -130px;
     height: 120px !important;
-
   }
- 
 
-  .about-text{
- 
+  .about-text {
     margin-top: 10px !important;
     margin-left: -100px !important;
   }
 
-  .about h3{
+  .about h3 {
     font-size: 25px;
   }
 
-  .about h4{
+  .about h4 {
     font-size: 22px;
-   width: 320px;
+    width: 320px;
   }
 
-  .about p{
+  .about p {
     width: 320px !important;
   }
 
-  .counter{
+  .counter {
     padding-left: 0px !important;
     margin-left: -100px !important;
     width: 330px;
   }
-  .about{
+  .about {
     margin-left: 5px !important;
   }
 
-  .counter h6{
+  .counter h6 {
     font-size: 18px;
     font-weight: 700;
   }
-  
-  .counter p{
+
+  .counter p {
     font-size: 13px;
   }
 
-  .counter-inside{
+  .counter-inside {
     display: flex;
     flex-direction: column !important;
     justify-content: center;
     align-items: center;
   }
 
-  .rank{
+  .rank {
     width: 100%;
     display: flex;
     flex-direction: row !important;
     justify-content: space-between !important;
     align-items: center;
   }
-  .about-list p{
+  .about-list p {
     width: 150px !important;
     font-size: 12px !important;
   }
-
 }

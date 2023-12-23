@@ -31,10 +31,10 @@ import { StudentLogin } from "../components/Login/StudentLogin";
 import { TeacherLogin } from "../components/Login/TeacherLogin";
 import About from "../components/LandingPage/About/About.jsx";
 import Home from "../components/LandingPage/Home/Home";
-import Profile from "../components/profile/Profile";
-import EditProfile from "../components/profile/EditProfile";
-import { NewStudent } from "../components/newstudent/NewStudent";
-import Waiting from "../components/waiting/Waiting";
+import Profile from "../components/Profile/Profile";
+import EditProfile from "../components/Profile/EditProfile";
+import { NewStudent } from "../components/NewStudent/NewStudent";
+import Waiting from "../components/Waiting/Waiting";
 import TaskPage from "../pages/Teacher/TaskPage";
 import { TeacherLayout } from "../Layout/TeacherLayout";
 
@@ -42,15 +42,15 @@ import { TeacherLayout } from "../Layout/TeacherLayout";
 export const Customroutes = () => {
     const state = useSelector(state => state.user);
     const navigate = useNavigate()
-    const redirectUser =useRedirectUser()
+    const redirectUser = useRedirectUser()
 
-    useEffect(()=>{
+    useEffect(() => {
         redirectUser()
-    },[state])
+    }, [state])
     return (
         <Routes>
             {/* Apply */}
-           
+
             <Route path="/about" element={<About />} />
             <Route path="/home" element={<Home />} />
             <Route path="/register" element={<Register />} />
@@ -66,7 +66,7 @@ export const Customroutes = () => {
                     <StudentLogin />
                 </>
             } />
-             <Route path="/teacherlogin" element={
+            <Route path="/teacherlogin" element={
                 <>
                     <TeacherLogin />
                 </>
@@ -126,13 +126,13 @@ export const Customroutes = () => {
             {/* Teachers Dashboard and Components */}
             <Route path="/teacherdashboard" element={<><TeacherDashboard /><TeacherDashboardContent /></>} />
             <Route path="/teacherstudent" element={<><TeacherDashboard /><TeacherStudent /></>} />
-            <Route path="/newstudent" element={<><TeacherDashboard /><TeacherNewStudent/></>} />
-            <Route path="/details/:id" element = {<><TeacherDashboard /><NewStudent/></>}/>
+            <Route path="/newstudent" element={<><TeacherDashboard /><TeacherNewStudent /></>} />
+            <Route path="/details/:id" element={<><TeacherDashboard /><NewStudent /></>} />
             <Route path="/teacherstudentknowmore" element={<><TeacherDashboard /><TeacherStudentKnowmore /></>} />
             <Route path="/teachertask" element={<><TeacherDashboard /><TeacherTask /></>} />
-            <Route path="/teacher/task/view/:id" element={<TeacherLayout><TeacherCompleteTaskView/></TeacherLayout>} />
+            <Route path="/teacher/task/view/:id" element={<TeacherLayout><TeacherCompleteTaskView /></TeacherLayout>} />
             <Route path="/teacherpendingtaskview" element={<><TeacherDashboard /><TeacherPendingTaskView /></>} />
-            <Route path="/teacher/taskpage" element={<TeacherLayout><TaskPage/></TeacherLayout>}/>
+            <Route path="/teacher/taskpage" element={<TeacherLayout><TaskPage /></TeacherLayout>} />
 
         </Routes>
     )

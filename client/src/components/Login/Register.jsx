@@ -9,7 +9,6 @@ import toast, { Toaster } from "react-hot-toast";
 
 export const Register = () => {
   const fileInput = createRef();
-  const navigate = useNavigate();
 
   const [formData, setformData] = useState({
     email: "",
@@ -38,10 +37,13 @@ export const Register = () => {
 
     console.log(...newData);
     try {
-      const resp = await fetch(`${process.env.BASE_URL}/student/register`, {
-        method: "POST",
-        body: newData,
-      });
+      const resp = await fetch(
+        `${"https://dark-red-kitten-fez.cyclic.app"}/student/register`,
+        {
+          method: "POST",
+          body: newData,
+        }
+      );
 
       if (resp.status !== 200) {
         toast.error(
@@ -49,7 +51,6 @@ export const Register = () => {
         );
       } else {
         toast.success("You are Registered Successfully");
-        navigate("/waiting");
       }
     } catch (error) {
       toast.error(
