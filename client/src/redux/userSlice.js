@@ -57,10 +57,12 @@ export function userLogin(userLogin, navigate, role) {
       });
       const data = await resp.json();
       if (resp.status == 401 && data.status == "pending") {
+        navigate("/waiting")
         toast("Application is in pending");
       }
       if (resp.status == 200) {
         console.log("login Success");
+
         localStorage.setItem("token", data.token);
         const state = getState();
         // if(data.role == "user") {
