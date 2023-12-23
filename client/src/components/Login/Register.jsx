@@ -9,6 +9,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 export const Register = () => {
   const fileInput = createRef();
+  const navigate = useNavigate();
 
   const [formData, setformData] = useState({
     email: "",
@@ -49,6 +50,7 @@ export const Register = () => {
         toast.error(
           "There's some Error while Creating your account, Please Try Again!"
         );
+        navigate("/waiting");
       } else {
         toast.success("You are Registered Successfully");
       }
